@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.sangeng.mapper.UserMapper;
 import com.sangeng.vo.LoginUser;
+import com.sangeng.vo.ResponseCode;
 import com.sangeng.vo.ResponseResult;
 import com.sangeng.domain.User;
 import com.sangeng.service.UserService;
@@ -14,6 +15,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -28,6 +30,8 @@ public class UserServiceImpl implements UserService {
     private AuthenticationManager authenticationManager;
     @Autowired
     private RedisCache redisCache;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public ResponseResult loginByAccount(User user) {
@@ -91,16 +95,29 @@ public class UserServiceImpl implements UserService {
     //注册
     @Override
     public ResponseResult register(User user) {
-        //首先判断用户名是否被占用
+        String originPassword = user.getPassword();
+        //对密码加密
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        //用户表插入
+        userMapper.insert(user);
+        //设置回原来的密码
+        user.setPassword(originPassword);
+        //注册之后顺带登录
+        return loginByAccount(user);
+    }
+
+    //首先判断用户名是否被占用
+    @Override
+    public ResponseResult isUserNameExist(String userName) {
         LambdaQueryWrapper<User> wrapper = new QueryWrapper<User>().lambda();
-        wrapper.eq(User::getUserName, user.getUserName());
+        wrapper.eq(User::getUserName, userName);
         User res = userMapper.selectOne(wrapper);
 
         //如果查询结果为空
         if(res == null){
-//            return new ResponseResult(200, )
+            return new ResponseResult(ResponseCode.SUCCESS.getCode(), "用户名可用");
+        }else{
+            return new ResponseResult(ResponseCode.USERNAME_EXIST.getCode(), "用户名被占用");
         }
-
-        return null;
     }
 }

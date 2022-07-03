@@ -20,6 +20,15 @@ public class MapperTest {
     private MenuMapper menuMapper;
 
     @Test
+    public void testInsertUser(){
+        User user = new User();
+        user.setUserName("123456");
+        user.setPassword("123456");
+        int insert = userMapper.insert(user);
+        System.out.println(user.getId());
+    }
+
+    @Test
     public void testSelectPermsByUserId(){
         List<String> list = menuMapper.selectPermsByUserId(1L);
         System.out.println(list);

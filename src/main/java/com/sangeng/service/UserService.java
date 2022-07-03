@@ -19,4 +19,6 @@ public interface UserService {
     ResponseResult updateUserInfoById(User user);
 
     ResponseResult register(User user);
+
+    ResponseResult isUserNameExist(String userName);
 }

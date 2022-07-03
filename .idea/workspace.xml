@@ -4,7 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8746292-61c3-44a5-bf83-ec0fbcae6571" name="Changes" comment="Project initialization" />
+    <list default="true" id="c8746292-61c3-44a5-bf83-ec0fbcae6571" name="Changes" comment="Project initialization">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sangeng/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sangeng/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sangeng/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sangeng/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sangeng/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sangeng/domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sangeng/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sangeng/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sangeng/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sangeng/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sangeng/vo/ResponseCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sangeng/vo/ResponseCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/sangeng/MapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/sangeng/MapperTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sangeng/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sangeng/config/SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sangeng/controller/HelloController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sangeng/controller/HelloController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sangeng/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sangeng/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sangeng/domain/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sangeng/domain/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sangeng/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sangeng/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sangeng/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sangeng/service/impl/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/sangeng/MapperTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/sangeng/MapperTest.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -75,6 +90,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MapperTest.testInsertUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="E-LifeSmartCommunity" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sangeng.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sangeng" />
+      <option name="MAIN_CLASS_NAME" value="com.sangeng.MapperTest" />
+      <option name="METHOD_NAME" value="testInsertUser" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MapperTest.testSelectPermsByUserId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="E-LifeSmartCommunity" />
       <extension name="coverage">
@@ -123,6 +154,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.SecurityApplication" />
+        <item itemvalue="JUnit.MapperTest.testInsertUser" />
         <item itemvalue="JUnit.MapperTest.testUserMapper" />
         <item itemvalue="JUnit.MapperTest.testSelectPermsByUserId" />
         <item itemvalue="JUnit.MapperTest.TestBCryptPasswordEncoder" />
@@ -144,7 +176,7 @@
       <workItem from="1656750055011" duration="4601000" />
       <workItem from="1656756520192" duration="596000" />
       <workItem from="1656762101261" duration="6866000" />
-      <workItem from="1656804369504" duration="17465000" />
+      <workItem from="1656804369504" duration="19800000" />
     </task>
     <task id="LOCAL-00001" summary="Project initialization">
       <created>1656832846816</created>
@@ -179,7 +211,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/sangeng/service/impl/UserServiceImpl.java</url>
-          <line>48</line>
+          <line>52</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -189,7 +221,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/sangeng/controller/UserController.java</url>
-          <line>22</line>
+          <line>27</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -199,8 +231,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/sangeng/service/impl/UserServiceImpl.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="11" />
+          <line>97</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/sangeng/controller/UserController.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

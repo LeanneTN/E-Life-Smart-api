@@ -12,11 +12,16 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    //检查用户名是否可用
+    @GetMapping("/username/{username}")
+    public ResponseResult isUserNameExist(@PathVariable("username") String userName){
+        return userService.isUserNameExist(userName);
+    }
+
     @PostMapping("/register")
     public ResponseResult register(@RequestBody User user){
         return userService.register(user);
     }
-
 
     @PostMapping("/login_by_account")
     public ResponseResult loginByAccount(@RequestBody User user){
