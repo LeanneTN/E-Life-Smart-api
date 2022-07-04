@@ -70,9 +70,10 @@ public class UserController {
         return userService.bindPhoneNumber(number, req);
     }
 
+    //手机号登录
     @PostMapping("/login_by_phone")
-    public ResponseResult loginByPhone(@RequestBody User user){
-        return userService.loginByPhone(user);
+    public ResponseResult loginByPhone(@RequestParam("phone") String phone){
+        return userService.loginByPhone(phone);
     }
 
     @GetMapping("/{userid}")
@@ -84,6 +85,4 @@ public class UserController {
     public ResponseResult updateUserInfoById(@RequestBody User user) {
         return userService.updateUserInfoById(user);
     }
-
-
 }

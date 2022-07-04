@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 public interface UserService {
     ResponseResult loginByAccount(User user);
 
-    ResponseResult loginByPhone(User user);
+    ResponseResult loginByPhone(String phone);
 
     ResponseResult logout();
 
