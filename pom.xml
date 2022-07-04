@@ -63,11 +63,23 @@
       <artifactId>mysql-connector-java</artifactId>
     </dependency>
 
-
     <!--JUnit相关依赖-->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
+    </dependency>
+
+    <!-- 验证码相关依赖 -->
+    <dependency>
+      <groupId>com.github.penggle</groupId>
+      <artifactId>kaptcha</artifactId>
+      <version>2.3.2</version>
+    </dependency>
+    <!--短信验证码依赖-->
+    <dependency>
+      <groupId>com.zhenzikj</groupId>
+      <artifactId>zhenzisms</artifactId>
+      <version>2.0.2</version>
     </dependency>
   </dependencies>
 </project>

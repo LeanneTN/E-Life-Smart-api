@@ -3,6 +3,9 @@ package com.sangeng.service;
 import com.sangeng.vo.ResponseResult;
 import com.sangeng.domain.User;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 public interface UserService {
     ResponseResult loginByAccount(User user);
 
@@ -10,9 +13,9 @@ public interface UserService {
 
     ResponseResult logout();
 
-    ResponseResult getPhoneCode();
+    ResponseResult getPhoneCode(String phoneNumber);
 
-    ResponseResult getCaptcha();
+    ResponseResult getCaptcha(HttpServletRequest req, HttpServletResponse res) throws Exception;
 
     ResponseResult getUserInfoById(String userid);
 
@@ -21,4 +24,6 @@ public interface UserService {
     ResponseResult register(User user);
 
     ResponseResult isUserNameExist(String userName);
+
+    ResponseResult getLoginUser(HttpServletRequest req);
 }

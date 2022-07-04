@@ -5,20 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8746292-61c3-44a5-bf83-ec0fbcae6571" name="Changes" comment="Project initialization">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sangeng/vo/CodeVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/kaptchaConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sangeng/SecurityApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sangeng/SecurityApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sangeng/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sangeng/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sangeng/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sangeng/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sangeng/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sangeng/domain/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sangeng/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sangeng/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sangeng/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sangeng/service/impl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sangeng/vo/ResponseCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sangeng/vo/ResponseCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/sangeng/MapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/sangeng/MapperTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sangeng/SecurityApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sangeng/SecurityApplication.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/sangeng/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sangeng/config/SecurityConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sangeng/controller/HelloController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sangeng/controller/HelloController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/sangeng/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sangeng/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sangeng/domain/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sangeng/domain/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/sangeng/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sangeng/service/UserService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/sangeng/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sangeng/service/impl/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/sangeng/MapperTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/sangeng/MapperTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sangeng/vo/ResponseCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sangeng/vo/ResponseCode.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +44,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2BLJhiYfQPXPzHjhRr96pjqoAJc" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -70,6 +75,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Learn\Java\pros\E-LifeSmartCommunity" />
       <recent name="E:\Learn\Java\pros\E-LifeSmartCommunity\src\main\java\com\sangeng\domain" />
     </key>
   </component>
@@ -176,7 +182,8 @@
       <workItem from="1656750055011" duration="4601000" />
       <workItem from="1656756520192" duration="596000" />
       <workItem from="1656762101261" duration="6866000" />
-      <workItem from="1656804369504" duration="19800000" />
+      <workItem from="1656804369504" duration="24304000" />
+      <workItem from="1656893490788" duration="8963000" />
     </task>
     <task id="LOCAL-00001" summary="Project initialization">
       <created>1656832846816</created>
@@ -210,34 +217,24 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sangeng/service/impl/UserServiceImpl.java</url>
-          <line>52</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sangeng/filter/JwtAuthenticationTokenFilter.java</url>
-          <line>54</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sangeng/controller/UserController.java</url>
-          <line>27</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/sangeng/controller/HelloController.java</url>
           <line>11</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sangeng/service/impl/UserServiceImpl.java</url>
-          <line>97</line>
-          <option name="timeStamp" value="12" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/sangeng/controller/UserController.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sangeng/controller/UserController.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="13" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/sangeng/service/impl/UserServiceImpl.java</url>
+          <line>97</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/sangeng/service/impl/UserServiceImpl.java</url>
+          <line>200</line>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
