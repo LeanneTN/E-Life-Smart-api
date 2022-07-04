@@ -7,6 +7,7 @@
     <list default="true" id="c8746292-61c3-44a5-bf83-ec0fbcae6571" name="Changes" comment="Project initialization">
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/controller/HealthCheckController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/controller/HealthCheckController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mapper/AdminMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mapper/AdminMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mapper/CarMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mapper/CarMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mapper/CommentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mapper/CommentMapper.java" afterDir="false" />
@@ -19,8 +20,11 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mapper/TopicMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mapper/TopicMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mapper/UserMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mapper/VolunteerLogMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mapper/VolunteerLogMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mapper/VolunteerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mapper/VolunteerMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/service/HealthCheckService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/service/HealthCheckService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/HealthCheckServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/HealthCheckServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/vo/ResponseCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/vo/ResponseCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/csu/MapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/csu/MapperTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +44,14 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -52,6 +64,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
@@ -79,9 +92,9 @@
       <recent name="E:\Learn\Java\pros\E-LifeSmartCommunity\src\main\java\com\sangeng\domain" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.SecurityApplication">
-    <configuration name="MapperTest.TestBCryptPasswordEncoder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="E-LifeSmartCommunity" />
+  <component name="RunManager" selected="JUnit.MapperTest.testAPI">
+    <configuration name="MapperTest.testAPI" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="e-life-community-api" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.csu.*" />
@@ -90,7 +103,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.csu" />
       <option name="MAIN_CLASS_NAME" value="org.csu.MapperTest" />
-      <option name="METHOD_NAME" value="TestBCryptPasswordEncoder" />
+      <option name="METHOD_NAME" value="testAPI" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -112,22 +125,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MapperTest.testSelectPermsByUserId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="E-LifeSmartCommunity" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.csu.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.csu" />
-      <option name="MAIN_CLASS_NAME" value="org.csu.MapperTest" />
-      <option name="METHOD_NAME" value="testSelectPermsByUserId" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="MapperTest.testUserMapper" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="E-LifeSmartCommunity" />
       <extension name="coverage">
@@ -140,6 +137,19 @@
       <option name="MAIN_CLASS_NAME" value="org.csu.MapperTest" />
       <option name="METHOD_NAME" value="testUserMapper" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SecurityApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="e-life-community-api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.csu.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.csu.SecurityApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -159,11 +169,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MapperTest.testAPI" />
+        <item itemvalue="Spring Boot.SecurityApplication (1)" />
         <item itemvalue="Spring Boot.SecurityApplication" />
         <item itemvalue="JUnit.MapperTest.testInsertUser" />
         <item itemvalue="JUnit.MapperTest.testUserMapper" />
-        <item itemvalue="JUnit.MapperTest.testSelectPermsByUserId" />
-        <item itemvalue="JUnit.MapperTest.TestBCryptPasswordEncoder" />
       </list>
     </recent_temporary>
   </component>
@@ -231,11 +241,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/org/csu/service/impl/UserServiceImpl.java</url>
           <line>92</line>
           <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/csu/service/impl/UserServiceImpl.java</url>
-          <line>192</line>
-          <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/csu/service/impl/UserServiceImpl.java</url>
