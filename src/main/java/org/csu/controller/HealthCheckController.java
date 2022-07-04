@@ -5,10 +5,7 @@ import org.csu.vo.ResponseResult;
 import org.csu.service.HealthCheckService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/health/")
@@ -26,5 +23,12 @@ public class HealthCheckController {
     @PreAuthorize("hasAuthority('system:health:info')")
     public ResponseResult getInfo(){
         return healthCheckService.getInfo();
+    }
+
+    //按照id查看住户打卡情况
+    @PostMapping("/info/{id}")
+    @PreAuthorize("hasAuthority('system:health:info')")
+    public ResponseResult getInfoById(@PathVariable("id") long healthId){
+        return  healthCheckService.getInfoById(healthId);
     }
 }

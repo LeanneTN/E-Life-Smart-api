@@ -1,13 +1,16 @@
 package org.csu;
 
+import org.csu.domain.HealthCheck;
 import org.csu.domain.User;
 import org.csu.mapper.MenuMapper;
 import org.csu.mapper.UserMapper;
+import org.csu.service.HealthCheckService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import java.util.Date;
 import java.util.List;
 
 @SpringBootTest
@@ -18,6 +21,8 @@ public class MapperTest {
     private PasswordEncoder passwordEncoder;
     @Autowired
     private MenuMapper menuMapper;
+    @Autowired
+    private HealthCheckService healthCheckService;
 
     @Test
     public void testInsertUser(){
@@ -45,9 +50,15 @@ public class MapperTest {
     }
 
 
+
     @Test
-    public void testUserMapper(){
-        List<User> users = userMapper.selectList(null);
-        System.out.println(users);
+    public void testAPI(){
+        HealthCheck healthCheck = new HealthCheck();
+        healthCheck.setUid(10023L);
+        healthCheck.setLocation("changsha");
+        Date date = new Date();
+        healthCheck.setTime(date);
+        healthCheckService.submit(healthCheck);
+        healthCheckService.getInfo();
     }
 }

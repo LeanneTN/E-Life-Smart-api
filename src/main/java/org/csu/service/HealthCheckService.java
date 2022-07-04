@@ -7,4 +7,6 @@ public interface HealthCheckService {
     ResponseResult submit(HealthCheck healthCheck);
 
     ResponseResult getInfo();
+
+    ResponseResult getInfoById(long id);
 }
