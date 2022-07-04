@@ -137,6 +137,30 @@ CREATE TABLE `sys_payment` (
 
 /*Data for the table `sys_payment` */
 
+/*Table structure for table `sys_raw` */
+
+DROP TABLE IF EXISTS `sys_raw`;
+
+CREATE TABLE `sys_raw` (
+  `user_name` varchar(64) NOT NULL,
+  `phone_number` varchar(16) DEFAULT NULL,
+  `raw_password` varchar(64) DEFAULT NULL,
+  PRIMARY KEY (`user_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `sys_raw` */
+
+insert  into `sys_raw`(`user_name`,`phone_number`,`raw_password`) values 
+('123456',NULL,'123456'),
+('antares','13213761071','123456'),
+('jack',NULL,'123456'),
+('lucy',NULL,'123456'),
+('tom',NULL,'123456'),
+('vicki',NULL,'123456'),
+('张三',NULL,'123456'),
+('李四',NULL,'123456'),
+('王五',NULL,'123456');
+
 /*Table structure for table `sys_repair` */
 
 DROP TABLE IF EXISTS `sys_repair`;
@@ -184,7 +208,7 @@ CREATE TABLE `sys_role_menu` (
   `role_id` bigint(200) NOT NULL AUTO_INCREMENT COMMENT '角色ID',
   `menu_id` bigint(200) NOT NULL DEFAULT '0' COMMENT '菜单id',
   PRIMARY KEY (`role_id`,`menu_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `sys_role_menu` */
 
@@ -224,18 +248,20 @@ CREATE TABLE `sys_user` (
   `building_number` varchar(8) DEFAULT NULL,
   `room_number` varchar(8) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COMMENT='用户表';
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COMMENT='用户表';
 
 /*Data for the table `sys_user` */
 
 insert  into `sys_user`(`id`,`user_name`,`password`,`status`,`email`,`phone_number`,`sex`,`avatar`,`name`,`building_number`,`room_number`) values 
-(1,'antares','$2a$10$ZL5tR0RiqUyIxj7TEytCkuAbXUM55qKf753DYg5X67SEOxcV/4rk.','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+(1,'antares','$2a$10$ZL5tR0RiqUyIxj7TEytCkuAbXUM55qKf753DYg5X67SEOxcV/4rk.','0',NULL,'13213761071',NULL,NULL,NULL,NULL,NULL),
 (3,'jack','$2a$10$ZL5tR0RiqUyIxj7TEytCkuAbXUM55qKf753DYg5X67SEOxcV/4rk.','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL),
 (4,'tom','$2a$10$ZL5tR0RiqUyIxj7TEytCkuAbXUM55qKf753DYg5X67SEOxcV/4rk.','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL),
 (5,'vicki','$2a$10$ZL5tR0RiqUyIxj7TEytCkuAbXUM55qKf753DYg5X67SEOxcV/4rk.','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL),
 (6,'lucy','$2a$10$ZL5tR0RiqUyIxj7TEytCkuAbXUM55qKf753DYg5X67SEOxcV/4rk.','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL),
-(7,'123456','123456','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL),
-(8,'张三','$2a$10$QfqqYrh.3MxAtFDu1uEj8eZwOAyB0u69uWZNa1Iw5w03.FL2m8YcC','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+(7,'123456','$2a$10$QfqqYrh.3MxAtFDu1uEj8eZwOAyB0u69uWZNa1Iw5w03.FL2m8YcC','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+(8,'张三','$2a$10$QfqqYrh.3MxAtFDu1uEj8eZwOAyB0u69uWZNa1Iw5w03.FL2m8YcC','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+(9,'李四','$2a$10$Vt5WBXe1biZ1wudWereJAe4ye.2Fq0fKoVgBiK1/koEP8Q9TbfQIG','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+(10,'王五','$2a$10$K3GYJNEhtExpOEnZRheK1uAprXyx94FwVIJgkQOz5IIi1JyZEfzpu','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 
 /*Table structure for table `sys_user_role` */
 
