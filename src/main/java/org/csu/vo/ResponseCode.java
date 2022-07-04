@@ -6,6 +6,7 @@ import lombok.Getter;
 public enum ResponseCode {
 
     SUCCESS(200, "SUCCESS"),//成功
+    USER_HEALTH_CHECK_NOT_EXIST(450, "USER_HEALTH_CHECK_NOT_EXIST"),
     PHONE_EXIST(496, "PHONE_EXIST"),//手机号被占用
     CODE_ERROR(497, "CODE_ERROR"),//获取验证码失败
     NOT_LOGIN(498, "NOT_LOGIN"),//未登录
