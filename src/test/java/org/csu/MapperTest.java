@@ -1,9 +1,14 @@
 package org.csu;
 
+import org.apache.ibatis.jdbc.Null;
 import org.csu.domain.HealthCheck;
+import org.csu.domain.Parking;
+import org.csu.domain.ParkingSpace;
 import org.csu.domain.User;
 import org.csu.domain.Volunteer;
 import org.csu.mapper.MenuMapper;
+import org.csu.mapper.ParkingMapper;
+import org.csu.mapper.ParkingSpaceMapper;
 import org.csu.mapper.UserMapper;
 import org.csu.service.HealthCheckService;
 import org.csu.service.VolunteerService;
@@ -26,8 +31,19 @@ public class MapperTest {
     @Autowired
     private HealthCheckService healthCheckService;
     @Autowired
+    private ParkingSpaceMapper parkingSpaceMapper;
+    @Autowired
+    private ParkingMapper parkingMapper;
+    @Autowired
     private VolunteerService volunteerService;
 
+    @Test
+    public void testUpdateParkingSpace(){
+//        ParkingSpace parkingSpace = new ParkingSpace("A01", "","0");
+//        parkingSpaceMapper.updateById(parkingSpace);
+        List<Parking> parkings = parkingMapper.selectList(null);
+        System.out.println(parkings);
+    }
 
 
     @Test

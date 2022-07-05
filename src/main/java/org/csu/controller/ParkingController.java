@@ -36,24 +36,28 @@ public class ParkingController {
         return parkingService.leave(id);
     }
 
+    //获取所有的停车记录，以用于后台展示
     @GetMapping("/log")
     @PreAuthorize("hasAuthority('system:parking:log')")
     public ResponseResult getLog(){
         return parkingService.getLog();
     }
 
+    //获取某辆车的停车记录
     @GetMapping("/log/{carNum}")
     @PreAuthorize("hasAuthority('system:parking:log')")
     public ResponseResult getLogByCarNum(@PathVariable("carNum") String carNum){
         return parkingService.getLogByCarNum(carNum);
     }
 
+    //获取小区内所有车辆的信息
     @GetMapping("/info")
     @PreAuthorize("hasAuthority('system:parking:info')")
     public ResponseResult getInfo(){
         return parkingService.getInfo();
     }
 
+    //查询某用户名下的车辆信息
     @GetMapping("/info/{userid}")
     @PreAuthorize("hasAuthority('system:parking:info')")
     public ResponseResult getInfoByUserid(@PathVariable("userid") String userid){
