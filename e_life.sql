@@ -50,13 +50,13 @@ DROP TABLE IF EXISTS `sys_comment`;
 
 CREATE TABLE `sys_comment` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `from_user` bigint(20) DEFAULT NULL,
-  `to_id` bigint(20) DEFAULT NULL,
+  `from_user` int(8) DEFAULT NULL,
+  `to_id` int(8) DEFAULT NULL,
   `type` int(2) DEFAULT NULL,
   `content` varchar(256) DEFAULT NULL,
   `time` timestamp NULL DEFAULT NULL,
-  `status` int(1) DEFAULT '0',
-  `response` int(1) DEFAULT '0',
+  `is_reported` tinyint(1) DEFAULT '0',
+  `response` int(11) DEFAULT '0',
   `is_landlord` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -158,7 +158,6 @@ CREATE TABLE `sys_payment` (
   `type` varchar(16) DEFAULT NULL,
   `sum` decimal(10,2) DEFAULT NULL,
   `time` timestamp NULL DEFAULT NULL,
-  `if_paid` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -179,8 +178,7 @@ CREATE TABLE `sys_raw` (
 
 insert  into `sys_raw`(`user_name`,`phone_number`,`raw_password`) values 
 ('antares','13213761071','123456'),
-('root',NULL,'123456'),
-('张三',NULL,'123456');
+('root',NULL,'123456');
 
 /*Table structure for table `sys_repair` */
 
@@ -245,22 +243,17 @@ DROP TABLE IF EXISTS `sys_topic`;
 
 CREATE TABLE `sys_topic` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `from_user` bigint(20) DEFAULT NULL,
+  `from_user` int(8) DEFAULT NULL,
   `title` varchar(64) DEFAULT NULL,
   `content` varchar(256) DEFAULT NULL,
   `last_reply_time` timestamp NULL DEFAULT NULL,
-  `last_reply_user` bigint(20) DEFAULT NULL,
-  `status` int(1) DEFAULT '0',
-  `response` int(8) DEFAULT '0',
+  `last_reply_user` varchar(16) DEFAULT NULL,
+  `is_reported` tinyint(1) DEFAULT '0',
+  `response` int(11) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 /*Data for the table `sys_topic` */
-
-insert  into `sys_topic`(`id`,`from_user`,`title`,`content`,`last_reply_time`,`last_reply_user`,`status`,`response`) values 
-(1,123,'测试',NULL,NULL,0,1,0),
-(2,123,'测试',NULL,NULL,0,NULL,0),
-(3,123,'测试',NULL,NULL,0,NULL,0);
 
 /*Table structure for table `sys_user` */
 
@@ -279,14 +272,13 @@ CREATE TABLE `sys_user` (
   `building_number` varchar(8) DEFAULT NULL,
   `room_number` varchar(8) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='用户表';
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='用户表';
 
 /*Data for the table `sys_user` */
 
 insert  into `sys_user`(`id`,`user_name`,`password`,`status`,`email`,`phone_number`,`sex`,`avatar`,`name`,`building_number`,`room_number`) values 
 (1,'antares','$2a$10$ZL5tR0RiqUyIxj7TEytCkuAbXUM55qKf753DYg5X67SEOxcV/4rk.','0',NULL,'13213761072',NULL,NULL,NULL,NULL,NULL),
-(11,'root','$2a$10$K3GYJNEhtExpOEnZRheK1uAprXyx94FwVIJgkQOz5IIi1JyZEfzpu','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL),
-(12,'张三','$2a$10$LmD5vMMj9TstI/fRCBDaUuwdF3EQgmzFNTjSVkezw/s7gprwXoe0.','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+(11,'root','$2a$10$K3GYJNEhtExpOEnZRheK1uAprXyx94FwVIJgkQOz5IIi1JyZEfzpu','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 
 /*Table structure for table `sys_user_role` */
 
@@ -296,7 +288,7 @@ CREATE TABLE `sys_user_role` (
   `user_id` bigint(200) NOT NULL AUTO_INCREMENT COMMENT '用户id',
   `role_id` bigint(200) NOT NULL DEFAULT '0' COMMENT '角色id',
   PRIMARY KEY (`user_id`,`role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 /*Data for the table `sys_user_role` */
 
@@ -304,8 +296,7 @@ insert  into `sys_user_role`(`user_id`,`role_id`) values
 (1,1),
 (1,2),
 (1,3),
-(11,2),
-(12,1);
+(11,2);
 
 /*Table structure for table `sys_volunteer` */
 

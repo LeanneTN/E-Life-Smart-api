@@ -14,7 +14,7 @@ public interface ForumService {
     //根据ID，举报话题
     ResponseResult reportTopicById(Long id);
     //根据状态（未被举报：0、被举报：1、所有：其它），找到话题
-    ResponseResult getTopicByStatus(int type);
+    ResponseResult getTopicByStatus(boolean isReported);
     //根据用户ID，找到该用户创建的所有话题
     ResponseResult getTopicsByUser(long id);
     //根据ID，删除话题
@@ -31,7 +31,7 @@ public interface ForumService {
     //根据ID，举报回帖
     ResponseResult reportCommentById(Long id);
     //根据状态（未被举报：0、被举报：1、所有：其它），找到回帖
-    ResponseResult getCommentByStatus(int type);
+    ResponseResult getCommentByStatus(boolean isReported);
     //根据ID，删除回帖
     ResponseResult deleteCommentById(Long id);
     //根据ID将回帖设为楼主

@@ -11,15 +11,11 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/domain/Topic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/domain/Topic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/service/ForumService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/service/ForumService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/ForumServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/ForumServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/vo/ResponseCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/vo/ResponseCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/csu/MapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/csu/MapperTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/csu/controller/ForumController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/controller/ForumController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/Comment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/Comment.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/Topic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/Topic.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/ForumService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/ForumService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/impl/ForumServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/impl/ForumServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/vo/ResponseCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/vo/ResponseCode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/org/csu/MapperTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/org/csu/MapperTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +91,7 @@
       <recent name="E:\Learn\Java\pros\E-LifeSmartCommunity\src\main\java\com\sangeng\domain" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MapperTest.forumTest">
+  <component name="RunManager" selected="Spring Boot.SecurityApplication (1)">
     <configuration name="MapperTest.forumTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="e-life-community-api" />
       <extension name="coverage">
@@ -188,8 +184,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MapperTest.forumTest" />
         <item itemvalue="Spring Boot.SecurityApplication (1)" />
+        <item itemvalue="JUnit.MapperTest.forumTest" />
         <item itemvalue="JUnit.MapperTest.testAPI" />
         <item itemvalue="JUnit.MapperTest.testInsertUser" />
         <item itemvalue="JUnit.MapperTest.testUserMapper" />
@@ -218,6 +214,7 @@
       <workItem from="1657005999496" duration="2036000" />
       <workItem from="1657009212953" duration="23724000" />
       <workItem from="1657044257607" duration="180000" />
+      <workItem from="1657045376444" duration="640000" />
     </task>
     <task id="LOCAL-00001" summary="Project initialization">
       <created>1656832846816</created>

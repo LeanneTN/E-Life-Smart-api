@@ -32,7 +32,8 @@ public class Topic implements Serializable {
     private long fromUser;
     private String title;
     private String content;
-    private int status;
+    @TableField(value = "is_reported")
+    private boolean isReported;
     private int response;
 
     @TableField(value="last_reply_time")

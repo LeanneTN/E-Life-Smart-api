@@ -44,7 +44,7 @@ public class ForumController {
     @GetMapping("/report/topics")
     @PreAuthorize("hasAuthority('system:forum:report')")
     public ResponseResult getTopicReported(){
-        return forumService.getTopicByStatus(1);
+        return forumService.getTopicByStatus(true);
     }
 
     //根据ID，获取某个用户所创建的所有话题
@@ -89,7 +89,7 @@ public class ForumController {
     @GetMapping("/report/comments")
     @PreAuthorize("hasAuthority('system:forum:report')")
     public ResponseResult getCommentReported(){
-        return forumService.getCommentByStatus(1);
+        return forumService.getCommentByStatus(true);
     }
 
     //根据回帖的ID，获取所有跟他同属于一个话题的ID

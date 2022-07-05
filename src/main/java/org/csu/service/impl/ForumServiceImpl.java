@@ -59,11 +59,11 @@ public class ForumServiceImpl implements ForumService {
 
     //获取指定状态的话题
     @Override
-    public ResponseResult getTopicByStatus(int status) {
-        //0：未被举报的话题。1：被举报的话题
-        if(status==0 || status==1){
+    public ResponseResult getTopicByStatus(boolean isReported) {
+        //只获取被举报的话题
+        if(isReported){
             QueryWrapper<Topic> wrapper = new QueryWrapper<>();
-            wrapper.eq("status",status);
+            wrapper.eq("is_reported",isReported);
             List<Topic> topics = topicMapper.selectList(wrapper);
             return new ResponseResult(200,"成功获取话题",topics);
         }
@@ -88,8 +88,8 @@ public class ForumServiceImpl implements ForumService {
         if(topic==null){
             return new ResponseResult(ResponseCode.NO_TOPIC_LOG.getCode(), "该话题不存在");
         }
-        //修改话题的状态，改为正在审核中
-        topic.setStatus(1);
+        //修改话题的状态，改为已被举报
+        topic.setReported(true);
         topicMapper.updateById(topic);
         return new ResponseResult(2,"您已举报成功");
     }
@@ -159,20 +159,20 @@ public class ForumServiceImpl implements ForumService {
         if(comment==null){
             return new ResponseResult(ResponseCode.NO_COMMENT_LOG.getCode(), "评论不存在");
         }
-        comment.setStatus(1);
+        comment.setReported(true);
         commentMapper.updateById(comment);
         return null;
     }
 
     //获取指定状态的回帖
     @Override
-    public ResponseResult getCommentByStatus(int status) {
+    public ResponseResult getCommentByStatus(boolean isReported) {
         //0：未被举报的回帖。1：被举报的回帖
-        if(status==0 || status==1){
+        if(isReported){
             QueryWrapper<Comment> wrapper = new QueryWrapper<>();
-            wrapper.eq("status",status);
+            wrapper.eq("is_reported",isReported);
             List<Comment> comments = commentMapper.selectList(wrapper);
-            return new ResponseResult(200,"成功获取回帖",comments);
+            return new ResponseResult(200,"成功获取被举报的回帖",comments);
         }
         //否则，获取所有话题
         List<Comment> comments = commentMapper.selectList(null);
