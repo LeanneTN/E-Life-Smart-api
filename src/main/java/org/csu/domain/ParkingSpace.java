@@ -16,7 +16,7 @@ public class ParkingSpace implements Serializable {
     private static final long serialVersionUID = -40356785423868312L;
 
     @TableId
-    private Long id;
+    private String id;
     private String carNum;
     private String type;
 }

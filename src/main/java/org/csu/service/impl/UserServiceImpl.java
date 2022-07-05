@@ -5,8 +5,10 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.google.code.kaptcha.Producer;
 import org.csu.domain.Raw;
+import org.csu.domain.UserRole;
 import org.csu.mapper.RawMapper;
 import org.csu.mapper.UserMapper;
+import org.csu.mapper.UserRoleMapper;
 import org.csu.vo.CodeVO;
 import org.csu.vo.LoginUser;
 import org.csu.vo.ResponseCode;
@@ -42,6 +44,8 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
     @Autowired
+    private UserRoleMapper userRoleMapper;
+    @Autowired
     private RawMapper rawMapper;
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -68,8 +72,7 @@ public class UserServiceImpl implements UserService {
 
         //如果认证没通过，给出提示
         if(Objects.isNull(authenticate)){
-//            throw new RuntimeException("登陆失败");
-            return new ResponseResult(ResponseCode.ACCOUNT_NOT_EXIST.getCode(), "用户名或密码错误");
+            throw new RuntimeException("登陆失败");
         }
         //认证通过，使用userId生成jwt
         LoginUser loginUser = (LoginUser) authenticate.getPrincipal();
@@ -190,6 +193,10 @@ public class UserServiceImpl implements UserService {
         userMapper.insert(user);
         //设置回原来的密码
         user.setPassword(originPassword);
+
+        //向user_role表插入
+        userRoleMapper.insert(new UserRole(user.getId(), new Long(1)));
+
         //注册之后顺带登录
         return loginByAccount(user);
     }
