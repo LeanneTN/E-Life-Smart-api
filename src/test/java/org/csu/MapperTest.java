@@ -28,6 +28,8 @@ public class MapperTest {
     @Autowired
     private VolunteerService volunteerService;
 
+
+
     @Test
     public void testInsertUser(){
         User user = new User();
@@ -46,10 +48,10 @@ public class MapperTest {
     @Test
     public void TestBCryptPasswordEncoder(){
         //加密
-        String encode = passwordEncoder.encode("123456");
-        System.out.println(encode);
+//        String encode = passwordEncoder.encode("123456");
+//        System.out.println(encode);
         //校验
-        boolean matches = passwordEncoder.matches("123456", encode);
+        boolean matches = passwordEncoder.matches("{noop}123456", "123456");
         System.out.println(matches);
     }
 

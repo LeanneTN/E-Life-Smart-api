@@ -1,11 +1,13 @@
 package org.csu.service;
 
+import org.csu.domain.Car;
+import org.csu.domain.ParkingSpace;
 import org.csu.vo.ResponseResult;
 
 public interface ParkingService {
-    ResponseResult park();
+    ResponseResult park(String id);
 
-    ResponseResult leave();
+    ResponseResult leave(String id);
 
     ResponseResult getLog();
 
@@ -14,4 +16,8 @@ public interface ParkingService {
     ResponseResult getInfo();
 
     ResponseResult getInfoByUserid(String userid);
+
+    ResponseResult addCar(Car car);
+
+    ResponseResult addParkingSpace(ParkingSpace parkingSpace);
 }

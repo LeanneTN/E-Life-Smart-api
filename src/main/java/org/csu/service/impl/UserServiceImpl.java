@@ -4,7 +4,11 @@ import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.google.code.kaptcha.Producer;
+import org.csu.domain.Raw;
+import org.csu.domain.UserRole;
+import org.csu.mapper.RawMapper;
 import org.csu.mapper.UserMapper;
+import org.csu.mapper.UserRoleMapper;
 import org.csu.vo.CodeVO;
 import org.csu.vo.LoginUser;
 import org.csu.vo.ResponseCode;
@@ -18,6 +22,7 @@ import com.zhenzi.sms.ZhenziSmsClient;
 import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.AuthenticationTrustResolver;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -39,6 +44,10 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
     @Autowired
+    private UserRoleMapper userRoleMapper;
+    @Autowired
+    private RawMapper rawMapper;
+    @Autowired
     private AuthenticationManager authenticationManager;
     @Autowired
     private RedisCache redisCache;
@@ -54,6 +63,7 @@ public class UserServiceImpl implements UserService {
     private String appSecret = "638feb42-8ea3-4218-81c4-f7a370f0fa36";
     private String templateId = "8508";
 
+    //根据账号密码登录
     @Override
     public ResponseResult loginByAccount(User user) {
         //获取authenticate进行认证
@@ -77,6 +87,7 @@ public class UserServiceImpl implements UserService {
         return new ResponseResult(200, "登陆成功", map);
     }
 
+    //获取图片验证码
     @Override
     public ResponseResult getCaptcha(HttpServletRequest req, HttpServletResponse res) throws Exception{
         String codeStr = null;
@@ -93,12 +104,21 @@ public class UserServiceImpl implements UserService {
         return new ResponseResult(200, "生成验证码成功", new CodeVO(codeStr, code));
     }
 
-
+    //通过手机号登录
     @Override
-    public ResponseResult loginByPhone(User user) {
-
-
-        return null;
+    public ResponseResult loginByPhone(String phone) {
+        //首先查询该号码在不在库里
+        LambdaQueryWrapper<Raw> wrapper = new QueryWrapper<Raw>().lambda();
+        wrapper.eq(Raw::getPhoneNumber, phone);
+        Raw res = rawMapper.selectOne(wrapper);
+        if(res == null){
+            return new ResponseResult(ResponseCode.ACCOUNT_NOT_EXIST.getCode(), "账号不存在");
+        }
+        User user = new User();
+        user.setUserName(res.getUserName());
+        user.setPassword(res.getRawPassword());
+        //TODO 手机登录的鉴权问题
+        return loginByAccount(user);
     }
 
     //注销
@@ -116,6 +136,10 @@ public class UserServiceImpl implements UserService {
     //获取手机验证码
     @Override
     public ResponseResult getPhoneCode(String phoneNumber) {
+        //首先查询该号码在不在库里
+        if(queryPhoneNumber(phoneNumber) == null){
+            return new ResponseResult(ResponseCode.ACCOUNT_NOT_EXIST.getCode(), "账号不存在");
+        }
         String phoneCode = null;
         try {
             //用于接收发送结果反馈 形式是JSON
@@ -159,6 +183,9 @@ public class UserServiceImpl implements UserService {
     //注册
     @Override
     public ResponseResult register(User user) {
+        //向raw插入
+        rawMapper.insert(userToRaw(user));
+
         String originPassword = user.getPassword();
         //对密码加密
         user.setPassword(passwordEncoder.encode(user.getPassword()));
@@ -166,6 +193,10 @@ public class UserServiceImpl implements UserService {
         userMapper.insert(user);
         //设置回原来的密码
         user.setPassword(originPassword);
+
+        //向user_role表插入
+        userRoleMapper.insert(new UserRole(user.getId(), new Long(1)));
+
         //注册之后顺带登录
         return loginByAccount(user);
     }
@@ -211,16 +242,11 @@ public class UserServiceImpl implements UserService {
     //检查手机号是否可用
     @Override
     public ResponseResult isPhoneNumberExist(String number) {
-        LambdaQueryWrapper<User> wrapper = new QueryWrapper<User>().lambda();
-        wrapper.eq(User::getPhoneNumber, number);
-        User res = userMapper.selectOne(wrapper);
-
-        //如果查询结果为空
-        if(res == null){
-            return new ResponseResult(ResponseCode.SUCCESS.getCode(), "手机号可用");
-        }else{
+        //如果手机号已经被占用
+        if(queryPhoneNumber(number) != null)
             return new ResponseResult(ResponseCode.PHONE_EXIST.getCode(), "手机号被占用");
-        }
+        else
+            return new ResponseResult(ResponseCode.SUCCESS.getCode(), "手机号可用");
     }
 
     //绑定手机号
@@ -229,9 +255,27 @@ public class UserServiceImpl implements UserService {
         User user = (User)getLoginUser(req).getData();
         user.setPhoneNumber(number);
         int i = userMapper.updateById(user);
-        if(i > 0){
+        int j = rawMapper.updateById(userToRaw(user));
+        if(i > 0 && j > 0){
             return new ResponseResult(ResponseCode.SUCCESS.getCode(), "绑定手机号成功");
         }
         return new ResponseResult(ResponseCode.ERROR.getCode(), "绑定手机号失败");
+    }
+
+    //查询手机号对应的用户
+    public User queryPhoneNumber(String phone){
+        LambdaQueryWrapper<User> wrapper = new QueryWrapper<User>().lambda();
+        wrapper.eq(User::getPhoneNumber, phone);
+        User res = userMapper.selectOne(wrapper);
+        return res;
+    }
+
+    //将User转为Raw对象
+    public Raw userToRaw(User user){
+        Raw raw = new Raw();
+        raw.setUserName(user.getUserName());
+        raw.setRawPassword(user.getPassword());
+        raw.setPhoneNumber(user.getPhoneNumber());
+        return raw;
     }
 }

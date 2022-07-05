@@ -1,6 +1,8 @@
 package org.csu.domain;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.github.jeffreyning.mybatisplus.anno.MppMultiId;
 import lombok.AllArgsConstructor;
@@ -19,14 +21,12 @@ public class Parking implements Serializable {
 
     public static final double unitPrice = 3.0;
 
-    @MppMultiId
-    @TableField(value = "car_num")
+    @TableId(type = IdType.AUTO)
+    private Long id;
     private String carNum;
-    @MppMultiId
-    @TableField(value = "parking_num")
     private String parkingNum;
     private Date start;
     private Date end;
-
     private double totalPrice;
+    private boolean isRegistered;
 }
