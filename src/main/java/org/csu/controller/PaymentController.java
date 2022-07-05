@@ -27,6 +27,9 @@ public class PaymentController {
     @Autowired
     private PaymentService paymentService;
 
+    //支付行为pay是指为订单order付钱，他们都是sys_payment中的条目，未支付订单和已支付订单的区别在于
+    //是否if_paid项是否为真
+
     //支付该用户的所有缴费项
     @PostMapping("/pay")
     public ResponseResult pay(HttpServletRequest request){
