@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@TableName("sys_user")
+@TableName("sys_volunteer")
 public class Volunteer {
 
     @TableId(type = IdType.AUTO)
@@ -18,4 +18,5 @@ public class Volunteer {
     private String name;
     private String freeTime;
     private double totalTime;
+    private String home;
 }

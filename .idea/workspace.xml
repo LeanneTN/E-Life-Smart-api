@@ -5,17 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8746292-61c3-44a5-bf83-ec0fbcae6571" name="Changes" comment="Project initialization">
+      <change afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/AlipayConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/controller/ForumController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/controller/ForumController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/controller/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/controller/PaymentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/domain/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/domain/Comment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/domain/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/domain/Payment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/domain/Topic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/domain/Topic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/service/ForumService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/service/ForumService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/ForumServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/ForumServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/controller/ForumController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/controller/ForumController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/Comment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/Comment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/Topic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/Topic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/ForumService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/ForumService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/impl/ForumServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/impl/ForumServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/ParkingServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/ParkingServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/PaymentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/PaymentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/vo/ResponseCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/vo/ResponseCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/controller/ParkingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/controller/ParkingController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/controller/PaymentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/controller/PaymentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/controller/VolunteerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/controller/VolunteerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/Volunteer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/Volunteer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/VolunteerLog.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/VolunteerLog.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/mapper/VolunteerLogMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/mapper/VolunteerLogMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/mapper/VolunteerMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/mapper/VolunteerMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/PaymentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/PaymentService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/VolunteerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/VolunteerService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/impl/ParkingServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/impl/ParkingServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/impl/PaymentServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/impl/PaymentServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/impl/VolunteerServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/impl/VolunteerServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/vo/ResponseCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/vo/ResponseCode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/org/csu/MapperTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/org/csu/MapperTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,10 +93,11 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="模块" />
-    <property name="project.structure.proportion" value="0.17" />
-    <property name="project.structure.side.proportion" value="0.1566549" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.importing" />
+    <property name="project.structure.last.edited" value="SDK" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="profiler.jvm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
@@ -90,6 +107,17 @@
       <recent name="E:\Learn\Java\pros\E-LifeSmartCommunity" />
       <recent name="E:\Learn\Java\pros\E-LifeSmartCommunity\src\main\java\com\sangeng\domain" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.csu.controller" />
+      <recent name="org.csu.domain" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
   </component>
   <component name="RunManager" selected="Spring Boot.SecurityApplication (1)">
     <configuration name="MapperTest.forumTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
@@ -186,9 +214,9 @@
       <list>
         <item itemvalue="Spring Boot.SecurityApplication (1)" />
         <item itemvalue="JUnit.MapperTest.forumTest" />
+        <item itemvalue="Spring Boot.SecurityApplication" />
         <item itemvalue="JUnit.MapperTest.testAPI" />
         <item itemvalue="JUnit.MapperTest.testInsertUser" />
-        <item itemvalue="JUnit.MapperTest.testUserMapper" />
       </list>
     </recent_temporary>
   </component>
@@ -215,6 +243,8 @@
       <workItem from="1657009212953" duration="23724000" />
       <workItem from="1657044257607" duration="180000" />
       <workItem from="1657045376444" duration="640000" />
+      <workItem from="1657008819016" duration="11067000" />
+      <workItem from="1657036668044" duration="3040000" />
     </task>
     <task id="LOCAL-00001" summary="Project initialization">
       <created>1656832846816</created>
@@ -223,7 +253,21 @@
       <option name="project" value="LOCAL" />
       <updated>1656832846816</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Project initialization">
+      <created>1657037421801</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1657037421801</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Project initialization">
+      <created>1657037499373</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1657037499373</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
