@@ -17,6 +17,7 @@ public class ForumController {
     //创建帖子
     @PostMapping("/topic")
     public ResponseResult createTopic(@RequestBody Topic topic){
+        forumService.createTopic(topic);
         return forumService.createTopic(topic);
     }
 

@@ -46,7 +46,7 @@ public class UserController {
     }
 
     //获取已登录账号的信息
-    @GetMapping("get_login_user")
+    @GetMapping("/get_login_user")
     public ResponseResult getLoginUser(HttpServletRequest req){
         return userService.getLoginUser(req);
     }

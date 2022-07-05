@@ -17,7 +17,10 @@ import org.csu.domain.User;
 import org.csu.service.UserService;
 import org.csu.uitls.JwtUtil;
 import org.csu.uitls.RedisCache;
-import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
+/*----------------由于JDK版本的问题，我的这个包已经被废弃，因此此处进行修改--------------------
+import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;*/
+import org.apache.commons.codec.binary.Base64;
+
 import com.zhenzi.sms.ZhenziSmsClient;
 import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -84,6 +87,7 @@ public class UserServiceImpl implements UserService {
 
         Map<String, String> map = new HashMap<>();
         map.put("token", jwt);
+        System.out.println("----------------登陆成功--------------");
         return new ResponseResult(200, "登陆成功", map);
     }
 
@@ -100,7 +104,10 @@ public class UserServiceImpl implements UserService {
         FastByteArrayOutputStream os = new FastByteArrayOutputStream();
         ImageIO.write(image, "jpg", os);
 
-        codeStr = Base64.encode(os.toByteArray());
+        /*因为修改了依赖的包，该方法被废弃，进行相应修改
+        codeStr = Base64.encode(os.toByteArray());*/
+        codeStr = Base64.encodeBase64String(os.toByteArray());
+
         return new ResponseResult(200, "生成验证码成功", new CodeVO(codeStr, code));
     }
 
