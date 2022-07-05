@@ -1,14 +1,17 @@
 package org.csu.service;
 
+import org.csu.domain.Volunteer;
 import org.csu.vo.ResponseResult;
 import org.csu.domain.VolunteerLog;
 
 public interface VolunteerService {
-    ResponseResult applyForVolunteer();
+    ResponseResult applyForVolunteer(Volunteer volunteer);
 
-    ResponseResult getMyLogs();
+    ResponseResult getMyLogs(long id);
 
     ResponseResult insertVolunteerLog(VolunteerLog volunteerLog);
 
     ResponseResult getLogs();
+
+    ResponseResult getLogsGroupById();
 }

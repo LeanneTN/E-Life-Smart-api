@@ -2,9 +2,11 @@ package org.csu;
 
 import org.csu.domain.HealthCheck;
 import org.csu.domain.User;
+import org.csu.domain.Volunteer;
 import org.csu.mapper.MenuMapper;
 import org.csu.mapper.UserMapper;
 import org.csu.service.HealthCheckService;
+import org.csu.service.VolunteerService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -23,6 +25,8 @@ public class MapperTest {
     private MenuMapper menuMapper;
     @Autowired
     private HealthCheckService healthCheckService;
+    @Autowired
+    private VolunteerService volunteerService;
 
     @Test
     public void testInsertUser(){
@@ -53,12 +57,6 @@ public class MapperTest {
 
     @Test
     public void testAPI(){
-        HealthCheck healthCheck = new HealthCheck();
-        healthCheck.setUid(10023L);
-        healthCheck.setLocation("changsha");
-        Date date = new Date();
-        healthCheck.setTime(date);
-        healthCheckService.submit(healthCheck);
-        healthCheckService.getInfo();
+        System.out.println(volunteerService.getLogsGroupById().getData().toString());
     }
 }
