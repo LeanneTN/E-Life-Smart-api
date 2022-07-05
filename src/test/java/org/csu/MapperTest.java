@@ -1,9 +1,12 @@
 package org.csu;
 
+import net.sf.jsqlparser.statement.select.Top;
 import org.csu.domain.HealthCheck;
+import org.csu.domain.Topic;
 import org.csu.domain.User;
 import org.csu.mapper.MenuMapper;
 import org.csu.mapper.UserMapper;
+import org.csu.service.ForumService;
 import org.csu.service.HealthCheckService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +26,8 @@ public class MapperTest {
     private MenuMapper menuMapper;
     @Autowired
     private HealthCheckService healthCheckService;
+    @Autowired
+    private ForumService forumService;
 
 
 
@@ -42,7 +47,7 @@ public class MapperTest {
     }
 
     @Test
-    public void TestBCryptPasswordEncoder(){
+    public void TestBCryptPasswordEncoder() {
         //加密
 //        String encode = passwordEncoder.encode("123456");
 //        System.out.println(encode);
@@ -50,7 +55,6 @@ public class MapperTest {
         boolean matches = passwordEncoder.matches("{noop}123456", "123456");
         System.out.println(matches);
     }
-
 
 
     @Test
@@ -63,4 +67,18 @@ public class MapperTest {
         healthCheckService.submit(healthCheck);
         healthCheckService.getInfo();
     }
+
+    @Test
+    public void forumTest(){
+        //测试创建话题
+//        Topic topic=new Topic();
+//        topic.setFromUser(123);
+//        topic.setTitle("测试");
+//        forumService.createTopic(topic);
+        int a=1;
+        long b=(int)a;
+        //测试举报话题
+        forumService.reportTopicById(b);
+    }
+
 }

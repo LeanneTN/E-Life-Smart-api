@@ -5,43 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8746292-61c3-44a5-bf83-ec0fbcae6571" name="Changes" comment="Project initialization">
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/controller/ForumController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/controller/ForumController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/domain/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/domain/Comment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/domain/Topic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/domain/Topic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/service/ForumService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/service/ForumService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/ForumServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/ForumServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/vo/ResponseCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/vo/ResponseCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/csu/MapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/csu/MapperTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/csu/controller/ForumController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/controller/ForumController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/Admin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/Car.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/Car.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/Comment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/Comment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/HealthCheck.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/HealthCheck.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/Menu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/Parking.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/Parking.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/ParkingSpace.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/ParkingSpace.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/Payment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/Payment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/Raw.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/Raw.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/Repair.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/Repair.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/Topic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/Topic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/UserRole.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/UserRole.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/Volunteer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/Volunteer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/VolunteerLog.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/VolunteerLog.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/filter/JwtAuthenticationTokenFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/filter/JwtAuthenticationTokenFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/ForumService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/ForumService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/impl/ForumServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/impl/ForumServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/impl/HealthCheckServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/impl/HealthCheckServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/impl/ParkingServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/impl/ParkingServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/impl/UserDetailsServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/impl/UserDetailsServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/impl/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/uitls/JwtUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/uitls/JwtUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/uitls/RedisCache.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/uitls/RedisCache.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/uitls/WebUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/uitls/WebUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/vo/CodeVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/vo/CodeVO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/vo/LoginUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/vo/LoginUser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/vo/ResponseCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/vo/ResponseCode.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/org/csu/MapperTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/org/csu/MapperTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -118,7 +95,23 @@
       <recent name="E:\Learn\Java\pros\E-LifeSmartCommunity\src\main\java\com\sangeng\domain" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.SecurityApplication (1)">
+  <component name="RunManager" selected="JUnit.MapperTest.forumTest">
+    <configuration name="MapperTest.forumTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="e-life-community-api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.csu.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.csu" />
+      <option name="MAIN_CLASS_NAME" value="org.csu.MapperTest" />
+      <option name="METHOD_NAME" value="forumTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MapperTest.testAPI" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="e-life-community-api" />
       <extension name="coverage">
@@ -195,6 +188,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MapperTest.forumTest" />
         <item itemvalue="Spring Boot.SecurityApplication (1)" />
         <item itemvalue="JUnit.MapperTest.testAPI" />
         <item itemvalue="JUnit.MapperTest.testInsertUser" />
@@ -222,7 +216,8 @@
       <workItem from="1656921658917" duration="10194000" />
       <workItem from="1656980544534" duration="12586000" />
       <workItem from="1657005999496" duration="2036000" />
-      <workItem from="1657009212953" duration="7537000" />
+      <workItem from="1657009212953" duration="23724000" />
+      <workItem from="1657044257607" duration="180000" />
     </task>
     <task id="LOCAL-00001" summary="Project initialization">
       <created>1656832846816</created>
@@ -260,11 +255,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/org/csu/controller/HelloController.java</url>
           <line>11</line>
           <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/csu/controller/UserController.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/csu/service/impl/ParkingServiceImpl.java</url>
