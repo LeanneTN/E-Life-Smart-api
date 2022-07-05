@@ -1,5 +1,6 @@
 package org.csu.domain;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
@@ -16,7 +17,7 @@ import java.util.Date;
 public class HealthCheck implements Serializable {
     private static final long serialVersionUID = -40356785423868312L;
 
-    @TableId
+    @TableId(type = IdType.AUTO)
     private Long id;
     private Long uid;
     private double temp;

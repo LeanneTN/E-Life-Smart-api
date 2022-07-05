@@ -2,10 +2,10 @@ package org.csu.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import org.csu.domain.Car;
-import org.csu.domain.Parking;
-import org.csu.domain.ParkingSpace;
-import org.csu.domain.User;
+import org.apache.ibatis.jdbc.Null;
+import org.csu.domain.*;
+import org.csu.mapper.PaymentMapper;
+import org.csu.service.UserService;
 import org.csu.vo.ResponseCode;
 import org.csu.vo.ResponseResult;
 import org.csu.mapper.CarMapper;
@@ -27,6 +27,8 @@ public class ParkingServiceImpl implements ParkingService {
     private ParkingSpaceMapper parkingSpaceMapper;
     @Autowired
     private ParkingMapper parkingMapper;
+    @Autowired
+    private PaymentMapper paymentMapper;
 
     public static final double LIST_PRICE = 3.00;
 
@@ -35,17 +37,25 @@ public class ParkingServiceImpl implements ParkingService {
         Parking parking = new Parking();
         //首先查询是否有空余的位置
         LambdaQueryWrapper<ParkingSpace> wrapper = new QueryWrapper<ParkingSpace>().lambda();
-        wrapper.eq(ParkingSpace::getCarNum, null);
+        wrapper.isNull(ParkingSpace::getCarNum);
         List<ParkingSpace> parkingSpaces = parkingSpaceMapper.selectList(wrapper);
         int len = parkingSpaces.size();
         if(len == 0)
             return new ResponseResult(ResponseCode.PARKING_SPACE_FULL.getCode(), "车位已占满！");
+
+        //再查这个车是否已经停过
+        wrapper = new QueryWrapper<ParkingSpace>().lambda();
+        wrapper.eq(ParkingSpace::getCarNum, id);
+        ParkingSpace parkingSpace = parkingSpaceMapper.selectOne(wrapper);
+        if(parkingSpace != null)
+            return new ResponseResult(ResponseCode.PARKED.getCode(), "该车已经在车库中！");
 
         //随机分配空闲车位
         parking.setCarNum(id);
         Random random = new Random();
         int i = random.nextInt(len);
         parking.setParkingNum(parkingSpaces.get(i).getId());
+        parkingSpaces.get(i).setCarNum(id);
         parkingSpaceMapper.updateById(parkingSpaces.get(i));
 
         //设置开始停车的时间
@@ -76,12 +86,24 @@ public class ParkingServiceImpl implements ParkingService {
 
         LambdaQueryWrapper<Parking> parkingWrapper = new QueryWrapper<Parking>().lambda();
         parkingWrapper.eq(Parking::getCarNum, id);
-        parkingWrapper.eq(Parking::getStart, null);
+        parkingWrapper.isNull(Parking::getEnd);
         Parking parking = parkingMapper.selectOne(parkingWrapper);
 
         parking.setEnd(new Date());
         parking.setTotalPrice(getDeltaDate(parking.getEnd(), parking.getStart()) * LIST_PRICE);
         parkingMapper.updateById(parking);
+
+        //最后要将车位置为可用，生成订单
+        parkingSpace.setCarNum(null);
+        parkingSpaceMapper.updateById(parkingSpace);
+
+        Payment payment = new Payment();
+        Car car = carMapper.selectById(id);
+        payment.setFromUser(car.getOwner());
+        payment.setType("parking");
+        payment.setSum(parking.getTotalPrice());
+        payment.setTime(new Date());
+        paymentMapper.insert(payment);
 
         return new ResponseResult(ResponseCode.SUCCESS.getCode(), "成功生成停车订单");
     }

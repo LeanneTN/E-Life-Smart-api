@@ -24,6 +24,8 @@ public class MapperTest {
     @Autowired
     private HealthCheckService healthCheckService;
 
+
+
     @Test
     public void testInsertUser(){
         User user = new User();

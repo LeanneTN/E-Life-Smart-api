@@ -35,11 +35,14 @@ DROP TABLE IF EXISTS `sys_car`;
 
 CREATE TABLE `sys_car` (
   `id` varchar(16) NOT NULL,
-  `owner` int(8) DEFAULT NULL,
+  `owner` bigint(16) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `sys_car` */
+
+insert  into `sys_car`(`id`,`owner`) values 
+('豫R66666',1);
 
 /*Table structure for table `sys_comment` */
 
@@ -86,40 +89,60 @@ CREATE TABLE `sys_menu` (
   `status` char(1) DEFAULT '0' COMMENT '菜单状态（0正常 1停用）',
   `perms` varchar(100) DEFAULT NULL COMMENT '权限标识',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COMMENT='菜单表';
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COMMENT='菜单表';
 
 /*Data for the table `sys_menu` */
 
 insert  into `sys_menu`(`id`,`menu_name`,`path`,`component`,`visible`,`status`,`perms`) values 
-(1,'用户管理','user','system/user','0','0','system:user:list');
+(1,'用户管理','user','system/user','0','0','system:user:list'),
+(2,'停车管理','parking','system/parking','0','0','system:parking:add'),
+(3,'停车管理','parking','system/parking','0','0','system:parking:log'),
+(4,'停车管理','parking','system/parking','0','0','system:parking:info');
 
 /*Table structure for table `sys_parking` */
 
 DROP TABLE IF EXISTS `sys_parking`;
 
 CREATE TABLE `sys_parking` (
+  `id` bigint(16) NOT NULL AUTO_INCREMENT,
   `car_num` varchar(16) NOT NULL,
-  `parking_num` int(8) NOT NULL,
-  `start` timestamp NULL DEFAULT NULL,
+  `is_registered` tinyint(2) NOT NULL,
+  `parking_num` varchar(8) NOT NULL,
+  `start` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `end` timestamp NULL DEFAULT NULL,
   `total_price` decimal(10,2) DEFAULT NULL,
-  PRIMARY KEY (`car_num`,`parking_num`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `sys_parking` */
+
+insert  into `sys_parking`(`id`,`car_num`,`is_registered`,`parking_num`,`start`,`end`,`total_price`) values 
+(1,'豫R66666',1,'A01','2022-07-04 06:41:44',NULL,0.00);
 
 /*Table structure for table `sys_parking_space` */
 
 DROP TABLE IF EXISTS `sys_parking_space`;
 
 CREATE TABLE `sys_parking_space` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `carNum` varchar(16) DEFAULT NULL,
+  `id` varchar(8) NOT NULL,
+  `car_num` varchar(16) DEFAULT NULL,
   `type` varchar(16) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `sys_parking_space` */
+
+insert  into `sys_parking_space`(`id`,`car_num`,`type`) values 
+('A01','豫R66666','01'),
+('A02',NULL,'01'),
+('A03',NULL,'01'),
+('A04',NULL,'01'),
+('A05',NULL,'01'),
+('B01',NULL,'02'),
+('B02',NULL,'02'),
+('B03',NULL,'02'),
+('B04',NULL,'02'),
+('B05',NULL,'02');
 
 /*Table structure for table `sys_payment` */
 
@@ -151,15 +174,8 @@ CREATE TABLE `sys_raw` (
 /*Data for the table `sys_raw` */
 
 insert  into `sys_raw`(`user_name`,`phone_number`,`raw_password`) values 
-('123456',NULL,'123456'),
 ('antares','13213761071','123456'),
-('jack',NULL,'123456'),
-('lucy',NULL,'123456'),
-('tom',NULL,'123456'),
-('vicki',NULL,'123456'),
-('张三',NULL,'123456'),
-('李四',NULL,'123456'),
-('王五',NULL,'123456');
+('root',NULL,'123456');
 
 /*Table structure for table `sys_repair` */
 
@@ -208,12 +224,15 @@ CREATE TABLE `sys_role_menu` (
   `role_id` bigint(200) NOT NULL AUTO_INCREMENT COMMENT '角色ID',
   `menu_id` bigint(200) NOT NULL DEFAULT '0' COMMENT '菜单id',
   PRIMARY KEY (`role_id`,`menu_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `sys_role_menu` */
 
 insert  into `sys_role_menu`(`role_id`,`menu_id`) values 
-(1,1);
+(2,1),
+(2,2),
+(2,3),
+(2,4);
 
 /*Table structure for table `sys_topic` */
 
@@ -248,20 +267,13 @@ CREATE TABLE `sys_user` (
   `building_number` varchar(8) DEFAULT NULL,
   `room_number` varchar(8) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COMMENT='用户表';
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COMMENT='用户表';
 
 /*Data for the table `sys_user` */
 
 insert  into `sys_user`(`id`,`user_name`,`password`,`status`,`email`,`phone_number`,`sex`,`avatar`,`name`,`building_number`,`room_number`) values 
-(1,'antares','$2a$10$ZL5tR0RiqUyIxj7TEytCkuAbXUM55qKf753DYg5X67SEOxcV/4rk.','0',NULL,'13213761071',NULL,NULL,NULL,NULL,NULL),
-(3,'jack','$2a$10$ZL5tR0RiqUyIxj7TEytCkuAbXUM55qKf753DYg5X67SEOxcV/4rk.','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL),
-(4,'tom','$2a$10$ZL5tR0RiqUyIxj7TEytCkuAbXUM55qKf753DYg5X67SEOxcV/4rk.','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL),
-(5,'vicki','$2a$10$ZL5tR0RiqUyIxj7TEytCkuAbXUM55qKf753DYg5X67SEOxcV/4rk.','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL),
-(6,'lucy','$2a$10$ZL5tR0RiqUyIxj7TEytCkuAbXUM55qKf753DYg5X67SEOxcV/4rk.','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL),
-(7,'123456','$2a$10$QfqqYrh.3MxAtFDu1uEj8eZwOAyB0u69uWZNa1Iw5w03.FL2m8YcC','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL),
-(8,'张三','$2a$10$QfqqYrh.3MxAtFDu1uEj8eZwOAyB0u69uWZNa1Iw5w03.FL2m8YcC','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL),
-(9,'李四','$2a$10$Vt5WBXe1biZ1wudWereJAe4ye.2Fq0fKoVgBiK1/koEP8Q9TbfQIG','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL),
-(10,'王五','$2a$10$K3GYJNEhtExpOEnZRheK1uAprXyx94FwVIJgkQOz5IIi1JyZEfzpu','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+(1,'antares','$2a$10$ZL5tR0RiqUyIxj7TEytCkuAbXUM55qKf753DYg5X67SEOxcV/4rk.','0',NULL,'13213761072',NULL,NULL,NULL,NULL,NULL),
+(11,'root','$2a$10$K3GYJNEhtExpOEnZRheK1uAprXyx94FwVIJgkQOz5IIi1JyZEfzpu','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 
 /*Table structure for table `sys_user_role` */
 
@@ -271,12 +283,15 @@ CREATE TABLE `sys_user_role` (
   `user_id` bigint(200) NOT NULL AUTO_INCREMENT COMMENT '用户id',
   `role_id` bigint(200) NOT NULL DEFAULT '0' COMMENT '角色id',
   PRIMARY KEY (`user_id`,`role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `sys_user_role` */
 
 insert  into `sys_user_role`(`user_id`,`role_id`) values 
-(1,1);
+(1,1),
+(1,2),
+(1,3),
+(11,2);
 
 /*Table structure for table `sys_volunteer` */
 

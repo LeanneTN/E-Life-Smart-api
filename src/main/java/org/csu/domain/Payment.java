@@ -1,5 +1,6 @@
 package org.csu.domain;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
@@ -16,10 +17,10 @@ import java.util.Date;
 public class Payment implements Serializable {
     private static final long serialVersionUID = -40356785423868312L;
 
-    @TableId
-    private long id;
-    private long fromUser;
-    private long toAdmin;
+    @TableId(type = IdType.AUTO)
+    private Long id;
+    private Long fromUser;
+    private Long toAdmin;
     private String type;
     private double sum;
     private Date time;
