@@ -15,17 +15,18 @@ public class VolunteerController {
 
     @PostMapping("/apply")
     public ResponseResult applyForVolunteer(@RequestBody Volunteer volunteer){
-        return volunteerService.applyForVolunteer();
+        return volunteerService.applyForVolunteer(volunteer);
     }
 
     //查看个人的志愿记录
-    @GetMapping("/my_logs")
-    public ResponseResult getMyLogs(){
-        return volunteerService.getMyLogs();
+    @GetMapping("/my_logs/{id}")
+    public ResponseResult getMyLogs(@PathVariable("id")int id)
+    {
+        return volunteerService.getMyLogs(id);
     }
 
     //进行志愿活动
-    @PostMapping("/my_logs")
+    @PostMapping("/my_logs/{id}")
     public ResponseResult insertMyLogs(@RequestBody VolunteerLog volunteerLog){
         return volunteerService.insertVolunteerLog(volunteerLog);
     }
@@ -36,6 +37,10 @@ public class VolunteerController {
         return volunteerService.getLogs();
     }
 
-
+    //按照所有人的id进行志愿记录分组返回，方便后台管理员查看每个人的情况
+    @GetMapping("/logs_by_id")
+    public ResponseResult getLogsGroupById(){
+        return volunteerService.getLogsGroupById();
+    }
 
 }
