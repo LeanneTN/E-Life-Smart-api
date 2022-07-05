@@ -37,7 +37,7 @@ public class ParkingServiceImpl implements ParkingService {
         Parking parking = new Parking();
         //首先查询是否有空余的位置
         LambdaQueryWrapper<ParkingSpace> wrapper = new QueryWrapper<ParkingSpace>().lambda();
-        wrapper.isNull(ParkingSpace::getCarNum);
+        wrapper.eq(ParkingSpace::getCarNum, "");
         List<ParkingSpace> parkingSpaces = parkingSpaceMapper.selectList(wrapper);
         int len = parkingSpaces.size();
         if(len == 0)
@@ -94,7 +94,7 @@ public class ParkingServiceImpl implements ParkingService {
         parkingMapper.updateById(parking);
 
         //最后要将车位置为可用，生成订单
-        parkingSpace.setCarNum(null);
+        parkingSpace.setCarNum("");
         parkingSpaceMapper.updateById(parkingSpace);
 
         Payment payment = new Payment();
@@ -110,22 +110,36 @@ public class ParkingServiceImpl implements ParkingService {
 
     @Override
     public ResponseResult getLog() {
-        return null;
+        List<Parking> parkingList = parkingMapper.selectList(null);
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "成功获取所有停车记录", parkingList);
     }
 
     @Override
     public ResponseResult getLogByCarNum(String carNum) {
-        return null;
+        //先查询有没有该车的停车记录
+        LambdaQueryWrapper<Parking> parkingWrapper = new QueryWrapper<Parking>().lambda();
+        parkingWrapper.eq(Parking::getCarNum, carNum);
+        List<Parking> parkingList = parkingMapper.selectList(parkingWrapper);
+        if(parkingList.size() == 0)
+            return new ResponseResult(ResponseCode.NO_LOG.getCode(), "未查询到该车辆在小区内有停车记录");
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "查询成功！", parkingList);
     }
 
     @Override
     public ResponseResult getInfo() {
-        return null;
+        List<Car> cars = carMapper.selectList(null);
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), cars);
     }
 
     @Override
     public ResponseResult getInfoByUserid(String userid) {
-        return null;
+        //先查询有没有该车的停车记录
+        LambdaQueryWrapper<Car> carWrapper = new QueryWrapper<Car>().lambda();
+        carWrapper.eq(Car::getOwner, userid);
+        List<Car> cars = carMapper.selectList(carWrapper);
+        if(cars.size() == 0)
+            return new ResponseResult(ResponseCode.NO_LOG.getCode(), "未查询到该用户名下有车辆");
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "查询成功！", cars);
     }
 
     //添加车辆
@@ -147,6 +161,8 @@ public class ParkingServiceImpl implements ParkingService {
     @Override
     public ResponseResult addParkingSpace(ParkingSpace parkingSpace) {
         ParkingSpace res = parkingSpaceMapper.selectById(parkingSpace.getId());
+        //新添加的车位，停的车为空
+        parkingSpace.setCarNum("");
         if(res == null){
             int insert = parkingSpaceMapper.insert(parkingSpace);
             if(insert > 0){
