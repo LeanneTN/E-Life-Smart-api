@@ -18,5 +18,5 @@ public class Volunteer {
     private String name;
     private String freeTime;
     private double totalTime;
-    private String home;
+    private long uid;
 }
