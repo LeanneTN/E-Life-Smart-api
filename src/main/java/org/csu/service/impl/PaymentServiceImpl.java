@@ -39,6 +39,7 @@ public class PaymentServiceImpl implements PaymentService {
             paymentMapper.updateById(payment);
             return new ResponseResult(ResponseCode.SUCCESS.getCode(), "支付成功", payment);
         }else if(payment1==null) {
+            payment.setIf_paid(true);
             paymentMapper.insert(payment);
             return new ResponseResult(ResponseCode.SUCCESS.getCode(), "支付成功", payment);
         }
