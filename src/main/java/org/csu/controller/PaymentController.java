@@ -45,15 +45,31 @@ public class PaymentController {
     }
 
     //支付某条缴费单
-    @PostMapping("/pay/{id}")
-    public ResponseResult payById(@PathVariable("id") Long id, @RequestBody Payment payment){
+    @PostMapping("/payById")
+    public ResponseResult payById(HttpServletRequest request, @RequestBody Payment payment){
+        String token = request.getHeader("token");
+        Long id = null;
+        try{
+            Claims claims = JwtUtil.parseJWT(token);
+            id = Long.valueOf(claims.getSubject());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         return paymentService.payById(id, payment);
     }
 
     //获取某个用户的所有支付的订单，前端可以进行统计信息的展示(用户)
     @GetMapping("/orders")
-    public ResponseResult getOrders(){
-        return paymentService.getOrders();
+    public ResponseResult getOrders(HttpServletRequest request){
+        String token = request.getHeader("token");
+        Long id = null;
+        try{
+            Claims claims = JwtUtil.parseJWT(token);
+            id = Long.valueOf(claims.getSubject());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return paymentService.getOrders(id);
     }
 
     //获取全部订单(后台管理使用)

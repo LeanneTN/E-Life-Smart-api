@@ -5,10 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8746292-61c3-44a5-bf83-ec0fbcae6571" name="Changes" comment="Project initialization">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/controller/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/controller/PaymentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/domain/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/domain/Payment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/service/PaymentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/service/PaymentService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/PaymentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/PaymentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/csu/MapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/csu/MapperTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/controller/PaymentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/controller/PaymentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/Payment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/Payment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/impl/PaymentServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/impl/PaymentServiceImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +46,14 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\IntelliJ IDEA Community Edition 2020.3\m2" />
+        <option name="userSettingsFile" value="D:\IntelliJ IDEA Community Edition 2020.3\m2\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="2BLJhiYfQPXPzHjhRr96pjqoAJc" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -63,10 +78,10 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="SDK" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="项目" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="profiler.jvm" />
+    <property name="settings.editor.selected.configurable" value="background.image.plus" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="ReactorSettings">
@@ -89,7 +104,23 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.SecurityApplication (1)">
+  <component name="RunManager" selected="JUnit.MapperTest.TestBCryptPasswordEncoder">
+    <configuration name="MapperTest.TestBCryptPasswordEncoder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="e-life-community-api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.csu.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.csu" />
+      <option name="MAIN_CLASS_NAME" value="org.csu.MapperTest" />
+      <option name="METHOD_NAME" value="TestBCryptPasswordEncoder" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MapperTest.testAPI" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="e-life-community-api" />
       <extension name="coverage">
@@ -117,22 +148,6 @@
       <option name="PACKAGE_NAME" value="org.csu" />
       <option name="MAIN_CLASS_NAME" value="org.csu.MapperTest" />
       <option name="METHOD_NAME" value="testInsertUser" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MapperTest.testUserMapper" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="E-LifeSmartCommunity" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.csu.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.csu" />
-      <option name="MAIN_CLASS_NAME" value="org.csu.MapperTest" />
-      <option name="METHOD_NAME" value="testUserMapper" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -166,11 +181,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MapperTest.TestBCryptPasswordEncoder" />
+        <item itemvalue="JUnit.MapperTest.testAPI" />
         <item itemvalue="Spring Boot.SecurityApplication (1)" />
         <item itemvalue="Spring Boot.SecurityApplication" />
-        <item itemvalue="JUnit.MapperTest.testAPI" />
         <item itemvalue="JUnit.MapperTest.testInsertUser" />
-        <item itemvalue="JUnit.MapperTest.testUserMapper" />
       </list>
     </recent_temporary>
   </component>
@@ -194,7 +209,7 @@
       <workItem from="1656921658917" duration="10194000" />
       <workItem from="1656980544534" duration="12586000" />
       <workItem from="1657008819016" duration="11067000" />
-      <workItem from="1657036668044" duration="3806000" />
+      <workItem from="1657036668044" duration="8506000" />
     </task>
     <task id="LOCAL-00001" summary="Project initialization">
       <created>1656832846816</created>
@@ -251,6 +266,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/org/csu/service/impl/ParkingServiceImpl.java</url>
           <line>80</line>
           <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/csu/service/impl/UserServiceImpl.java</url>
+          <line>192</line>
+          <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
