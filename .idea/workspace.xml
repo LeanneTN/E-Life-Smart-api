@@ -4,24 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8746292-61c3-44a5-bf83-ec0fbcae6571" name="Changes" comment="Project initialization">
-      <change beforePath="$PROJECT_DIR$/e_life.sql" beforeDir="false" afterPath="$PROJECT_DIR$/e_life.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/kaptchaConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/kaptchaConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kaptchaConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kaptchaConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/config/SecurityConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/AlipayConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/AlipayConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/Volunteer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/Volunteer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/VolunteerLog.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/VolunteerLog.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/impl/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/vo/ResponseCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/vo/ResponseCode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/org/csu/MapperTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/org/csu/MapperTest.class" afterDir="false" />
-    </list>
+    <list default="true" id="c8746292-61c3-44a5-bf83-ec0fbcae6571" name="Changes" comment="Project initialization" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -76,7 +59,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Rely/commons-codec-1.15-bin/commons-codec-1.15/commons-codec-1.15.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -247,7 +230,7 @@
       <workItem from="1656980544534" duration="12937000" />
       <workItem from="1657005041544" duration="4115000" />
       <workItem from="1657064886417" duration="753000" />
-      <workItem from="1657069163252" duration="1581000" />
+      <workItem from="1657069163252" duration="7455000" />
     </task>
     <task id="LOCAL-00001" summary="Project initialization">
       <created>1656832846816</created>
