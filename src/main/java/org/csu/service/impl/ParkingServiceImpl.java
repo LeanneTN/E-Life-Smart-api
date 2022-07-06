@@ -121,7 +121,7 @@ public class ParkingServiceImpl implements ParkingService {
         parkingWrapper.eq(Parking::getCarNum, carNum);
         List<Parking> parkingList = parkingMapper.selectList(parkingWrapper);
         if(parkingList.size() == 0)
-            return new ResponseResult(ResponseCode.NO_LOG.getCode(), "未查询到该车辆在小区内有停车记录");
+            return new ResponseResult(ResponseCode.NO_PARKING_LOG.getCode(), "未查询到该车辆在小区内有停车记录");
         return new ResponseResult(ResponseCode.SUCCESS.getCode(), "查询成功！", parkingList);
     }
 
@@ -138,7 +138,7 @@ public class ParkingServiceImpl implements ParkingService {
         carWrapper.eq(Car::getOwner, userid);
         List<Car> cars = carMapper.selectList(carWrapper);
         if(cars.size() == 0)
-            return new ResponseResult(ResponseCode.NO_LOG.getCode(), "未查询到该用户名下有车辆");
+            return new ResponseResult(ResponseCode.NO_CAR_LOG.getCode(), "未查询到该用户名下有车辆");
         return new ResponseResult(ResponseCode.SUCCESS.getCode(), "查询成功！", cars);
     }
 

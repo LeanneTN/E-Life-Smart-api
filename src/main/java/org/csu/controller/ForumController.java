@@ -1,60 +1,110 @@
 package org.csu.controller;
 
 import org.csu.domain.Comment;
+import org.csu.vo.ResponseCode;
 import org.csu.vo.ResponseResult;
 import org.csu.domain.Topic;
 import org.csu.service.ForumService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.web.server.header.ReferrerPolicyServerHttpHeadersWriter;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.security.PublicKey;
+
 @RestController
-@RequestMapping("/forum/")
+@RequestMapping("/api/forum/")
 public class ForumController {
     @Autowired
     private ForumService forumService;
 
-    //创建帖子
+    //创建话题
     @PostMapping("/topic")
     public ResponseResult createTopic(@RequestBody Topic topic){
+        forumService.createTopic(topic);
         return forumService.createTopic(topic);
     }
 
-    //获取某个帖子以及下面的所有回复
+    //根据话题ID，获得某个话题下的所有回帖
     @GetMapping("/topic/{id}")
     public ResponseResult getTopicById(@PathVariable("id") Long id){
-        return forumService.getTopicById();
+        return forumService.getTopic_CommentsById(id);
     }
 
-    //进行回复
-    @PostMapping("/comment")
-    public ResponseResult comment(@RequestBody Comment comment){
-        return forumService.comment(comment);
-    }
-
-    //对帖子进行举报
+    //对话题进行举报
     @PostMapping("/report/topic/{id}")
     public ResponseResult reportTopicById(@PathVariable("id") Long id){
         return forumService.reportTopicById(id);
     }
 
-    //对评论进行举报
+    //获取所有被举报的话题
+    @GetMapping("/report/topics")
+    @PreAuthorize("hasAuthority('system:forum:report')")
+    public ResponseResult getTopicReported(){
+        return forumService.getTopicByStatus(true);
+    }
+
+    //根据ID，获取某个用户所创建的所有话题
+    @GetMapping("/user/topics/{id}")
+    public ResponseResult getTopicsByUserId(@PathVariable("id") long id){
+        return forumService.getTopicsByUser(id);
+    }
+
+    //根据ID删除话题：
+    @DeleteMapping("/topic/id")
+    public ResponseResult deleteTopicById(@PathVariable("id") Long id){
+        return forumService.deleteTopicById(id);
+    }
+
+    //---------------------------------------一下为回帖相关操作------------------------
+
+    //创建回帖
+    @PostMapping("/comment")
+    public ResponseResult comment(@RequestBody Comment comment){
+        return forumService.createComment(comment);
+    }
+
+    //根据ID获取回帖
+    @GetMapping("/coment/{id}")
+    public ResponseResult getCommentById(@PathVariable("id") long id){
+        return forumService.getCommentById(id);
+    }
+
+    //根据ID，获取某个用户所创建的所有回帖
+    @GetMapping("/user/comments/{id}")
+    public ResponseResult getCommentsByUserId(@PathVariable("id") long id){
+        return forumService.getCommentsByUser(id);
+    }
+
+    //对回帖进行举报
     @PostMapping("/report/comment/{id}")
     public ResponseResult reportCommentById(@PathVariable("id") Long id){
         return forumService.reportCommentById(id);
     }
 
-    //获取所有被举报的帖子
-    @GetMapping("/report")
-    @PreAuthorize("hasAuthority('system:forum:report')")
-    public ResponseResult getTopicReported(){
-        return forumService.getTopicReported();
-    }
-
-    //获取所有被举报的评论
-    @GetMapping("/comment")
+    //获取所有被举报的回帖
+    @GetMapping("/report/comments")
     @PreAuthorize("hasAuthority('system:forum:report')")
     public ResponseResult getCommentReported(){
-        return forumService.getCommentReported();
+        return forumService.getCommentByStatus(true);
     }
+
+    //根据回帖的ID，获取所有跟他同属于一个话题的ID
+//    @GetMapping("/report/comments")
+//    @PreAuthorize("hasAuthority('system:forum:report')")
+//    public ResponseResult getAllComments(){
+//        return forumService.getCommentByStatus(1);
+//    }
+
+    //根据ID，将某个回帖设置为楼主
+    @PostMapping("/comment/{id}/landlord")
+    @PreAuthorize("hasAuthority('system:forum:report')")
+    public ResponseResult setLandlordById(@PathVariable("id") long id){
+        return forumService.setLandlordById(id);
+    }
+
+
 }

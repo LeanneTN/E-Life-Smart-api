@@ -1,15 +1,19 @@
 package org.csu;
 
-import org.apache.ibatis.jdbc.Null;
+import net.sf.jsqlparser.statement.select.Top;
 import org.csu.domain.HealthCheck;
+import org.csu.domain.Topic;
+import org.apache.ibatis.jdbc.Null;
 import org.csu.domain.Parking;
 import org.csu.domain.ParkingSpace;
+
 import org.csu.domain.User;
 import org.csu.domain.Volunteer;
 import org.csu.mapper.MenuMapper;
 import org.csu.mapper.ParkingMapper;
 import org.csu.mapper.ParkingSpaceMapper;
 import org.csu.mapper.UserMapper;
+import org.csu.service.ForumService;
 import org.csu.service.HealthCheckService;
 import org.csu.service.VolunteerService;
 import org.junit.jupiter.api.Test;
@@ -30,6 +34,8 @@ public class MapperTest {
     private MenuMapper menuMapper;
     @Autowired
     private HealthCheckService healthCheckService;
+    @Autowired
+    private ForumService forumService;
     @Autowired
     private ParkingSpaceMapper parkingSpaceMapper;
     @Autowired
@@ -62,7 +68,7 @@ public class MapperTest {
     }
 
     @Test
-    public void TestBCryptPasswordEncoder(){
+    public void TestBCryptPasswordEncoder() {
         //加密
 //        String encode = passwordEncoder.encode("123456");
 //        System.out.println(encode);
@@ -72,9 +78,22 @@ public class MapperTest {
     }
 
 
-
     @Test
     public void testAPI(){
         System.out.println(volunteerService.getLogsGroupById().getData().toString());
     }
+
+    @Test
+    public void forumTest(){
+        //测试创建话题
+//        Topic topic=new Topic();
+//        topic.setFromUser(123);
+//        topic.setTitle("测试");
+//        forumService.createTopic(topic);
+        int a=1;
+        long b=(int)a;
+        //测试举报话题
+        forumService.reportTopicById(b);
+    }
+
 }

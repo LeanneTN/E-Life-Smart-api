@@ -42,6 +42,7 @@ CREATE TABLE `sys_car` (
 /*Data for the table `sys_car` */
 
 insert  into `sys_car`(`id`,`owner`) values 
+('湘A66666',1),
 ('豫R66666',1);
 
 /*Table structure for table `sys_comment` */
@@ -112,12 +113,14 @@ CREATE TABLE `sys_parking` (
   `end` timestamp NULL DEFAULT NULL,
   `total_price` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `sys_parking` */
 
 insert  into `sys_parking`(`id`,`car_num`,`is_registered`,`parking_num`,`start`,`end`,`total_price`) values 
-(1,'豫R66666',1,'A01','2022-07-04 06:41:44',NULL,0.00);
+(1,'豫R66666',1,'A01','2022-07-04 06:41:44','2022-07-05 07:00:11',72.90),
+(2,'豫R66666',1,'A02','2022-07-06 01:23:02','2022-07-06 01:23:55',0.00),
+(3,'豫R66666',1,'A03','2022-07-06 01:28:18','2022-07-06 01:28:21',0.00);
 
 /*Table structure for table `sys_parking_space` */
 
@@ -133,16 +136,17 @@ CREATE TABLE `sys_parking_space` (
 /*Data for the table `sys_parking_space` */
 
 insert  into `sys_parking_space`(`id`,`car_num`,`type`) values 
-('A01','豫R66666','01'),
-('A02',NULL,'01'),
-('A03',NULL,'01'),
-('A04',NULL,'01'),
-('A05',NULL,'01'),
-('B01',NULL,'02'),
-('B02',NULL,'02'),
-('B03',NULL,'02'),
-('B04',NULL,'02'),
-('B05',NULL,'02');
+('A01','','0'),
+('A02','','01'),
+('A03','','01'),
+('A04','','01'),
+('A05','','01'),
+('B01','','02'),
+('B02','','02'),
+('B03','','02'),
+('B04','','02'),
+('B05','','02'),
+('C01','','03');
 
 /*Table structure for table `sys_payment` */
 
@@ -155,10 +159,15 @@ CREATE TABLE `sys_payment` (
   `type` varchar(16) DEFAULT NULL,
   `sum` decimal(10,2) DEFAULT NULL,
   `time` timestamp NULL DEFAULT NULL,
+  `if_paid` tinyint(2) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `sys_payment` */
+
+insert  into `sys_payment`(`id`,`from_user`,`to_admin`,`type`,`sum`,`time`,`if_paid`) values 
+(1,1,NULL,'parking',72.90,'2022-07-05 07:04:27',0),
+(2,1,NULL,'parking',0.00,'2022-07-06 01:28:21',0);
 
 /*Table structure for table `sys_raw` */
 
@@ -272,7 +281,7 @@ CREATE TABLE `sys_user` (
 /*Data for the table `sys_user` */
 
 insert  into `sys_user`(`id`,`user_name`,`password`,`status`,`email`,`phone_number`,`sex`,`avatar`,`name`,`building_number`,`room_number`) values 
-(1,'antares','$2a$10$ZL5tR0RiqUyIxj7TEytCkuAbXUM55qKf753DYg5X67SEOxcV/4rk.','0',NULL,'13213761072',NULL,NULL,NULL,NULL,NULL),
+(1,'antares','$2a$10$ZL5tR0RiqUyIxj7TEytCkuAbXUM55qKf753DYg5X67SEOxcV/4rk.','0',NULL,'13213761071',NULL,NULL,NULL,NULL,NULL),
 (11,'root','$2a$10$K3GYJNEhtExpOEnZRheK1uAprXyx94FwVIJgkQOz5IIi1JyZEfzpu','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 
 /*Table structure for table `sys_user_role` */

@@ -93,5 +93,12 @@
       <artifactId>hutool-all</artifactId>
       <version>5.8.0.M2</version>
     </dependency>
+
+    <!--新添加依赖-->
+    <dependency>
+      <groupId>commons-codec</groupId>
+      <artifactId>commons-codec</artifactId>
+      <version>1.15</version>
+    </dependency>
   </dependencies>
 </project>

@@ -46,7 +46,7 @@ public class UserController {
     }
 
     //获取已登录账号的信息
-    @GetMapping("get_login_user")
+    @GetMapping("/get_login_user")
     public ResponseResult getLoginUser(HttpServletRequest req){
         return userService.getLoginUser(req);
     }
@@ -58,13 +58,13 @@ public class UserController {
     }
 
     //检查手机号是否可用
-    @GetMapping("/phone/{number}")
+    @GetMapping("/check_phone/{number}")
     public ResponseResult isPhoneNumberExist(@PathVariable("number") String number){
         return userService.isPhoneNumberExist(number);
     }
 
     //为账号绑定手机号
-    @PostMapping("/phone/{number}")
+    @PostMapping("/bind_phone/{number}")
     public ResponseResult bindPhoneNumber(@PathVariable("number") String number,
                                           HttpServletRequest req){
         return userService.bindPhoneNumber(number, req);
@@ -72,7 +72,7 @@ public class UserController {
 
     //手机号登录
     @PostMapping("/login_by_phone")
-    public ResponseResult loginByPhone(@RequestParam("phone") String phone){
+    public ResponseResult loginByPhone(@RequestParam("phoneNumber") String phone){
         return userService.loginByPhone(phone);
     }
 

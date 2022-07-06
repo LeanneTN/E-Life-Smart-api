@@ -3,6 +3,8 @@ package org.csu.service.impl;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.google.code.kaptcha.Producer;
 import org.csu.domain.Raw;
 import org.csu.domain.UserRole;
@@ -17,12 +19,12 @@ import org.csu.domain.User;
 import org.csu.service.UserService;
 import org.csu.uitls.JwtUtil;
 import org.csu.uitls.RedisCache;
-import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
+import org.apache.commons.codec.binary.Base64;
+
 import com.zhenzi.sms.ZhenziSmsClient;
 import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.AuthenticationTrustResolver;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -84,6 +86,7 @@ public class UserServiceImpl implements UserService {
 
         Map<String, String> map = new HashMap<>();
         map.put("token", jwt);
+        System.out.println("----------------登陆成功--------------");
         return new ResponseResult(200, "登陆成功", map);
     }
 
@@ -100,7 +103,10 @@ public class UserServiceImpl implements UserService {
         FastByteArrayOutputStream os = new FastByteArrayOutputStream();
         ImageIO.write(image, "jpg", os);
 
-        codeStr = Base64.encode(os.toByteArray());
+        /*因为修改了依赖的包，该方法被废弃，进行相应修改
+        codeStr = Base64.encode(os.toByteArray());*/
+        codeStr = Base64.encodeBase64String(os.toByteArray());
+
         return new ResponseResult(200, "生成验证码成功", new CodeVO(codeStr, code));
     }
 
@@ -254,8 +260,13 @@ public class UserServiceImpl implements UserService {
     public ResponseResult bindPhoneNumber(String number, HttpServletRequest req) {
         User user = (User)getLoginUser(req).getData();
         user.setPhoneNumber(number);
+
+        LambdaUpdateWrapper<Raw> wrapper = new UpdateWrapper<Raw>().lambda();
+        wrapper.eq(Raw::getUserName, user.getUserName());
+        wrapper.set(Raw::getPhoneNumber, number);
+
         int i = userMapper.updateById(user);
-        int j = rawMapper.updateById(userToRaw(user));
+        int j = rawMapper.update(null, wrapper);
         if(i > 0 && j > 0){
             return new ResponseResult(ResponseCode.SUCCESS.getCode(), "绑定手机号成功");
         }
