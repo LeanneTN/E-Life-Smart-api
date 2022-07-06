@@ -1,6 +1,6 @@
 /*
-SQLyog Community v13.1.6 (64 bit)
-MySQL - 8.0.17 : Database - e_life
+SQLyog Community v13.1.7 (64 bit)
+MySQL - 5.7.19 : Database - e_life
 *********************************************************************
 */
 
@@ -12,7 +12,7 @@ MySQL - 8.0.17 : Database - e_life
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`e_life` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`e_life` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
 
 USE `e_life`;
 
@@ -25,7 +25,7 @@ CREATE TABLE `sys_admin` (
   `avatar` varchar(64) NOT NULL,
   `password` varchar(32) NOT NULL,
   PRIMARY KEY (`aid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `sys_admin` */
 
@@ -37,11 +37,12 @@ CREATE TABLE `sys_car` (
   `id` varchar(16) NOT NULL,
   `owner` bigint(16) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `sys_car` */
 
 insert  into `sys_car`(`id`,`owner`) values 
+('湘A66666',1),
 ('豫R66666',1);
 
 /*Table structure for table `sys_comment` */
@@ -55,11 +56,8 @@ CREATE TABLE `sys_comment` (
   `type` int(2) DEFAULT NULL,
   `content` varchar(256) DEFAULT NULL,
   `time` timestamp NULL DEFAULT NULL,
-  `is_reported` tinyint(1) DEFAULT '0',
-  `response` int(11) DEFAULT '0',
-  `is_landlord` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `sys_comment` */
 
@@ -75,7 +73,7 @@ CREATE TABLE `sys_health_check` (
   `time` timestamp NULL DEFAULT NULL,
   `other_info` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `sys_health_check` */
 
@@ -92,7 +90,7 @@ CREATE TABLE `sys_menu` (
   `status` char(1) DEFAULT '0' COMMENT '菜单状态（0正常 1停用）',
   `perms` varchar(100) DEFAULT NULL COMMENT '权限标识',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='菜单表';
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COMMENT='菜单表';
 
 /*Data for the table `sys_menu` */
 
@@ -115,12 +113,14 @@ CREATE TABLE `sys_parking` (
   `end` timestamp NULL DEFAULT NULL,
   `total_price` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `sys_parking` */
 
 insert  into `sys_parking`(`id`,`car_num`,`is_registered`,`parking_num`,`start`,`end`,`total_price`) values 
-(1,'豫R66666',1,'A01','2022-07-04 06:41:44',NULL,0.00);
+(1,'豫R66666',1,'A01','2022-07-04 06:41:44','2022-07-05 07:00:11',72.90),
+(2,'豫R66666',1,'A02','2022-07-06 01:23:02','2022-07-06 01:23:55',0.00),
+(3,'豫R66666',1,'A03','2022-07-06 01:28:18','2022-07-06 01:28:21',0.00);
 
 /*Table structure for table `sys_parking_space` */
 
@@ -131,21 +131,22 @@ CREATE TABLE `sys_parking_space` (
   `car_num` varchar(16) DEFAULT NULL,
   `type` varchar(16) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `sys_parking_space` */
 
 insert  into `sys_parking_space`(`id`,`car_num`,`type`) values 
-('A01','豫R66666','01'),
-('A02',NULL,'01'),
-('A03',NULL,'01'),
-('A04',NULL,'01'),
-('A05',NULL,'01'),
-('B01',NULL,'02'),
-('B02',NULL,'02'),
-('B03',NULL,'02'),
-('B04',NULL,'02'),
-('B05',NULL,'02');
+('A01','','0'),
+('A02','','01'),
+('A03','','01'),
+('A04','','01'),
+('A05','','01'),
+('B01','','02'),
+('B02','','02'),
+('B03','','02'),
+('B04','','02'),
+('B05','','02'),
+('C01','','03');
 
 /*Table structure for table `sys_payment` */
 
@@ -158,10 +159,15 @@ CREATE TABLE `sys_payment` (
   `type` varchar(16) DEFAULT NULL,
   `sum` decimal(10,2) DEFAULT NULL,
   `time` timestamp NULL DEFAULT NULL,
+  `if_paid` tinyint(2) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `sys_payment` */
+
+insert  into `sys_payment`(`id`,`from_user`,`to_admin`,`type`,`sum`,`time`,`if_paid`) values 
+(1,1,NULL,'parking',72.90,'2022-07-05 07:04:27',0),
+(2,1,NULL,'parking',0.00,'2022-07-06 01:28:21',0);
 
 /*Table structure for table `sys_raw` */
 
@@ -172,7 +178,7 @@ CREATE TABLE `sys_raw` (
   `phone_number` varchar(16) DEFAULT NULL,
   `raw_password` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`user_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `sys_raw` */
 
@@ -195,7 +201,7 @@ CREATE TABLE `sys_repair` (
   `status` varchar(8) DEFAULT NULL,
   `repairer_id` int(8) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `sys_repair` */
 
@@ -210,7 +216,7 @@ CREATE TABLE `sys_role` (
   `status` char(1) DEFAULT '0' COMMENT '角色状态（0正常 1停用）',
   `del_flag` int(1) DEFAULT '0' COMMENT 'del_flag',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='角色表';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COMMENT='角色表';
 
 /*Data for the table `sys_role` */
 
@@ -227,7 +233,7 @@ CREATE TABLE `sys_role_menu` (
   `role_id` bigint(200) NOT NULL AUTO_INCREMENT COMMENT '角色ID',
   `menu_id` bigint(200) NOT NULL DEFAULT '0' COMMENT '菜单id',
   PRIMARY KEY (`role_id`,`menu_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `sys_role_menu` */
 
@@ -248,10 +254,8 @@ CREATE TABLE `sys_topic` (
   `content` varchar(256) DEFAULT NULL,
   `last_reply_time` timestamp NULL DEFAULT NULL,
   `last_reply_user` varchar(16) DEFAULT NULL,
-  `is_reported` tinyint(1) DEFAULT '0',
-  `response` int(11) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `sys_topic` */
 
@@ -272,12 +276,12 @@ CREATE TABLE `sys_user` (
   `building_number` varchar(8) DEFAULT NULL,
   `room_number` varchar(8) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='用户表';
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COMMENT='用户表';
 
 /*Data for the table `sys_user` */
 
 insert  into `sys_user`(`id`,`user_name`,`password`,`status`,`email`,`phone_number`,`sex`,`avatar`,`name`,`building_number`,`room_number`) values 
-(1,'antares','$2a$10$ZL5tR0RiqUyIxj7TEytCkuAbXUM55qKf753DYg5X67SEOxcV/4rk.','0',NULL,'13213761072',NULL,NULL,NULL,NULL,NULL),
+(1,'antares','$2a$10$ZL5tR0RiqUyIxj7TEytCkuAbXUM55qKf753DYg5X67SEOxcV/4rk.','0',NULL,'13213761071',NULL,NULL,NULL,NULL,NULL),
 (11,'root','$2a$10$K3GYJNEhtExpOEnZRheK1uAprXyx94FwVIJgkQOz5IIi1JyZEfzpu','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 
 /*Table structure for table `sys_user_role` */
@@ -288,7 +292,7 @@ CREATE TABLE `sys_user_role` (
   `user_id` bigint(200) NOT NULL AUTO_INCREMENT COMMENT '用户id',
   `role_id` bigint(200) NOT NULL DEFAULT '0' COMMENT '角色id',
   PRIMARY KEY (`user_id`,`role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `sys_user_role` */
 
@@ -308,7 +312,7 @@ CREATE TABLE `sys_volunteer` (
   `free_time` varchar(32) DEFAULT NULL,
   `total_time` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `sys_volunteer` */
 
@@ -322,7 +326,7 @@ CREATE TABLE `sys_volunteer_log` (
   `event` varchar(64) DEFAULT NULL,
   `total_time` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `sys_volunteer_log` */
 
