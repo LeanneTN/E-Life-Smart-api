@@ -16,19 +16,6 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`e_life` /*!40100 DEFAULT CHARACTER SET 
 
 USE `e_life`;
 
-/*Table structure for table `sys_admin` */
-
-DROP TABLE IF EXISTS `sys_admin`;
-
-CREATE TABLE `sys_admin` (
-  `aid` bigint(20) NOT NULL AUTO_INCREMENT,
-  `avatar` varchar(64) NOT NULL,
-  `password` varchar(32) NOT NULL,
-  PRIMARY KEY (`aid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-/*Data for the table `sys_admin` */
-
 /*Table structure for table `sys_car` */
 
 DROP TABLE IF EXISTS `sys_car`;
@@ -56,6 +43,9 @@ CREATE TABLE `sys_comment` (
   `type` int(2) DEFAULT NULL,
   `content` varchar(256) DEFAULT NULL,
   `time` timestamp NULL DEFAULT NULL,
+  `is_reported` tinyint(1) DEFAULT '0',
+  `response` int(11) DEFAULT '0',
+  `is_landlord` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -90,7 +80,7 @@ CREATE TABLE `sys_menu` (
   `status` char(1) DEFAULT '0' COMMENT '菜单状态（0正常 1停用）',
   `perms` varchar(100) DEFAULT NULL COMMENT '权限标识',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COMMENT='菜单表';
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COMMENT='菜单表';
 
 /*Data for the table `sys_menu` */
 
@@ -98,7 +88,12 @@ insert  into `sys_menu`(`id`,`menu_name`,`path`,`component`,`visible`,`status`,`
 (1,'用户管理','user','system/user','0','0','system:user:list'),
 (2,'停车管理','parking','system/parking','0','0','system:parking:add'),
 (3,'停车管理','parking','system/parking','0','0','system:parking:log'),
-(4,'停车管理','parking','system/parking','0','0','system:parking:info');
+(4,'停车管理','parking','system/parking','0','0','system:parking:info'),
+(5,'论坛管理','forum','system/forum','0','0','system:forum:report'),
+(6,'报修管理','repair','system/repair','0','0','system:repair:tasks'),
+(7,'缴费管理','payment','system/payment','0','0','system:payment:income'),
+(8,'打卡管理','health','system/health','0','0','system:health:info'),
+(9,'志愿管理','volunteer','system/volunteer','0','0','system:volunteer:log');
 
 /*Table structure for table `sys_parking` */
 
@@ -233,7 +228,7 @@ CREATE TABLE `sys_role_menu` (
   `role_id` bigint(200) NOT NULL AUTO_INCREMENT COMMENT '角色ID',
   `menu_id` bigint(200) NOT NULL DEFAULT '0' COMMENT '菜单id',
   PRIMARY KEY (`role_id`,`menu_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `sys_role_menu` */
 
@@ -241,7 +236,12 @@ insert  into `sys_role_menu`(`role_id`,`menu_id`) values
 (2,1),
 (2,2),
 (2,3),
-(2,4);
+(2,4),
+(2,5),
+(2,6),
+(2,7),
+(2,8),
+(2,9);
 
 /*Table structure for table `sys_topic` */
 
@@ -254,6 +254,9 @@ CREATE TABLE `sys_topic` (
   `content` varchar(256) DEFAULT NULL,
   `last_reply_time` timestamp NULL DEFAULT NULL,
   `last_reply_user` varchar(16) DEFAULT NULL,
+  `is_reported` tinyint(1) DEFAULT '0',
+  `response` int(11) DEFAULT '0',
+  `create_time` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

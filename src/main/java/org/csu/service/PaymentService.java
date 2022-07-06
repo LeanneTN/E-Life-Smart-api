@@ -8,7 +8,7 @@ public interface PaymentService {
 
     ResponseResult payById(Long id, Payment payment);
 
-    ResponseResult getOrders();
+    ResponseResult getOrders(Long id);
 
     ResponseResult getIncome();
 }

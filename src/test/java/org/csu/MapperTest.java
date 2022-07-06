@@ -1,20 +1,16 @@
 package org.csu;
 
 import net.sf.jsqlparser.statement.select.Top;
-import org.csu.domain.HealthCheck;
-import org.csu.domain.Topic;
+import org.csu.domain.*;
 import org.apache.ibatis.jdbc.Null;
-import org.csu.domain.Parking;
-import org.csu.domain.ParkingSpace;
 
-import org.csu.domain.User;
-import org.csu.domain.Volunteer;
 import org.csu.mapper.MenuMapper;
 import org.csu.mapper.ParkingMapper;
 import org.csu.mapper.ParkingSpaceMapper;
 import org.csu.mapper.UserMapper;
 import org.csu.service.ForumService;
 import org.csu.service.HealthCheckService;
+import org.csu.service.PaymentService;
 import org.csu.service.VolunteerService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +38,8 @@ public class MapperTest {
     private ParkingMapper parkingMapper;
     @Autowired
     private VolunteerService volunteerService;
+    @Autowired
+    private PaymentService paymentService;
 
     @Test
     public void testUpdateParkingSpace(){
@@ -69,12 +67,7 @@ public class MapperTest {
 
     @Test
     public void TestBCryptPasswordEncoder() {
-        //加密
-//        String encode = passwordEncoder.encode("123456");
-//        System.out.println(encode);
-        //校验
-        boolean matches = passwordEncoder.matches("{noop}123456", "123456");
-        System.out.println(matches);
+        System.out.println(paymentService.getIncome().getData().toString());
     }
 
 

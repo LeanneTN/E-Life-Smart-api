@@ -54,12 +54,10 @@ public class ForumController {
     }
 
     //根据ID删除话题：
-    @DeleteMapping("/topic/id")
+    @DeleteMapping("/topic/{id}")
     public ResponseResult deleteTopicById(@PathVariable("id") Long id){
         return forumService.deleteTopicById(id);
     }
-
-    //---------------------------------------一下为回帖相关操作------------------------
 
     //创建回帖
     @PostMapping("/comment")
@@ -92,16 +90,8 @@ public class ForumController {
         return forumService.getCommentByStatus(true);
     }
 
-    //根据回帖的ID，获取所有跟他同属于一个话题的ID
-//    @GetMapping("/report/comments")
-//    @PreAuthorize("hasAuthority('system:forum:report')")
-//    public ResponseResult getAllComments(){
-//        return forumService.getCommentByStatus(1);
-//    }
-
     //根据ID，将某个回帖设置为楼主
     @PostMapping("/comment/{id}/landlord")
-    @PreAuthorize("hasAuthority('system:forum:report')")
     public ResponseResult setLandlordById(@PathVariable("id") long id){
         return forumService.setLandlordById(id);
     }

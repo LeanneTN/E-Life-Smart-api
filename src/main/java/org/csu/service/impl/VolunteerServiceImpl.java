@@ -23,12 +23,13 @@ public class VolunteerServiceImpl implements VolunteerService {
     private VolunteerLogMapper volunteerLogMapper;
 
     @Override
-    public ResponseResult applyForVolunteer(Volunteer volunteer) {
-        Volunteer volunteer1 = volunteerMapper.selectById(volunteer.getId());
-        if(volunteer.getId().equals(null)||volunteer.getName().equals(null)||volunteer.getFreeTime().equals(null)){
+    public ResponseResult applyForVolunteer(Volunteer volunteer, long uid) {
+        Volunteer volunteer1 = volunteerMapper.selectById(uid);
+        if(volunteer.getName().equals(null)){
             return new ResponseResult(ResponseCode.USER_VOLUNTEER_INFO_INCOMPLETE.getCode(), "志愿者信息不完整");
         }
         if(volunteer1==null){
+            volunteer.setUid(uid);
             volunteerMapper.insert(volunteer);
             return new ResponseResult(ResponseCode.SUCCESS.getCode(), "志愿者创建成功");
         }
