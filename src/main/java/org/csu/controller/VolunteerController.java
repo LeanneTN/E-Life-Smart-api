@@ -66,4 +66,16 @@ public class VolunteerController {
         return volunteerService.getLogsGroupById();
     }
 
+    @GetMapping("/get_volunteer")
+    public ResponseResult getVolunteer(HttpServletRequest request){
+        String token = request.getHeader("token");
+        Long uid = null;
+        try{
+            Claims claims = JwtUtil.parseJWT(token);
+            uid = Long.valueOf(claims.getSubject());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return volunteerService.getVolunteer(uid);
+    }
 }
