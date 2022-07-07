@@ -64,4 +64,14 @@ public class RepairServiceImpl implements RepairService {
         List<Repair> repairs = repairMapper.selectList(wrapper);
         return new ResponseResult(ResponseCode.SUCCESS.getCode(), "成功获取所有报修记录", repairs);
     }
+
+    //更新某个Repair的内容
+    @Override
+    public ResponseResult updateRepairById(Repair repair) {
+        int i = repairMapper.updateById(repair);
+        if(i > 0)
+            return new ResponseResult(ResponseCode.SUCCESS.getCode(), "成功修改");
+        else
+            return new ResponseResult(ResponseCode.ERROR.getCode(), "服务器错误");
+    }
 }
