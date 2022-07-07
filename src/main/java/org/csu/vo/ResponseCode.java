@@ -26,7 +26,8 @@ public enum ResponseCode {
 
 
     USER_VOLUNTEER_INFO_INCOMPLETE(440, "USER_VOLUNTEER_INFO_INCOMPLETE"),//志愿者信息不完善
-    USER_VOLUNTEER_LOG_EMPTY(441, "USER_VOLUNTEER_LOG_EMPTY");//志愿者日志为空
+    USER_VOLUNTEER_LOG_EMPTY(441, "USER_VOLUNTEER_LOG_EMPTY"),//志愿者日志为空
+    NOT_VOLUNTEER(442, "NOT_VOLUNTEER");//不是志愿者
 
     private final int code;
     private final String description;
