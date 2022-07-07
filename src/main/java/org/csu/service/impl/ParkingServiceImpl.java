@@ -126,9 +126,15 @@ public class ParkingServiceImpl implements ParkingService {
     }
 
     @Override
-    public ResponseResult getInfo() {
+    public ResponseResult getCarInfo() {
         List<Car> cars = carMapper.selectList(null);
         return new ResponseResult(ResponseCode.SUCCESS.getCode(), cars);
+    }
+
+    @Override
+    public ResponseResult getParkingSpaceInfo() {
+        List<ParkingSpace> parkingSpaces = parkingSpaceMapper.selectList(null);
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), parkingSpaces);
     }
 
     @Override

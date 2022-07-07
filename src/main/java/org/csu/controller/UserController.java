@@ -95,4 +95,10 @@ public class UserController {
         return userService.getUserInfoById(userid);
     }
 
+    //获取所有用户的信息
+    @GetMapping("/user_info")
+    public ResponseResult getAllUserInfo() {
+        return userService.getAllUserInfo();
+    }
+
 }

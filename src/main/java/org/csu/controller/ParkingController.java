@@ -14,12 +14,14 @@ public class ParkingController {
     @Autowired
     private ParkingService parkingService;
 
+    //添加一辆车到小区的系统
     @PostMapping("/car")
     @PreAuthorize("hasAuthority('system:parking:add')")
     public ResponseResult addCar(@RequestBody Car car){
         return parkingService.addCar(car);
     }
 
+    //添加一个车位到小区的系统
     @PostMapping("/parking_space")
     @PreAuthorize("hasAuthority('system:parking:add')")
     public ResponseResult addParkingSpace(@RequestBody ParkingSpace parkingSpace){
@@ -51,10 +53,17 @@ public class ParkingController {
     }
 
     //获取小区内所有车辆的信息
-    @GetMapping("/info")
+    @GetMapping("/info/car")
     @PreAuthorize("hasAuthority('system:parking:info')")
-    public ResponseResult getInfo(){
-        return parkingService.getInfo();
+    public ResponseResult getCarInfo(){
+        return parkingService.getCarInfo();
+    }
+
+    //获取所有车位的信息
+    @GetMapping("/info/parking_space")
+    @PreAuthorize("hasAuthority('system:parking:info')")
+    public ResponseResult getParkingSpaceInfo(){
+        return parkingService.getParkingSpaceInfo();
     }
 
     //查询某用户名下的车辆信息

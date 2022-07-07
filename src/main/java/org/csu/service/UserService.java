@@ -32,4 +32,6 @@ public interface UserService {
     ResponseResult bindPhoneNumber(String number, HttpServletRequest req);
 
     ResponseResult resetPassword(String oldPwd,String newPwd, HttpServletRequest req);
+
+    ResponseResult getAllUserInfo();
 }

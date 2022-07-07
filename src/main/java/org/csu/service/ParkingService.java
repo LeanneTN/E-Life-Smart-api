@@ -13,7 +13,9 @@ public interface ParkingService {
 
     ResponseResult getLogByCarNum(String carNum);
 
-    ResponseResult getInfo();
+    ResponseResult getCarInfo();
+
+    ResponseResult getParkingSpaceInfo();
 
     ResponseResult getInfoByUserid(String userid);
 

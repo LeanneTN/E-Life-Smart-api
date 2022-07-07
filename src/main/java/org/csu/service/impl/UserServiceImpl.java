@@ -36,10 +36,7 @@ import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Random;
+import java.util.*;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -293,6 +290,13 @@ public class UserServiceImpl implements UserService {
         }
         else
             return new ResponseResult(ResponseCode.ACCOUNT_NOT_EXIST.getCode(), "输入密码错误！");
+    }
+
+    //获取所有用户的信息
+    @Override
+    public ResponseResult getAllUserInfo() {
+        List<User> users = userMapper.selectList(null);
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "成功获取所有用户的信息", users);
     }
 
     //查询手机号对应的用户
