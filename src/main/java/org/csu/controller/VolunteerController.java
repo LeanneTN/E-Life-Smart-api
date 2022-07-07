@@ -80,7 +80,7 @@ public class VolunteerController {
     }
 
     @GetMapping("/get_volunteer_tasks")
-    public ResponseResult getVolunteerTasks(HttpServletRequest request, @RequestBody Volunteer volunteer){
+    public ResponseResult getVolunteerTasks(HttpServletRequest request, @RequestBody String free_time){
         String token = request.getHeader("token");
         Long uid = null;
         try{
@@ -89,7 +89,7 @@ public class VolunteerController {
         }catch (Exception e){
             e.printStackTrace();
         }
-        String freeTime = volunteer.getFreeTime();
+        String freeTime = free_time;
         return volunteerService.getVolunteerTasks(uid, freeTime);
     }
 }
