@@ -7,15 +7,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+
 @RestController
-@RequestMapping("/repair/")
+@RequestMapping("/api/repair/")
 public class RepairController {
     @Autowired
     private RepairService repairService;
 
+    //提交报修单
     @PostMapping("/submit")
     public ResponseResult submitRepair(@RequestBody Repair repair){
         return repairService.submitRepair(repair);
+    }
+
+    //获取当前用户的所有报修记录
+    @GetMapping("/my_logs")
+    public ResponseResult getLogByUserId(HttpServletRequest req){
+        return repairService.getLogByUserId(req);
     }
 
     @GetMapping("/logs")

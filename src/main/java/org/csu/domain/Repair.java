@@ -20,6 +20,7 @@ public class Repair implements Serializable {
     //基本信息
     @TableId(type = IdType.AUTO)
     private Long id;
+
     private Long fromUser;
     private String type;
     private Date start;
@@ -29,4 +30,7 @@ public class Repair implements Serializable {
     private String description;
     private String status;  //报修的状态（未解决/正在解决/已解决）
     private Long repairerId;
+
+    private String address;
+    private String phone;
 }

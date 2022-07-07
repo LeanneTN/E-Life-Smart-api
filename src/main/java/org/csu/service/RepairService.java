@@ -3,6 +3,8 @@ package org.csu.service;
 import org.csu.domain.Repair;
 import org.csu.vo.ResponseResult;
 
+import javax.servlet.http.HttpServletRequest;
+
 public interface RepairService {
     ResponseResult submitRepair(Repair repair);
 
@@ -13,4 +15,6 @@ public interface RepairService {
     ResponseResult getTasks();
 
     ResponseResult updateStatus(Repair repair);
+
+    ResponseResult getLogByUserId(HttpServletRequest req);
 }
