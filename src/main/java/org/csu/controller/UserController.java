@@ -76,6 +76,14 @@ public class UserController {
         return userService.loginByPhone(phone);
     }
 
+    //重置密码
+    @PutMapping("/password")
+    public ResponseResult resetPassword(@RequestParam("oldPwd") String oldPwd,
+                                        @RequestParam("newPwd") String newPwd,
+                                        HttpServletRequest req){
+        return userService.resetPassword(oldPwd, newPwd, req);
+    }
+
     @GetMapping("/{userid}")
     public ResponseResult getUserInfoById(@PathVariable("userid") String userid) {
         return userService.getUserInfoById(userid);
@@ -85,4 +93,6 @@ public class UserController {
     public ResponseResult updateUserInfoById(@RequestBody User user) {
         return userService.updateUserInfoById(user);
     }
+
+
 }

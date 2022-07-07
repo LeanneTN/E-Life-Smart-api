@@ -30,4 +30,6 @@ public interface UserService {
     ResponseResult isPhoneNumberExist(String number);
 
     ResponseResult bindPhoneNumber(String number, HttpServletRequest req);
+
+    ResponseResult resetPassword(String oldPwd,String newPwd, HttpServletRequest req);
 }

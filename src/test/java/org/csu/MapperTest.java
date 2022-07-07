@@ -42,6 +42,16 @@ public class MapperTest {
     private PaymentService paymentService;
 
     @Test
+    public void testPasswordEncoder(){
+        String s1 = passwordEncoder.encode("1234");
+        String s2 = passwordEncoder.encode("1234");
+
+        System.out.println(passwordEncoder.matches( "1234", s1));
+
+    }
+
+
+    @Test
     public void testUpdateParkingSpace(){
 //        ParkingSpace parkingSpace = new ParkingSpace("A01", "","0");
 //        parkingSpaceMapper.updateById(parkingSpace);

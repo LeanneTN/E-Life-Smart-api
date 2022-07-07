@@ -263,10 +263,32 @@ public class UserServiceImpl implements UserService {
 
         int i = userMapper.updateById(user);
         int j = rawMapper.update(null, wrapper);
+
+        String redisKey = "login:" + user.getId();
+        LoginUser loginUser = redisCache.getCacheObject(redisKey);
+        loginUser.getUser().setPhoneNumber(number);
+        redisCache.setCacheObject(redisKey, loginUser);
+
         if(i > 0 && j > 0){
             return new ResponseResult(ResponseCode.SUCCESS.getCode(), "绑定手机号成功");
         }
         return new ResponseResult(ResponseCode.ERROR.getCode(), "绑定手机号失败");
+    }
+
+    //重置密码
+    @Override
+    public ResponseResult resetPassword(String oldPwd, String newPwd, HttpServletRequest req) {
+        User loginUser = (User) getLoginUser(req).getData();
+        if(passwordEncoder.matches(oldPwd, loginUser.getPassword())) {
+            loginUser.setPassword(passwordEncoder.encode(newPwd));
+            int i = userMapper.updateById(loginUser);
+            if (i > 0)
+                return new ResponseResult(ResponseCode.SUCCESS.getCode(), "更改密码成功", loginUser);
+            else
+                return new ResponseResult(ResponseCode.ERROR.getCode(), "服务器错误");
+        }
+        else
+            return new ResponseResult(ResponseCode.ACCOUNT_NOT_EXIST.getCode(), "输入密码错误！");
     }
 
     //查询手机号对应的用户
