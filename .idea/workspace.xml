@@ -11,6 +11,15 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/RepairServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/RepairServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/csu/controller/RepairController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/controller/RepairController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/impl/RepairServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/impl/RepairServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/controller/VolunteerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/controller/VolunteerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/service/VolunteerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/service/VolunteerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/VolunteerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/VolunteerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/controller/VolunteerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/controller/VolunteerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/VolunteerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/VolunteerService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/impl/VolunteerServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/impl/VolunteerServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/vo/ResponseCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/vo/ResponseCode.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,8 +108,40 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.MapperTest.testPasswordEncoder">
-    <configuration name="MapperTest.testPasswordEncoder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Spring Boot.SecurityApplication (1)">
+    <configuration name="MapperTest.TestBCryptPasswordEncoder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="e-life-community-api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.csu.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.csu" />
+      <option name="MAIN_CLASS_NAME" value="org.csu.MapperTest" />
+      <option name="METHOD_NAME" value="TestBCryptPasswordEncoder" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MapperTest.testAPI" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="e-life-community-api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.csu.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.csu" />
+      <option name="MAIN_CLASS_NAME" value="org.csu.MapperTest" />
+      <option name="METHOD_NAME" value="testAPI" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MapperTest.testInsertUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="E-LifeSmartCommunity" />
       <extension name="coverage">
         <pattern>
@@ -110,8 +151,21 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.csu" />
       <option name="MAIN_CLASS_NAME" value="org.csu.MapperTest" />
-      <option name="METHOD_NAME" value="testPasswordEncoder" />
+      <option name="METHOD_NAME" value="testInsertUser" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SecurityApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="e-life-community-api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.csu.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.csu.SecurityApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -125,19 +179,24 @@
         </pattern>
       </extension>
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.csu.SecurityApplication" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.MapperTest.TestBCryptPasswordEncoder" />
+      <item itemvalue="JUnit.MapperTest.testAPI" />
+      <item itemvalue="JUnit.MapperTest.testInsertUser" />
       <item itemvalue="Spring Boot.SecurityApplication" />
-      <item itemvalue="JUnit.MapperTest.testPasswordEncoder" />
+      <item itemvalue="Spring Boot.SecurityApplication (1)" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MapperTest.testPasswordEncoder" />
+        <item itemvalue="Spring Boot.SecurityApplication (1)" />
+        <item itemvalue="JUnit.MapperTest.TestBCryptPasswordEncoder" />
+        <item itemvalue="JUnit.MapperTest.testAPI" />
         <item itemvalue="Spring Boot.SecurityApplication" />
+        <item itemvalue="JUnit.MapperTest.testInsertUser" />
       </list>
     </recent_temporary>
   </component>
@@ -205,6 +264,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Project initialization" />
@@ -227,6 +287,9 @@
           <url>file://$PROJECT_DIR$/src/main/java/org/csu/controller/RepairController.java</url>
           <line>32</line>
           <option name="timeStamp" value="27" />
+          <url>file://$PROJECT_DIR$/src/main/java/org/csu/service/impl/UserServiceImpl.java</url>
+          <line>189</line>
+          <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

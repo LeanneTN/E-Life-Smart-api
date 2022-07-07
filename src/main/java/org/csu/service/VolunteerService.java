@@ -14,4 +14,8 @@ public interface VolunteerService {
     ResponseResult getLogs();
 
     ResponseResult getLogsGroupById();
+
+    ResponseResult getVolunteerTasks(long uid, String freeTime);
+
+    ResponseResult getVolunteer(Long uid);
 }
