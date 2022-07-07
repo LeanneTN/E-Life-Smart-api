@@ -142,10 +142,6 @@ public class UserServiceImpl implements UserService {
     //获取手机验证码
     @Override
     public ResponseResult getPhoneCode(String phoneNumber) {
-        //首先查询该号码在不在库里
-        if(queryPhoneNumber(phoneNumber) == null){
-            return new ResponseResult(ResponseCode.ACCOUNT_NOT_EXIST.getCode(), "账号不存在");
-        }
         String phoneCode = null;
         try {
             //用于接收发送结果反馈 形式是JSON

@@ -4,52 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8746292-61c3-44a5-bf83-ec0fbcae6571" name="Changes" comment="Project initialization">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/controller/ForumController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/controller/ForumController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/controller/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/controller/PaymentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/controller/VolunteerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/controller/VolunteerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/domain/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/domain/Payment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/domain/Volunteer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/domain/Volunteer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/service/PaymentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/service/PaymentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/service/VolunteerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/service/VolunteerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/PaymentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/PaymentServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/VolunteerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/VolunteerServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/csu/MapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/csu/MapperTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/controller/PaymentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/controller/PaymentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/controller/VolunteerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/controller/VolunteerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/Admin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/AlipayConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/AlipayConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/Car.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/Car.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/Comment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/Comment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/HealthCheck.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/HealthCheck.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/Menu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/Parking.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/Parking.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/ParkingSpace.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/ParkingSpace.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/Payment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/Payment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/Raw.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/Raw.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/Repair.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/Repair.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/Topic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/Topic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/UserRole.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/UserRole.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/Volunteer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/Volunteer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/VolunteerLog.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/VolunteerLog.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/filter/JwtAuthenticationTokenFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/filter/JwtAuthenticationTokenFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/PaymentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/PaymentService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/VolunteerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/VolunteerService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/impl/ForumServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/impl/ForumServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/impl/HealthCheckServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/impl/HealthCheckServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/impl/ParkingServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/impl/ParkingServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/impl/PaymentServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/impl/PaymentServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/impl/UserDetailsServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/impl/UserDetailsServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/impl/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/impl/VolunteerServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/impl/VolunteerServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/uitls/JwtUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/uitls/JwtUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/uitls/RedisCache.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/uitls/RedisCache.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/uitls/WebUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/uitls/WebUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/vo/CodeVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/vo/CodeVO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/vo/LoginUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/vo/LoginUser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/org/csu/MapperTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/org/csu/MapperTest.class" afterDir="false" />
-    </list>
+    <list default="true" id="c8746292-61c3-44a5-bf83-ec0fbcae6571" name="Changes" comment="Project initialization" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -137,68 +92,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.SecurityApplication (1)">
-    <configuration name="MapperTest.TestBCryptPasswordEncoder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="e-life-community-api" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.csu.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.csu" />
-      <option name="MAIN_CLASS_NAME" value="org.csu.MapperTest" />
-      <option name="METHOD_NAME" value="TestBCryptPasswordEncoder" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MapperTest.testAPI" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="e-life-community-api" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.csu.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.csu" />
-      <option name="MAIN_CLASS_NAME" value="org.csu.MapperTest" />
-      <option name="METHOD_NAME" value="testAPI" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MapperTest.testInsertUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="E-LifeSmartCommunity" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.csu.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.csu" />
-      <option name="MAIN_CLASS_NAME" value="org.csu.MapperTest" />
-      <option name="METHOD_NAME" value="testInsertUser" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SecurityApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="e-life-community-api" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.csu.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="org.csu.SecurityApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager">
     <configuration name="SecurityApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="E-LifeSmartCommunity" />
       <extension name="coverage">
@@ -208,24 +102,14 @@
         </pattern>
       </extension>
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.csu.SecurityApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <list>
-      <item itemvalue="JUnit.MapperTest.TestBCryptPasswordEncoder" />
-      <item itemvalue="JUnit.MapperTest.testAPI" />
-      <item itemvalue="JUnit.MapperTest.testInsertUser" />
-      <item itemvalue="Spring Boot.SecurityApplication" />
-      <item itemvalue="Spring Boot.SecurityApplication (1)" />
-    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.SecurityApplication (1)" />
-        <item itemvalue="JUnit.MapperTest.TestBCryptPasswordEncoder" />
-        <item itemvalue="JUnit.MapperTest.testAPI" />
         <item itemvalue="Spring Boot.SecurityApplication" />
-        <item itemvalue="JUnit.MapperTest.testInsertUser" />
       </list>
     </recent_temporary>
   </component>
@@ -255,6 +139,7 @@
       <workItem from="1657064886417" duration="753000" />
       <workItem from="1657069163252" duration="7455000" />
       <workItem from="1657036668044" duration="11257000" />
+      <workItem from="1657148325145" duration="705000" />
     </task>
     <task id="LOCAL-00001" summary="Project initialization">
       <created>1656832846816</created>
