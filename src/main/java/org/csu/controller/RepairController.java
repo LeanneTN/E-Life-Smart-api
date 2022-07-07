@@ -27,6 +27,12 @@ public class RepairController {
         return repairService.getLogByUserId(req);
     }
 
+    //根据ID修改某个报修的内容
+    @PutMapping("/my_logs")
+    public ResponseResult updateRepairById(Repair repair){
+        return repairService.updateRepairById(repair);
+    }
+
     @GetMapping("/logs")
     public ResponseResult getLogs(){
         return repairService.getLogs();

@@ -17,4 +17,6 @@ public interface RepairService {
     ResponseResult updateStatus(Repair repair);
 
     ResponseResult getLogByUserId(HttpServletRequest req);
+
+    ResponseResult updateRepairById(Repair repair);
 }

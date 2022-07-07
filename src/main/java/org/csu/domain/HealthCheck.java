@@ -24,4 +24,5 @@ public class HealthCheck implements Serializable {
     private String location;
     private Date time;
     private String otherInfo;
+    private int areaLevel;
 }
