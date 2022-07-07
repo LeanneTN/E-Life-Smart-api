@@ -179,7 +179,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public ResponseResult updateUserInfoById(User user) {
-        return null;
+        int i = userMapper.updateById(user);
+        if(i > 0)
+            return new ResponseResult(ResponseCode.SUCCESS.getCode(), "成功更新个人信息！");
+        else
+            return new ResponseResult(ResponseCode.ERROR.getCode(), "服务器错误");
     }
 
     //注册

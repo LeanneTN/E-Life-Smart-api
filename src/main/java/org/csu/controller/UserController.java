@@ -84,15 +84,15 @@ public class UserController {
         return userService.resetPassword(oldPwd, newPwd, req);
     }
 
-    @GetMapping("/{userid}")
-    public ResponseResult getUserInfoById(@PathVariable("userid") String userid) {
-        return userService.getUserInfoById(userid);
-    }
-
+    //更新用户的信息
     @PostMapping("/user_info")
     public ResponseResult updateUserInfoById(@RequestBody User user) {
         return userService.updateUserInfoById(user);
     }
 
+    @GetMapping("/{userid}")
+    public ResponseResult getUserInfoById(@PathVariable("userid") String userid) {
+        return userService.getUserInfoById(userid);
+    }
 
 }
