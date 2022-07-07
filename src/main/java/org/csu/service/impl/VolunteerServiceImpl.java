@@ -77,4 +77,23 @@ public class VolunteerServiceImpl implements VolunteerService {
         }
         return new ResponseResult(ResponseCode.SUCCESS.getCode(), "按id分组进行获取日志成功",volunteerList);
     }
+
+    @Override
+    public ResponseResult getVolunteerTasks(long uid, String freeTime) {
+        QueryWrapper queryWrapper = new QueryWrapper();
+        queryWrapper.eq("free_time", freeTime);
+        queryWrapper.eq("volunteer_id", null);
+        List<VolunteerLog> volunteerLogs = volunteerLogMapper.selectList(queryWrapper);
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "志愿任务获取成功", volunteerLogs);
+    }
+
+    @Override
+    public ResponseResult getVolunteer(Long uid) {
+        QueryWrapper queryWrapper = new QueryWrapper();
+        queryWrapper.eq("uid", uid);
+        Volunteer volunteer = volunteerMapper.selectOne(queryWrapper);
+        if(volunteer == null)
+            return new ResponseResult(ResponseCode.NOT_VOLUNTEER.getCode(), "无此志愿者");
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "志愿者获取成功", volunteer);
+    }
 }

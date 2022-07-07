@@ -78,4 +78,18 @@ public class VolunteerController {
         }
         return volunteerService.getVolunteer(uid);
     }
+
+    @GetMapping("/get_volunteer_tasks")
+    public ResponseResult getVolunteerTasks(HttpServletRequest request, @RequestBody Volunteer volunteer){
+        String token = request.getHeader("token");
+        Long uid = null;
+        try{
+            Claims claims = JwtUtil.parseJWT(token);
+            uid = Long.valueOf(claims.getSubject());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        String freeTime = volunteer.getFreeTime();
+        return volunteerService.getVolunteerTasks(uid, freeTime);
+    }
 }
