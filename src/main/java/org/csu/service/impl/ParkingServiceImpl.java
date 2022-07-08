@@ -194,4 +194,15 @@ public class ParkingServiceImpl implements ParkingService {
         double delta = 24 * day + hour + min/60.0;
         return delta;
     }
+
+    //查看用户是否已注册车辆
+    public ResponseResult ownCar(long uid){
+        QueryWrapper queryWrapper = new QueryWrapper();
+        queryWrapper.eq("owner",uid);
+        Car car = carMapper.selectOne(queryWrapper);
+        if(car == null){
+            return new ResponseResult(ResponseCode.NO_CAR_LOG.getCode(), "用户没有车");
+        }
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "用户车辆信息获取成功", car);
+    }
 }

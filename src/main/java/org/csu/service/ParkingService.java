@@ -22,4 +22,6 @@ public interface ParkingService {
     ResponseResult addCar(Car car);
 
     ResponseResult addParkingSpace(ParkingSpace parkingSpace);
+
+    ResponseResult ownCar(long uid);
 }
