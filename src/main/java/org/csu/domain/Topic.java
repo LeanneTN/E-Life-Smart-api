@@ -18,26 +18,17 @@ import java.util.Date;
 public class Topic implements Serializable {
     private static final long serialVersionUID = -40356785423868312L;
 
-//    @TableId
-//    private String id;
-//    private String fromUser;
-//    private String title;
-//    private String content;
-//
-//    private Date lastReplyTime;
-//    private String lastReplyUser;
     @TableId(type = IdType.AUTO)
-    private long id;
-    @TableField(value = "from_user")
-    private long fromUser;
+    private Long id;
+    private Long fromUser;
     private String title;
     private String content;
-    @TableField(value = "is_reported")
     private boolean isReported;
     private int response;
 
-    @TableField(value="last_reply_time")
+    private String img;
+
+    private Date createTime;
     private Date lastReplyTime;
-    @TableField(value="last_reply_user")
-    private long lastReplyUser;
+    private String lastReplyUser;
 }

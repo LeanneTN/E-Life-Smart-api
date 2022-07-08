@@ -32,9 +32,16 @@ public class ForumServiceImpl implements ForumService {
         return new ResponseResult(ResponseCode.SUCCESS.getCode(),"话题创建成功");
     }
 
+    //获取所有的话题
+    @Override
+    public ResponseResult getAllTopic() {
+        List<Topic> topics = topicMapper.selectList(null);
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), topics);
+    }
+
     //根据ID，获取话题
     @Override
-    public ResponseResult getTopicById(long id) {
+    public ResponseResult getTopicById(Long id) {
         Topic topic = topicMapper.selectById(id);
         if(topic==null){
             return new ResponseResult(ResponseCode.NO_TOPIC_LOG.getCode(), "该话题不存在");
@@ -43,7 +50,7 @@ public class ForumServiceImpl implements ForumService {
     }
     //根据ID，获得话题所拥有的回帖
     @Override
-    public ResponseResult getTopic_CommentsById(long id) {
+    public ResponseResult getTopic_CommentsById(Long id) {
         Topic topic = topicMapper.selectById(id);
         if(topic==null){
             return new ResponseResult(ResponseCode.NO_TOPIC_LOG.getCode(), "该话题不存在");
@@ -74,7 +81,7 @@ public class ForumServiceImpl implements ForumService {
 
     //找到某一个用户创建的所有话题
     @Override
-    public ResponseResult getTopicsByUser(long id) {
+    public ResponseResult getTopicsByUser(Long id) {
         QueryWrapper<Topic> wrapper = new QueryWrapper<>();
         wrapper.eq("from_user",id);
         List<Topic> topics = topicMapper.selectList(wrapper);
@@ -145,7 +152,7 @@ public class ForumServiceImpl implements ForumService {
 
     //找到用户创建的所有回帖
     @Override
-    public ResponseResult getCommentsByUser(long id) {
+    public ResponseResult getCommentsByUser(Long id) {
         QueryWrapper<Comment> wrapper = new QueryWrapper<>();
         wrapper.eq("from_user",id);
         List<Comment> comments = commentMapper.selectList(wrapper);
@@ -194,7 +201,7 @@ public class ForumServiceImpl implements ForumService {
     //根据设置回帖为楼主
     //-----------------------------此处需要鉴权，只有话题所有者可以设置楼主----------------------------------------------------
     @Override
-    public ResponseResult setLandlordById(long id) {
+    public ResponseResult setLandlordById(Long id) {
         //一：将原本的楼主撤销、
         Comment comment = commentMapper.selectById(id);   //找到该帖子
         QueryWrapper<Comment> wrapper = new QueryWrapper<>();
@@ -208,6 +215,5 @@ public class ForumServiceImpl implements ForumService {
         commentMapper.updateById(comment);
         return new ResponseResult(200,"楼主已设置成功");
     }
-
 
 }
