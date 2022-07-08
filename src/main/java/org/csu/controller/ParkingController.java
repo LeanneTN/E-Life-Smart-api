@@ -42,7 +42,7 @@ public class ParkingController {
         return parkingService.leave(id);
     }
 
-    @GetMapping("/own")
+    @PostMapping("/own")
     public ResponseResult ifOwns(HttpServletRequest request){
         String token = request.getHeader("token");
         Long uid = null;
