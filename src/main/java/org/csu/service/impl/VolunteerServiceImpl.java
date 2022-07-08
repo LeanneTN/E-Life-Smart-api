@@ -81,7 +81,6 @@ public class VolunteerServiceImpl implements VolunteerService {
     @Override
     public ResponseResult getVolunteerTasks(long uid, String freeTime) {
         QueryWrapper queryWrapper = new QueryWrapper();
-        queryWrapper.eq("free_time", freeTime);
         queryWrapper.eq("volunteer_id", null);
         List<VolunteerLog> volunteerLogs = volunteerLogMapper.selectList(queryWrapper);
         return new ResponseResult(ResponseCode.SUCCESS.getCode(), "志愿任务获取成功", volunteerLogs);
