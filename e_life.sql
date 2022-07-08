@@ -62,6 +62,7 @@ CREATE TABLE `sys_health_check` (
   `location` varchar(32) DEFAULT NULL,
   `time` timestamp NULL DEFAULT NULL,
   `other_info` varchar(256) DEFAULT NULL,
+  `area_level` int(4) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -179,7 +180,7 @@ CREATE TABLE `sys_raw` (
 
 insert  into `sys_raw`(`user_name`,`phone_number`,`raw_password`) values 
 ('antares','13213761071','123456'),
-('root',NULL,'123456');
+('root','17518939776','123456');
 
 /*Table structure for table `sys_repair` */
 
@@ -187,18 +188,25 @@ DROP TABLE IF EXISTS `sys_repair`;
 
 CREATE TABLE `sys_repair` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `from_user` int(8) DEFAULT NULL,
-  `type` varchar(16) DEFAULT NULL,
+  `from_user` int(8) NOT NULL,
+  `type` varchar(16) NOT NULL,
   `start` timestamp NULL DEFAULT NULL,
   `end` timestamp NULL DEFAULT NULL,
   `img` varchar(64) DEFAULT NULL,
   `description` varchar(128) DEFAULT NULL,
-  `status` varchar(8) DEFAULT NULL,
+  `status` varchar(8) NOT NULL,
   `repairer_id` int(8) DEFAULT NULL,
+  `address` varchar(64) NOT NULL,
+  `phone` varchar(16) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `sys_repair` */
+
+insert  into `sys_repair`(`id`,`from_user`,`type`,`start`,`end`,`img`,`description`,`status`,`repairer_id`,`address`,`phone`) values 
+(1,11,'门锁','2022-07-07 12:38:23',NULL,NULL,'hahaha','已报修',NULL,'1234','1324'),
+(2,11,'家电','2022-07-07 13:54:54',NULL,NULL,'电视机','已报修',NULL,'A5栋1105','13213761071'),
+(3,11,'电路','2022-07-07 14:01:44',NULL,NULL,'无','已报修',NULL,'B5栋504号','17518913644');
 
 /*Table structure for table `sys_role` */
 
@@ -228,7 +236,7 @@ CREATE TABLE `sys_role_menu` (
   `role_id` bigint(200) NOT NULL AUTO_INCREMENT COMMENT '角色ID',
   `menu_id` bigint(200) NOT NULL DEFAULT '0' COMMENT '菜单id',
   PRIMARY KEY (`role_id`,`menu_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `sys_role_menu` */
 
@@ -284,8 +292,8 @@ CREATE TABLE `sys_user` (
 /*Data for the table `sys_user` */
 
 insert  into `sys_user`(`id`,`user_name`,`password`,`status`,`email`,`phone_number`,`sex`,`avatar`,`name`,`building_number`,`room_number`) values 
-(1,'antares','$2a$10$ZL5tR0RiqUyIxj7TEytCkuAbXUM55qKf753DYg5X67SEOxcV/4rk.','0',NULL,'13213761071',NULL,NULL,NULL,NULL,NULL),
-(11,'root','$2a$10$K3GYJNEhtExpOEnZRheK1uAprXyx94FwVIJgkQOz5IIi1JyZEfzpu','0',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+(1,'antares','$2a$10$ZL5tR0RiqUyIxj7TEytCkuAbXUM55qKf753DYg5X67SEOxcV/4rk.','0',NULL,'13213761071','0',NULL,'王五','B2','404'),
+(11,'root','$2a$10$duVkOBly1o0zwv.36SsdaeUmDjrzovQZEHd4Fh5Smz97DRcguw9O2','0',NULL,'17518939776','1',NULL,'das','sad','sad');
 
 /*Table structure for table `sys_user_role` */
 
@@ -314,6 +322,7 @@ CREATE TABLE `sys_volunteer` (
   `name` varchar(16) DEFAULT NULL,
   `free_time` varchar(32) DEFAULT NULL,
   `total_time` decimal(10,2) DEFAULT NULL,
+  `uid` bigint(16) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
