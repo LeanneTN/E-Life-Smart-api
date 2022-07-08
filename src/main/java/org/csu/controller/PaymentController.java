@@ -22,7 +22,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
 @RestController
-@RequestMapping("api/payment/")
+@RequestMapping("/api/payment/")
 public class PaymentController {
     @Autowired
     private PaymentService paymentService;

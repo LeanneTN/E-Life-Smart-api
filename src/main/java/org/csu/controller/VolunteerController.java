@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 
 @RestController
-@RequestMapping("api/volunteer/")
+@RequestMapping("/api/volunteer/")
 public class VolunteerController {
     @Autowired
     private VolunteerService volunteerService;
