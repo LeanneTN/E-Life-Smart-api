@@ -34,9 +34,21 @@ public class RepairServiceImpl implements RepairService {
         }
     }
 
+    //获取所有的报修任务（状态为已报修）
+    @Override
+    public ResponseResult getTasks() {
+        //首先查询该号码在不在库里
+        LambdaQueryWrapper<Repair> wrapper = new QueryWrapper<Repair>().lambda();
+        wrapper.eq(Repair::getStatus, "已报修");
+        List<Repair> repairs = repairMapper.selectList(wrapper);
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "成功获取所有报修任务");
+    }
+
+    //获取所有的报修信息，不管是什么状态的，为超级管理员所使用
     @Override
     public ResponseResult getLogs() {
-        return null;
+        List<Repair> repairs = repairMapper.selectList(null);
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "获取所有报修记录");
     }
 
     @Override
@@ -44,14 +56,14 @@ public class RepairServiceImpl implements RepairService {
         return null;
     }
 
-    @Override
-    public ResponseResult getTasks() {
-        return null;
-    }
 
+    //更新维修单（维修者接单和用户确定）
     @Override
     public ResponseResult updateStatus(Repair repair) {
-        return null;
+        int i = repairMapper.updateById(repair);
+        if(i > 0)
+            return new ResponseResult(ResponseCode.SUCCESS.getCode(), "成功更新维修单状态",repair);
+        return new ResponseResult(ResponseCode.ERROR.getCode(), "服务器错误");
     }
 
     //获取当前用户的所有报修记录
@@ -73,5 +85,15 @@ public class RepairServiceImpl implements RepairService {
             return new ResponseResult(ResponseCode.SUCCESS.getCode(), "成功修改");
         else
             return new ResponseResult(ResponseCode.ERROR.getCode(), "服务器错误");
+    }
+
+    //获取当前维修者的所有维修信息
+    @Override
+    public ResponseResult getMyRepair(HttpServletRequest req) {
+        User user = (User) userService.getLoginUser(req).getData();
+        LambdaQueryWrapper<Repair> wrapper = new QueryWrapper<Repair>().lambda();
+        wrapper.eq(Repair::getRepairerId, user.getId());
+        List<Repair> repairs = repairMapper.selectList(wrapper);
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "成功获取所有维修信息", repairs);
     }
 }

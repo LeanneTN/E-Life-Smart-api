@@ -1,12 +1,16 @@
 package org.csu.controller;
 
+import io.jsonwebtoken.Claims;
 import org.csu.domain.Car;
 import org.csu.domain.ParkingSpace;
+import org.csu.uitls.JwtUtil;
 import org.csu.vo.ResponseResult;
 import org.csu.service.ParkingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 
 @RestController
 @RequestMapping("/api/parking/")
@@ -36,6 +40,19 @@ public class ParkingController {
     @PostMapping("/leave")
     public ResponseResult leave(@RequestParam("id") String id){
         return parkingService.leave(id);
+    }
+
+    @PostMapping("/own")
+    public ResponseResult ifOwns(HttpServletRequest request){
+        String token = request.getHeader("token");
+        Long uid = null;
+        try{
+            Claims claims = JwtUtil.parseJWT(token);
+            uid = Long.valueOf(claims.getSubject());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return parkingService.ownCar(uid);
     }
 
     //获取所有的停车记录，以用于后台展示

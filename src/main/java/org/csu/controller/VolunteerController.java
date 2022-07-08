@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 
 @RestController
-@RequestMapping("api/volunteer/")
+@RequestMapping("/api/volunteer/")
 public class VolunteerController {
     @Autowired
     private VolunteerService volunteerService;
@@ -79,7 +79,7 @@ public class VolunteerController {
         return volunteerService.getVolunteer(uid);
     }
 
-    @GetMapping("/get_volunteer_tasks")
+    @PostMapping("/get_volunteer_tasks")
     public ResponseResult getVolunteerTasks(HttpServletRequest request, @RequestBody Volunteer volunteer){
         String token = request.getHeader("token");
         Long uid = null;
