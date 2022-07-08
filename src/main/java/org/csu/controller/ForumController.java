@@ -24,8 +24,13 @@ public class ForumController {
     //创建话题
     @PostMapping("/topic")
     public ResponseResult createTopic(@RequestBody Topic topic){
-        forumService.createTopic(topic);
         return forumService.createTopic(topic);
+    }
+
+    //获取所有的话题
+    @GetMapping("/topic")
+    public ResponseResult getAllTopic(){
+        return forumService.getAllTopic();
     }
 
     //根据话题ID，获得某个话题下的所有回帖
