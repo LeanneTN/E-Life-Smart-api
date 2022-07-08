@@ -89,4 +89,21 @@ public class ParkingController {
     public ResponseResult getInfoByUserid(@PathVariable("userid") String userid){
         return parkingService.getInfoByUserid(userid);
     }
+
+    //查询某用户的停车记录
+    @PostMapping("/park_info")
+    public ResponseResult getParkInfo(HttpServletRequest request, @RequestBody Car car){
+        String token = request.getHeader("token");
+        Long uid = null;
+        try{
+            Claims claims = JwtUtil.parseJWT(token);
+            uid = Long.valueOf(claims.getSubject());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        String carNum = car.getId();
+
+        return parkingService.getLogByCarNum(carNum);
+    }
 }
