@@ -16,6 +16,20 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`e_life` /*!40100 DEFAULT CHARACTER SET 
 
 USE `e_life`;
 
+/*Table structure for table `sys_acid` */
+
+DROP TABLE IF EXISTS `sys_acid`;
+
+CREATE TABLE `sys_acid` (
+  `id` bigint(20) NOT NULL,
+  `uid` bigint(20) DEFAULT NULL,
+  `name` varchar(20) DEFAULT NULL,
+  `result` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `sys_acid` */
+
 /*Table structure for table `sys_car` */
 
 DROP TABLE IF EXISTS `sys_car`;
@@ -29,6 +43,7 @@ CREATE TABLE `sys_car` (
 /*Data for the table `sys_car` */
 
 insert  into `sys_car`(`id`,`owner`) values 
+('湘A12345',11),
 ('湘A66666',1),
 ('豫R66666',1);
 
@@ -37,19 +52,31 @@ insert  into `sys_car`(`id`,`owner`) values
 DROP TABLE IF EXISTS `sys_comment`;
 
 CREATE TABLE `sys_comment` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `from_user` int(8) DEFAULT NULL,
-  `to_id` int(8) DEFAULT NULL,
+  `id` bigint(16) NOT NULL AUTO_INCREMENT,
+  `from_user` bigint(16) DEFAULT NULL,
+  `to_id` bigint(16) DEFAULT NULL,
   `type` int(2) DEFAULT NULL,
   `content` varchar(256) DEFAULT NULL,
   `time` timestamp NULL DEFAULT NULL,
   `is_reported` tinyint(1) DEFAULT '0',
   `response` int(11) DEFAULT '0',
   `is_landlord` tinyint(1) DEFAULT '0',
+  `to_user` bigint(8) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `sys_comment` */
+
+insert  into `sys_comment`(`id`,`from_user`,`to_id`,`type`,`content`,`time`,`is_reported`,`response`,`is_landlord`,`to_user`) values 
+(1,11,1,0,'11','2022-07-09 08:20:43',0,0,0,NULL),
+(2,11,1,0,'[微笑]11','2022-07-09 08:21:13',0,0,0,NULL),
+(3,11,1,0,'你们好[偷笑]','2022-07-09 09:40:35',0,0,0,NULL),
+(4,11,1,0,'你好！','2022-07-09 09:45:45',0,0,0,NULL),
+(5,11,4,0,'注意疫情防控[心]','2022-07-09 14:00:11',0,0,0,NULL),
+(6,11,4,0,'我再来测试一下','2022-07-09 14:01:31',0,0,0,NULL),
+(7,11,4,0,'hahaha','2022-07-09 14:02:27',0,0,0,NULL),
+(8,11,2,0,'朋友们好！','2022-07-09 14:03:27',0,0,0,NULL),
+(9,1,1,0,'WOW!','2022-07-09 14:04:45',0,0,0,NULL);
 
 /*Table structure for table `sys_health_check` */
 
@@ -156,14 +183,18 @@ CREATE TABLE `sys_payment` (
   `sum` decimal(10,2) DEFAULT NULL,
   `time` timestamp NULL DEFAULT NULL,
   `if_paid` tinyint(2) NOT NULL,
+  `finish_time` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `sys_payment` */
 
-insert  into `sys_payment`(`id`,`from_user`,`to_admin`,`type`,`sum`,`time`,`if_paid`) values 
-(1,1,NULL,'parking',72.90,'2022-07-05 07:04:27',0),
-(2,1,NULL,'parking',0.00,'2022-07-06 01:28:21',0);
+insert  into `sys_payment`(`id`,`from_user`,`to_admin`,`type`,`sum`,`time`,`if_paid`,`finish_time`) values 
+(1,1,NULL,'parking',72.90,'2022-07-05 07:04:27',0,NULL),
+(2,1,NULL,'parking',100.00,'2022-07-06 01:28:21',0,NULL),
+(3,11,NULL,'repair',50.00,'2022-07-05 08:43:55',1,'2022-07-06 10:54:47'),
+(4,11,NULL,'repair',50.00,'2022-07-04 10:54:32',1,'2022-07-09 02:54:59'),
+(5,11,NULL,'parking',60.20,'2022-07-03 11:00:35',1,'2022-07-08 11:00:38');
 
 /*Table structure for table `sys_raw` */
 
@@ -199,14 +230,16 @@ CREATE TABLE `sys_repair` (
   `address` varchar(64) NOT NULL,
   `phone` varchar(16) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `sys_repair` */
 
 insert  into `sys_repair`(`id`,`from_user`,`type`,`start`,`end`,`img`,`description`,`status`,`repairer_id`,`address`,`phone`) values 
-(1,11,'门锁','2022-07-07 12:38:23',NULL,NULL,'hahaha','已报修',NULL,'1234','1324'),
+(1,11,'门锁','2022-07-07 12:38:23',NULL,NULL,'ha','已完成',NULL,'123','1324'),
 (2,11,'家电','2022-07-07 13:54:54',NULL,NULL,'电视机','已报修',NULL,'A5栋1105','13213761071'),
-(3,11,'电路','2022-07-07 14:01:44',NULL,NULL,'无','已报修',NULL,'B5栋504号','17518913644');
+(3,11,'电路','2022-07-07 14:01:44',NULL,NULL,'无','已接单',NULL,'B5栋504号','17518913644'),
+(4,11,'电路','2022-07-08 01:26:55',NULL,NULL,'sadsadas','已报修',NULL,'ha','sdasd'),
+(5,11,'门锁','2022-07-08 01:37:20',NULL,NULL,'456456','已报修',NULL,'45645','6456456');
 
 /*Table structure for table `sys_role` */
 
@@ -259,16 +292,23 @@ CREATE TABLE `sys_topic` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `from_user` int(8) DEFAULT NULL,
   `title` varchar(64) DEFAULT NULL,
-  `content` varchar(256) DEFAULT NULL,
+  `content` text,
+  `create_time` timestamp NULL DEFAULT NULL,
   `last_reply_time` timestamp NULL DEFAULT NULL,
   `last_reply_user` varchar(16) DEFAULT NULL,
   `is_reported` tinyint(1) DEFAULT '0',
   `response` int(11) DEFAULT '0',
-  `create_time` timestamp NULL DEFAULT NULL,
+  `img` varchar(512) DEFAULT '@/assets/images/home/1.png',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `sys_topic` */
+
+insert  into `sys_topic`(`id`,`from_user`,`title`,`content`,`create_time`,`last_reply_time`,`last_reply_user`,`is_reported`,`response`,`img`) values 
+(1,11,'安倍遇刺','今日之大新闻','2022-07-08 07:22:30','2022-07-09 14:04:45','antares',0,5,'https://n.sinaimg.cn/default/crawl/133/w550h383/20220708/8765-d28ef9d6548ce38648faa771265f9b6a.png'),
+(2,11,'安倍遇刺','今日之大新闻','2022-07-08 07:22:59','2022-07-09 14:03:33','root',0,1,'https://n.sinaimg.cn/default/crawl/133/w550h383/20220708/8765-d28ef9d6548ce38648faa771265f9b6a.png'),
+(3,11,'安倍遇刺','今日之大新闻','2022-07-08 07:24:18','2022-07-08 07:24:18','root',0,0,'https://n.sinaimg.cn/default/crawl/133/w550h383/20220708/8765-d28ef9d6548ce38648faa771265f9b6a.png'),
+(4,11,'小区疫情','省委、省政府对临沂市疫情处置工作高度重视，成立了省市县一体化的疫情处置工作现场指挥部，现场指挥疫情应急处置工作，确保疫情处置科学精准、运转高效。指挥部进一步增配流调队伍，对阳性感染者的活动轨迹和密接、次密接情况进行详细排查。截至今天中午，累计排查密接者1812人，次密接者3627人，全部落实了隔离管控措施。','2022-07-08 13:06:39','2022-07-09 14:02:33','root',0,3,'https://appwk.baidu.com/naapi/doc/view?ih=810&o=jpg_6&iw=1440&ix=0&iy=0&aimw=1440&rn=1&doc_id=02095a72fc4733687e21af45b307e87101f6f805&pn=1&sign=ecbeb02654b5d810e8e433047a70973f&type=1&app_ver=2.9.8.2&ua=bd_800_800_IncredibleS_2.9.8.2_2.3.7&bid=1&app_ua=IncredibleS&uid=&cuid=&fr=3&Bdi_bear=WIFI&from=3_10000&bduss=&pid=1&screen=800_800&sys_ver=2.3.7');
 
 /*Table structure for table `sys_user` */
 
@@ -282,7 +322,7 @@ CREATE TABLE `sys_user` (
   `email` varchar(64) DEFAULT NULL COMMENT '邮箱',
   `phone_number` varchar(32) DEFAULT NULL COMMENT '手机号',
   `sex` char(1) DEFAULT NULL COMMENT '用户性别（0男，1女，2未知）',
-  `avatar` varchar(128) DEFAULT NULL COMMENT '头像',
+  `avatar` varchar(512) DEFAULT NULL COMMENT '头像',
   `name` varchar(16) DEFAULT NULL,
   `building_number` varchar(8) DEFAULT NULL,
   `room_number` varchar(8) DEFAULT NULL,
@@ -292,8 +332,8 @@ CREATE TABLE `sys_user` (
 /*Data for the table `sys_user` */
 
 insert  into `sys_user`(`id`,`user_name`,`password`,`status`,`email`,`phone_number`,`sex`,`avatar`,`name`,`building_number`,`room_number`) values 
-(1,'antares','$2a$10$ZL5tR0RiqUyIxj7TEytCkuAbXUM55qKf753DYg5X67SEOxcV/4rk.','0',NULL,'13213761071','0',NULL,'王五','B2','404'),
-(11,'root','$2a$10$duVkOBly1o0zwv.36SsdaeUmDjrzovQZEHd4Fh5Smz97DRcguw9O2','0',NULL,'17518939776','1',NULL,'das','sad','sad');
+(1,'antares','$2a$10$ZL5tR0RiqUyIxj7TEytCkuAbXUM55qKf753DYg5X67SEOxcV/4rk.','0',NULL,'13213761071','0','https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png','王五','B2','404'),
+(11,'root','$2a$10$duVkOBly1o0zwv.36SsdaeUmDjrzovQZEHd4Fh5Smz97DRcguw9O2','0',NULL,'17518939776','1','https://ts1.cn.mm.bing.net/th/id/R-C.29a84eb867bf75b5327e7df3b1a7e32c?rik=iW9zjAJwqTB%2fdA&riu=http%3a%2f%2ftupian.qqw21.com%2farticle%2fUploadPic%2f2019-7%2f201971622263482217.jpeg&ehk=W4G6YV7SJ1LFEFGJ3r%2bsC66stsnts%2bGu%2b7tsCcMPWGA%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1','das','sad','sad');
 
 /*Table structure for table `sys_user_role` */
 
@@ -324,9 +364,12 @@ CREATE TABLE `sys_volunteer` (
   `total_time` decimal(10,2) DEFAULT NULL,
   `uid` bigint(16) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `sys_volunteer` */
+
+insert  into `sys_volunteer`(`id`,`name`,`free_time`,`total_time`,`uid`) values 
+(1,'张三','2',5.00,11);
 
 /*Table structure for table `sys_volunteer_log` */
 

@@ -170,8 +170,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ResponseResult getUserInfoById(String userid) {
-        return null;
+    public ResponseResult getUserInfoById(Long id) {
+        User user = userMapper.selectById(id);
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "成功", user);
     }
 
     @Override
