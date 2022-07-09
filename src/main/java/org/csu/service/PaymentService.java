@@ -18,4 +18,10 @@ public interface PaymentService {
     ResponseResult getToPaid(HttpServletRequest req);
 
     ResponseResult payChecked(List<Payment> paymentList);
+
+    ResponseResult createPayment(Payment payment);
+
+    ResponseResult deletePaymentById(long id);
+
+    ResponseResult updatePayment(Payment payment);
 }

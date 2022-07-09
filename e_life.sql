@@ -1,6 +1,6 @@
 /*
-SQLyog Community v13.1.7 (64 bit)
-MySQL - 5.7.19 : Database - e_life
+SQLyog Community v13.1.6 (64 bit)
+MySQL - 8.0.17 : Database - e_life
 *********************************************************************
 */
 
@@ -12,7 +12,7 @@ MySQL - 5.7.19 : Database - e_life
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`e_life` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`e_life` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 
 USE `e_life`;
 
@@ -26,7 +26,11 @@ CREATE TABLE `sys_acid` (
   `name` varchar(20) DEFAULT NULL,
   `result` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
+<<<<<<< HEAD
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+=======
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+>>>>>>> 822793fcf192429b74c505e05740a575c2bfbcf4
 
 /*Data for the table `sys_acid` */
 
@@ -38,7 +42,7 @@ CREATE TABLE `sys_car` (
   `id` varchar(16) NOT NULL,
   `owner` bigint(16) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 /*Data for the table `sys_car` */
 
@@ -63,7 +67,11 @@ CREATE TABLE `sys_comment` (
   `is_landlord` tinyint(1) DEFAULT '0',
   `to_user` bigint(8) DEFAULT NULL,
   PRIMARY KEY (`id`)
+<<<<<<< HEAD
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
+=======
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+>>>>>>> 822793fcf192429b74c505e05740a575c2bfbcf4
 
 /*Data for the table `sys_comment` */
 
@@ -91,7 +99,7 @@ CREATE TABLE `sys_health_check` (
   `other_info` varchar(256) DEFAULT NULL,
   `area_level` int(4) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 /*Data for the table `sys_health_check` */
 
@@ -108,7 +116,7 @@ CREATE TABLE `sys_menu` (
   `status` char(1) DEFAULT '0' COMMENT '菜单状态（0正常 1停用）',
   `perms` varchar(100) DEFAULT NULL COMMENT '权限标识',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COMMENT='菜单表';
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='菜单表';
 
 /*Data for the table `sys_menu` */
 
@@ -136,7 +144,7 @@ CREATE TABLE `sys_parking` (
   `end` timestamp NULL DEFAULT NULL,
   `total_price` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 /*Data for the table `sys_parking` */
 
@@ -154,7 +162,7 @@ CREATE TABLE `sys_parking_space` (
   `car_num` varchar(16) DEFAULT NULL,
   `type` varchar(16) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 /*Data for the table `sys_parking_space` */
 
@@ -185,7 +193,11 @@ CREATE TABLE `sys_payment` (
   `if_paid` tinyint(2) NOT NULL,
   `finish_time` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
+<<<<<<< HEAD
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+=======
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+>>>>>>> 822793fcf192429b74c505e05740a575c2bfbcf4
 
 /*Data for the table `sys_payment` */
 
@@ -205,7 +217,7 @@ CREATE TABLE `sys_raw` (
   `phone_number` varchar(16) DEFAULT NULL,
   `raw_password` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`user_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 /*Data for the table `sys_raw` */
 
@@ -230,7 +242,11 @@ CREATE TABLE `sys_repair` (
   `address` varchar(64) NOT NULL,
   `phone` varchar(16) NOT NULL,
   PRIMARY KEY (`id`)
+<<<<<<< HEAD
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+=======
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+>>>>>>> 822793fcf192429b74c505e05740a575c2bfbcf4
 
 /*Data for the table `sys_repair` */
 
@@ -252,7 +268,7 @@ CREATE TABLE `sys_role` (
   `status` char(1) DEFAULT '0' COMMENT '角色状态（0正常 1停用）',
   `del_flag` int(1) DEFAULT '0' COMMENT 'del_flag',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COMMENT='角色表';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='角色表';
 
 /*Data for the table `sys_role` */
 
@@ -269,7 +285,7 @@ CREATE TABLE `sys_role_menu` (
   `role_id` bigint(200) NOT NULL AUTO_INCREMENT COMMENT '角色ID',
   `menu_id` bigint(200) NOT NULL DEFAULT '0' COMMENT '菜单id',
   PRIMARY KEY (`role_id`,`menu_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 /*Data for the table `sys_role_menu` */
 
@@ -300,15 +316,26 @@ CREATE TABLE `sys_topic` (
   `response` int(11) DEFAULT '0',
   `img` varchar(512) DEFAULT '@/assets/images/home/1.png',
   PRIMARY KEY (`id`)
+<<<<<<< HEAD
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+=======
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+>>>>>>> 822793fcf192429b74c505e05740a575c2bfbcf4
 
 /*Data for the table `sys_topic` */
 
 insert  into `sys_topic`(`id`,`from_user`,`title`,`content`,`create_time`,`last_reply_time`,`last_reply_user`,`is_reported`,`response`,`img`) values 
+<<<<<<< HEAD
 (1,11,'安倍遇刺','今日之大新闻','2022-07-08 07:22:30','2022-07-09 14:04:45','antares',0,5,'https://n.sinaimg.cn/default/crawl/133/w550h383/20220708/8765-d28ef9d6548ce38648faa771265f9b6a.png'),
 (2,11,'安倍遇刺','今日之大新闻','2022-07-08 07:22:59','2022-07-09 14:03:33','root',0,1,'https://n.sinaimg.cn/default/crawl/133/w550h383/20220708/8765-d28ef9d6548ce38648faa771265f9b6a.png'),
 (3,11,'安倍遇刺','今日之大新闻','2022-07-08 07:24:18','2022-07-08 07:24:18','root',0,0,'https://n.sinaimg.cn/default/crawl/133/w550h383/20220708/8765-d28ef9d6548ce38648faa771265f9b6a.png'),
 (4,11,'小区疫情','省委、省政府对临沂市疫情处置工作高度重视，成立了省市县一体化的疫情处置工作现场指挥部，现场指挥疫情应急处置工作，确保疫情处置科学精准、运转高效。指挥部进一步增配流调队伍，对阳性感染者的活动轨迹和密接、次密接情况进行详细排查。截至今天中午，累计排查密接者1812人，次密接者3627人，全部落实了隔离管控措施。','2022-07-08 13:06:39','2022-07-09 14:02:33','root',0,3,'https://appwk.baidu.com/naapi/doc/view?ih=810&o=jpg_6&iw=1440&ix=0&iy=0&aimw=1440&rn=1&doc_id=02095a72fc4733687e21af45b307e87101f6f805&pn=1&sign=ecbeb02654b5d810e8e433047a70973f&type=1&app_ver=2.9.8.2&ua=bd_800_800_IncredibleS_2.9.8.2_2.3.7&bid=1&app_ua=IncredibleS&uid=&cuid=&fr=3&Bdi_bear=WIFI&from=3_10000&bduss=&pid=1&screen=800_800&sys_ver=2.3.7');
+=======
+(1,11,'安倍遇刺','今日之大新闻','2022-07-08 07:22:30','2022-07-06 07:22:30','root',0,5,'https://n.sinaimg.cn/default/crawl/133/w550h383/20220708/8765-d28ef9d6548ce38648faa771265f9b6a.png'),
+(2,11,'安倍遇刺','今日之大新闻','2022-07-08 07:22:59','2022-07-07 07:22:59','root',0,3,'https://n.sinaimg.cn/default/crawl/133/w550h383/20220708/8765-d28ef9d6548ce38648faa771265f9b6a.png'),
+(3,11,'安倍遇刺','今日之大新闻','2022-07-08 07:24:18','2022-07-08 07:24:18','root',0,2,'https://n.sinaimg.cn/default/crawl/133/w550h383/20220708/8765-d28ef9d6548ce38648faa771265f9b6a.png'),
+(4,11,'小区疫情','省委、省政府对临沂市疫情处置工作高度重视，成立了省市县一体化的疫情处置工作现场指挥部，现场指挥疫情应急处置工作，确保疫情处置科学精准、运转高效。指挥部进一步增配流调队伍，对阳性感染者的活动轨迹和密接、次密接情况进行详细排查。截至今天中午，累计排查密接者1812人，次密接者3627人，全部落实了隔离管控措施。','2022-07-08 13:06:39','2022-07-08 13:06:39','root',0,0,'https://appwk.baidu.com/naapi/doc/view?ih=810&o=jpg_6&iw=1440&ix=0&iy=0&aimw=1440&rn=1&doc_id=02095a72fc4733687e21af45b307e87101f6f805&pn=1&sign=ecbeb02654b5d810e8e433047a70973f&type=1&app_ver=2.9.8.2&ua=bd_800_800_IncredibleS_2.9.8.2_2.3.7&bid=1&app_ua=IncredibleS&uid=&cuid=&fr=3&Bdi_bear=WIFI&from=3_10000&bduss=&pid=1&screen=800_800&sys_ver=2.3.7');
+>>>>>>> 822793fcf192429b74c505e05740a575c2bfbcf4
 
 /*Table structure for table `sys_user` */
 
@@ -327,13 +354,19 @@ CREATE TABLE `sys_user` (
   `building_number` varchar(8) DEFAULT NULL,
   `room_number` varchar(8) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COMMENT='用户表';
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='用户表';
 
 /*Data for the table `sys_user` */
 
 insert  into `sys_user`(`id`,`user_name`,`password`,`status`,`email`,`phone_number`,`sex`,`avatar`,`name`,`building_number`,`room_number`) values 
+<<<<<<< HEAD
 (1,'antares','$2a$10$ZL5tR0RiqUyIxj7TEytCkuAbXUM55qKf753DYg5X67SEOxcV/4rk.','0',NULL,'13213761071','0','https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png','王五','B2','404'),
 (11,'root','$2a$10$duVkOBly1o0zwv.36SsdaeUmDjrzovQZEHd4Fh5Smz97DRcguw9O2','0',NULL,'17518939776','1','https://ts1.cn.mm.bing.net/th/id/R-C.29a84eb867bf75b5327e7df3b1a7e32c?rik=iW9zjAJwqTB%2fdA&riu=http%3a%2f%2ftupian.qqw21.com%2farticle%2fUploadPic%2f2019-7%2f201971622263482217.jpeg&ehk=W4G6YV7SJ1LFEFGJ3r%2bsC66stsnts%2bGu%2b7tsCcMPWGA%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1','das','sad','sad');
+=======
+(1,'antares','$2a$10$ZL5tR0RiqUyIxj7TEytCkuAbXUM55qKf753DYg5X67SEOxcV/4rk.','0',NULL,'13213761071','1',NULL,'王五','B2','404'),
+(11,'root','$2a$10$duVkOBly1o0zwv.36SsdaeUmDjrzovQZEHd4Fh5Smz97DRcguw9O2','0',NULL,'17518939776','1',NULL,'das','sad','sad'),
+(12,'a','a','0','1','1','0',NULL,'a','1','1');
+>>>>>>> 822793fcf192429b74c505e05740a575c2bfbcf4
 
 /*Table structure for table `sys_user_role` */
 
@@ -343,7 +376,7 @@ CREATE TABLE `sys_user_role` (
   `user_id` bigint(200) NOT NULL AUTO_INCREMENT COMMENT '用户id',
   `role_id` bigint(200) NOT NULL DEFAULT '0' COMMENT '角色id',
   PRIMARY KEY (`user_id`,`role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 /*Data for the table `sys_user_role` */
 
@@ -364,7 +397,11 @@ CREATE TABLE `sys_volunteer` (
   `total_time` decimal(10,2) DEFAULT NULL,
   `uid` bigint(16) NOT NULL,
   PRIMARY KEY (`id`)
+<<<<<<< HEAD
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+=======
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+>>>>>>> 822793fcf192429b74c505e05740a575c2bfbcf4
 
 /*Data for the table `sys_volunteer` */
 
@@ -381,7 +418,7 @@ CREATE TABLE `sys_volunteer_log` (
   `event` varchar(64) DEFAULT NULL,
   `total_time` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 /*Data for the table `sys_volunteer_log` */
 

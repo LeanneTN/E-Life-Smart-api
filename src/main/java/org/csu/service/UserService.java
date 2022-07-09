@@ -34,4 +34,9 @@ public interface UserService {
     ResponseResult resetPassword(String oldPwd,String newPwd, HttpServletRequest req);
 
     ResponseResult getAllUserInfo();
+
+    ResponseResult deleteUserById(long id);
+
+    ResponseResult createUser(User user);
+
 }

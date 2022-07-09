@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@TableName("sys_payment")
+@TableName("sys_acid")
 public class Acid {
     private static final long serialVersionUID = -40356785423868312L;
 

@@ -101,4 +101,13 @@ public class UserController {
         return userService.getAllUserInfo();
     }
 
+    //删除用户
+    @DeleteMapping("/delete_user")
+    public ResponseResult deleteUserById(@RequestParam("id") long id){ return userService.deleteUserById(id);}
+
+    //新增用户
+    @PostMapping("/new_user")
+    public ResponseResult createUser(@RequestBody User user ){
+        return this.userService.createUser(user);
+    }
 }
