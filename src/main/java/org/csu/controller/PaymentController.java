@@ -149,4 +149,24 @@ public class PaymentController {
 
         return paymentService.payById(payment.getId(), payment);
     }
+
+    //新增订单：
+    @PostMapping("/")
+    public ResponseResult createPayment(@RequestBody Payment payment){
+        return paymentService.createPayment(payment);
+    }
+
+    //删除订单
+    @DeleteMapping("/")
+    public ResponseResult deletePayment(@RequestParam("id") long id){
+        return paymentService.deletePaymentById(id);
+    }
+
+    //更新订单
+    @PutMapping("/")
+    public ResponseResult updatePayment(@RequestBody Payment payment){
+        return paymentService.updatePayment(payment);
+    }
+
+
 }
