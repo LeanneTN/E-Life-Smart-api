@@ -27,7 +27,9 @@ public enum ResponseCode {
 
     USER_VOLUNTEER_INFO_INCOMPLETE(440, "USER_VOLUNTEER_INFO_INCOMPLETE"),//志愿者信息不完善
     USER_VOLUNTEER_LOG_EMPTY(441, "USER_VOLUNTEER_LOG_EMPTY"),//志愿者日志为空
-    NOT_VOLUNTEER(442, "NOT_VOLUNTEER");//不是志愿者
+    NOT_VOLUNTEER(442, "NOT_VOLUNTEER"),//不是志愿者
+
+    ACID_NOT_GET(443, "ACID_NOT_GET"); //核酸检测结果未取到
 
     private final int code;
     private final String description;

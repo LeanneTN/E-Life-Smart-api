@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c8746292-61c3-44a5-bf83-ec0fbcae6571" name="Changes" comment="Project initialization">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/controller/ParkingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/controller/ParkingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
