@@ -4,14 +4,8 @@ import net.sf.jsqlparser.statement.select.Top;
 import org.csu.domain.*;
 import org.apache.ibatis.jdbc.Null;
 
-import org.csu.mapper.MenuMapper;
-import org.csu.mapper.ParkingMapper;
-import org.csu.mapper.ParkingSpaceMapper;
-import org.csu.mapper.UserMapper;
-import org.csu.service.ForumService;
-import org.csu.service.HealthCheckService;
-import org.csu.service.PaymentService;
-import org.csu.service.VolunteerService;
+import org.csu.mapper.*;
+import org.csu.service.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -40,6 +34,8 @@ public class MapperTest {
     private VolunteerService volunteerService;
     @Autowired
     private PaymentService paymentService;
+    @Autowired
+    private AcidService acidService;
 
     @Test
     public void testPasswordEncoder(){
@@ -83,7 +79,12 @@ public class MapperTest {
 
     @Test
     public void testAPI(){
-        System.out.println(volunteerService.getLogsGroupById().getData().toString());
+        Acid acid = new Acid();
+        acid.setUid(11L);
+        acid.setName("zhangsan");
+        acid.setResult("negative");
+        acidService.insertAcid(acid);
+        acidService.getAcid();
     }
 
     @Test
