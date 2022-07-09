@@ -24,5 +24,6 @@ public class Payment implements Serializable {
     private String type;
     private double sum;
     private Date time;
+    private Date finishTime;
     private boolean if_paid;
 }

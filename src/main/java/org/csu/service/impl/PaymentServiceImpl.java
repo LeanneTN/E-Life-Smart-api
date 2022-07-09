@@ -1,8 +1,12 @@
 package org.csu.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import org.csu.domain.Payment;
+import org.csu.domain.Raw;
+import org.csu.domain.User;
+import org.csu.service.UserService;
 import org.csu.vo.ResponseCode;
 import org.csu.vo.ResponseResult;
 import org.csu.mapper.PaymentMapper;
@@ -10,12 +14,16 @@ import org.csu.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 import java.util.List;
 
 @Service
 public class PaymentServiceImpl implements PaymentService {
     @Autowired
     private PaymentMapper paymentMapper;
+    @Autowired
+    private UserService userService;
 
     @Override
     public ResponseResult pay(Long uid) {
@@ -63,5 +71,27 @@ public class PaymentServiceImpl implements PaymentService {
     @Override
     public ResponseResult getIncome() {
         return new ResponseResult(ResponseCode.SUCCESS.getCode(), "所有用户订单获取成功", paymentMapper.selectList(null));
+    }
+
+    @Override
+    public ResponseResult getToPaid(HttpServletRequest req) {
+        User user = (User) userService.getLoginUser(req).getData();
+
+        LambdaQueryWrapper<Payment> wrapper = new QueryWrapper<Payment>().lambda();
+        wrapper.eq(Payment::getFromUser, user.getId());
+        wrapper.eq(Payment::isIf_paid, false);
+        List<Payment> payments = paymentMapper.selectList(wrapper);
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "成功获取所有未支付缴费", payments);
+    }
+
+    @Override
+    public ResponseResult payChecked(List<Payment> paymentList) {
+        int len = paymentList.size();
+        for(int i = 0;i < len;i++){
+            paymentList.get(i).setIf_paid(true);
+            paymentList.get(i).setFinishTime(new Date());
+            paymentMapper.updateById(paymentList.get(i));
+        }
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "支付成功");
     }
 }

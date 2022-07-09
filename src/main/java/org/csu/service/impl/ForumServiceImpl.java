@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import net.sf.jsqlparser.statement.select.Top;
 import org.csu.domain.Comment;
+import org.csu.domain.Raw;
 import org.csu.vo.ResponseCode;
 import org.csu.vo.ResponseResult;
 import org.csu.domain.Topic;
@@ -37,6 +38,16 @@ public class ForumServiceImpl implements ForumService {
     public ResponseResult getAllTopic() {
         List<Topic> topics = topicMapper.selectList(null);
         return new ResponseResult(ResponseCode.SUCCESS.getCode(), topics);
+    }
+
+    //根据关键词查询话题
+    @Override
+    public ResponseResult getTopicByKeywords(String keywords) {
+        //首先查询该号码在不在库里
+        LambdaQueryWrapper<Topic> wrapper = new QueryWrapper<Topic>().lambda();
+        wrapper.like(true, Topic::getTitle, keywords);
+        List<Topic> topics = topicMapper.selectList(wrapper);
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "搜索成功", topics);
     }
 
     //根据ID，获取话题

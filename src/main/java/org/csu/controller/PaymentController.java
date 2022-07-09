@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/payment/")
@@ -29,6 +30,18 @@ public class PaymentController {
 
     //支付行为pay是指为订单order付钱，他们都是sys_payment中的条目，未支付订单和已支付订单的区别在于
     //是否if_paid项是否为真
+
+    //获取当前用户所有未支付的缴费
+    @GetMapping("/to_paid")
+    public ResponseResult getToPaid(HttpServletRequest req){
+        return paymentService.getToPaid(req);
+    }
+
+    //支付用户选择的部分
+    @PostMapping("/pay_checked")
+    public ResponseResult payChecked(@RequestBody List<Payment> paymentList){
+        return paymentService.payChecked(paymentList);
+    }
 
     //支付该用户的所有缴费项
     @PostMapping("/pay")
@@ -84,7 +97,7 @@ public class PaymentController {
     public ResponseResult payController(
             HttpServletRequest request,
             HttpServletResponse response,
-            @RequestBody Payment payment) throws IOException {
+            @RequestBody List<Payment> paymentList) throws IOException {
         //获得初始化的AlipayClient
         AlipayClient alipayClient = new DefaultAlipayClient(AlipayConfig.gatewayUrl, AlipayConfig.APP_ID, AlipayConfig.APP_PRIVATE_KEY, "json", AlipayConfig.CHARSET, AlipayConfig.ALIPAY_PUBLIC_KEY, AlipayConfig.sign_type);
 
@@ -95,7 +108,15 @@ public class PaymentController {
 
         String newOrderId = DigestUtils.md5DigestAsHex(RandomUtil.randomNumbers(5).getBytes(StandardCharsets.UTF_8));
 
-        String totalPrice = Double.toString(payment.getSum());
+        double total = 0;
+        int len = paymentList.size();
+        for(int i = 0;i < len;i++){
+            total += paymentList.get(i).getSum();
+        }
+
+        Payment payment = paymentList.get(0);
+
+        String totalPrice = Double.toString(total);
         String billSubject = payment.getToAdmin()+" "+payment.getType();
         String describe = payment.getFromUser() + " " + payment.getType() + " " + payment.getTime();
 
