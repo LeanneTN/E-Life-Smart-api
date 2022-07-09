@@ -39,4 +39,6 @@ public interface ForumService {
 
 
     ResponseResult getAllTopic();
+
+    ResponseResult getTopicByKeywords(String keywords);
 }

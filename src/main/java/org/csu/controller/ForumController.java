@@ -33,6 +33,12 @@ public class ForumController {
         return forumService.getAllTopic();
     }
 
+    //根据关键词查询话题
+    @GetMapping("/topic/search")
+    public ResponseResult getTopicByKeywords(@RequestParam("keywords") String keywords){
+        return forumService.getTopicByKeywords(keywords);
+    }
+
     //根据话题ID，获得某个话题下的所有回帖
     @GetMapping("/topic/{id}")
     public ResponseResult getTopicById(@PathVariable("id") Long id){
