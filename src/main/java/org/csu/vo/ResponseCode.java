@@ -18,6 +18,7 @@ public enum ResponseCode {
     NO_CAR_LOG(486,"NO_CAR_LOG"),//用户名下没有车
     PARKED(486, "PARKED"),//停过了
     PAYMENT_EXIST(456, "PAYMENT_EXIST"),//订单被支付过了
+    PAYMENT_NOT_EXIT(456, "PAYMENT_NOT_EXIT"),//订单不存在
     USER_HEALTH_CHECK_SUBMIT_FAIL(451, "USER_HEALTH_CHECK_SUBMIT_FAIL"),//健康打卡提交信息失败
     USER_HEALTH_CHECK_NOT_EXIST(450, "USER_HEALTH_CHECK_NOT_EXIST"),//找不到该健康打卡信息
 
@@ -29,7 +30,9 @@ public enum ResponseCode {
     USER_VOLUNTEER_LOG_EMPTY(441, "USER_VOLUNTEER_LOG_EMPTY"),//志愿者日志为空
     NOT_VOLUNTEER(442, "NOT_VOLUNTEER"),//不是志愿者
 
-    ACID_NOT_GET(443, "ACID_NOT_GET"); //核酸检测结果未取到
+    ACID_NOT_GET(443, "ACID_NOT_GET"), //核酸检测结果未取到
+
+    ERROR_DATA(420,"ERROR_DATA");//传来的数据为空
 
     private final int code;
     private final String description;

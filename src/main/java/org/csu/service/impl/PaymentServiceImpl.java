@@ -94,4 +94,36 @@ public class PaymentServiceImpl implements PaymentService {
         }
         return new ResponseResult(ResponseCode.SUCCESS.getCode(), "支付成功");
     }
+
+    //新增订单
+    @Override
+    public ResponseResult createPayment(Payment payment) {
+        if(payment == null){
+            return new ResponseResult(ResponseCode.ERROR_DATA.getCode(), "传来的订单数据为空");
+        }
+        paymentMapper.insert(payment);
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "创建订单成功");
+    }
+
+    //根据ID删除订单
+    @Override
+    public ResponseResult deletePaymentById(long id) {
+        Payment payment = paymentMapper.selectById(id);
+        if(payment==null){
+            return new ResponseResult(ResponseCode.PAYMENT_NOT_EXIT.getCode(), "订单不存在");
+        }
+        paymentMapper.deleteById(id);
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "删除订单成功");
+    }
+
+    //更新订单
+    @Override
+    public ResponseResult updatePayment(Payment payment) {
+        Payment newPayment = paymentMapper.selectById(payment.getId());
+        if(newPayment==null) {
+            return new ResponseResult(ResponseCode.PAYMENT_NOT_EXIT.getCode(), "订单不存在");
+        }
+        paymentMapper.updateById(payment);
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "更新订单成功");
+    }
 }

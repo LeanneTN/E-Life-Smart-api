@@ -170,8 +170,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ResponseResult getUserInfoById(String userid) {
-        return null;
+    public ResponseResult getUserInfoById(Long id) {
+        User user = userMapper.selectById(id);
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "成功", user);
     }
 
     @Override
@@ -298,6 +299,27 @@ public class UserServiceImpl implements UserService {
         List<User> users = userMapper.selectList(null);
         return new ResponseResult(ResponseCode.SUCCESS.getCode(), "成功获取所有用户的信息", users);
     }
+
+    //删除用户
+    @Override
+    public ResponseResult deleteUserById(long id) {
+        User user = userMapper.selectById(id);
+        if(user==null){
+            return new ResponseResult(ResponseCode.ACCOUNT_NOT_EXIST.getCode(), "该用户不存在");
+        }
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "删除用户成功");
+    }
+
+    //新增用户
+    @Override
+    public ResponseResult createUser(User user) {
+        if(user==null){
+            return new ResponseResult(ResponseCode.ERROR.getCode(), "请传入用户的信息");
+        }
+        userMapper.insert(user);
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "创建用户成功");
+    }
+
 
     //查询手机号对应的用户
     public User queryPhoneNumber(String phone){
