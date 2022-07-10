@@ -28,4 +28,11 @@ public interface VolunteerService {
 
     ResponseResult takeVolunteer(Long uid, VolunteerLog volunteerLog);
 
+
+    ResponseResult createVolunteer(Volunteer volunteer);
+
+    ResponseResult updateVolunteer(Volunteer volunteer);
+
+    ResponseResult deleteVolunteerById(Long uid);
+
 }

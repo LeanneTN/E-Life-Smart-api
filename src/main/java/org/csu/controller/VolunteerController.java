@@ -143,4 +143,19 @@ public class VolunteerController {
 
 
     }
+
+    @PostMapping("/new_volunteer")
+    public ResponseResult createVolunteer(@RequestBody Volunteer volunteer){
+        return volunteerService.createVolunteer(volunteer);
+    }
+
+    @PutMapping("/update_volunteer")
+    public ResponseResult updateVolunteer(@RequestBody Volunteer volunteer){
+        return volunteerService.updateVolunteer(volunteer);
+    }
+
+    @DeleteMapping("/delete_volunteer")
+    public ResponseResult deleteVolunteer(@RequestParam("uid") Long uid){
+        return volunteerService.deleteVolunteerById(uid);
+    }
 }
