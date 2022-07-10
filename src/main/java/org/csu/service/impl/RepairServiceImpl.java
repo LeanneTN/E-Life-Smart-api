@@ -48,7 +48,7 @@ public class RepairServiceImpl implements RepairService {
     @Override
     public ResponseResult getLogs() {
         List<Repair> repairs = repairMapper.selectList(null);
-        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "获取所有报修记录");
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "获取所有报修记录",repairs);
     }
 
     @Override
