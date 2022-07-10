@@ -146,8 +146,6 @@ public class ForumServiceImpl implements ForumService {
 
 
     //----------------------------以下为回帖操作--------------------------------------
-
-
     //获得所有的回帖
     @Override
     public ResponseResult getAllComment(){
