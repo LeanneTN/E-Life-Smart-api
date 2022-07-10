@@ -28,6 +28,7 @@ public class VolunteerController {
         }catch (Exception e){
             e.printStackTrace();
         }
+        System.out.println(uid);
         return volunteerService.applyForVolunteer(volunteer,uid);
     }
 
@@ -93,8 +94,53 @@ public class VolunteerController {
         return volunteerService.getVolunteerTasks(uid, freeTime);
     }
 
+
     @GetMapping("/all_volunteers")
-    public ResponseResult getAllVolunteers(){
+    public ResponseResult getAllVolunteers() {
         return volunteerService.getAllVolunteers();
+    }
+
+    @DeleteMapping("/delete")
+    public ResponseResult deleteVolunteer(HttpServletRequest request){
+        String token = request.getHeader("token");
+        Long uid = null;
+        try{
+            Claims claims = JwtUtil.parseJWT(token);
+            uid = Long.valueOf(claims.getSubject());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return volunteerService.deleteVolunteer(uid);
+    }
+
+    @PostMapping("/update")
+    public ResponseResult updateVolunteer(HttpServletRequest request, @RequestBody Volunteer volunteer){
+        String token = request.getHeader("token");
+        Long uid = null;
+        try{
+            Claims claims = JwtUtil.parseJWT(token);
+            uid = Long.valueOf(claims.getSubject());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return volunteerService.updateVolunteer(uid, volunteer);
+    }
+
+    @PostMapping("/take_volunteer")
+    public ResponseResult volunteerTake(HttpServletRequest request, @RequestBody VolunteerLog volunteerLog){
+        String token = request.getHeader("token");
+        Long uid = null;
+        try{
+            Claims claims = JwtUtil.parseJWT(token);
+            uid = Long.valueOf(claims.getSubject());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return volunteerService.takeVolunteer(uid, volunteerLog);
+
+
     }
 }

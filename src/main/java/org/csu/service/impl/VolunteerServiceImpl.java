@@ -1,6 +1,7 @@
 package org.csu.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import org.csu.domain.Volunteer;
 import org.csu.vo.ResponseCode;
 import org.csu.vo.ResponseResult;
@@ -24,7 +25,9 @@ public class VolunteerServiceImpl implements VolunteerService {
 
     @Override
     public ResponseResult applyForVolunteer(Volunteer volunteer, long uid) {
-        Volunteer volunteer1 = volunteerMapper.selectById(uid);
+        QueryWrapper queryWrapper = new QueryWrapper();
+        queryWrapper.eq("uid", uid);
+        Volunteer volunteer1 = volunteerMapper.selectOne(queryWrapper);
         if(volunteer.getName().equals(null)){
             return new ResponseResult(ResponseCode.USER_VOLUNTEER_INFO_INCOMPLETE.getCode(), "志愿者信息不完整");
         }
@@ -81,8 +84,9 @@ public class VolunteerServiceImpl implements VolunteerService {
     @Override
     public ResponseResult getVolunteerTasks(long uid, String freeTime) {
         QueryWrapper queryWrapper = new QueryWrapper();
-        queryWrapper.eq("volunteer_id", null);
+        queryWrapper.isNull("volunteer_id");
         List<VolunteerLog> volunteerLogs = volunteerLogMapper.selectList(queryWrapper);
+        System.out.println(volunteerLogs.size());
         return new ResponseResult(ResponseCode.SUCCESS.getCode(), "志愿任务获取成功", volunteerLogs);
     }
 
@@ -101,4 +105,37 @@ public class VolunteerServiceImpl implements VolunteerService {
         List<Volunteer> list = volunteerMapper.selectList(null);
         return new ResponseResult(ResponseCode.SUCCESS.getCode(),"所用志愿者信息获取成功",list);
     }
+
+    public ResponseResult deleteVolunteer(Long uid) {
+        QueryWrapper queryWrapper = new QueryWrapper();
+        queryWrapper.eq("uid", uid);
+        volunteerMapper.delete(queryWrapper);
+        volunteerLogMapper.delete(queryWrapper);
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "删除成功");
+    }
+
+    @Override
+    public ResponseResult updateVolunteer(Long uid, Volunteer volunteer) {
+        QueryWrapper queryWrapper = new QueryWrapper();
+        queryWrapper.eq("uid", uid);
+        volunteerMapper.update(volunteer, queryWrapper);
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "数据库更新成功");
+    }
+
+    @Override
+    public ResponseResult takeVolunteer(Long uid, VolunteerLog volunteerLog) {
+        QueryWrapper queryWrapper = new QueryWrapper();
+        volunteerLog.setVolunteerId(uid);
+        volunteerLogMapper.updateById(volunteerLog);
+        UpdateWrapper updateWrapper = new UpdateWrapper();
+        updateWrapper.eq("uid", uid);
+        double time = volunteerLog.getTotalTime();
+        queryWrapper.eq("uid", uid);
+        Volunteer volunteer = volunteerMapper.selectOne(queryWrapper);
+        volunteer.setTotalTime(volunteer.getTotalTime()+time);
+        volunteerMapper.update(volunteer, updateWrapper);
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "任务接收成功", volunteerLog);
+    }
+
+
 }
