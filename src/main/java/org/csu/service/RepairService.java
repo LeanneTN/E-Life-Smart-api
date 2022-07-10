@@ -24,4 +24,7 @@ public interface RepairService {
     ResponseResult updateRepairById(Repair repair);
 
     ResponseResult getMyRepair(HttpServletRequest req);
+
+    ResponseResult deleteRepairById(Long id);
+
 }

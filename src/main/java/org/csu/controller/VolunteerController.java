@@ -150,16 +150,19 @@ public class VolunteerController {
 
     }
 
+    //新增志愿者
     @PostMapping("/new_volunteer")
     public ResponseResult createVolunteer(@RequestBody Volunteer volunteer){
         return volunteerService.createVolunteer(volunteer);
     }
 
+    //更新志愿者
     @PutMapping("/update_volunteer")
     public ResponseResult updateVolunteer(@RequestBody Volunteer volunteer){
         return volunteerService.updateVolunteer(volunteer);
     }
 
+    //删除志愿者
     @DeleteMapping("/delete_volunteer")
     public ResponseResult deleteVolunteer(@RequestParam("uid") Long uid){
         return volunteerService.deleteVolunteerById(uid);
