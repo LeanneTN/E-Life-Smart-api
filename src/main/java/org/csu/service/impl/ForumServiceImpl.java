@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import net.sf.jsqlparser.statement.select.Top;
 import org.csu.domain.Comment;
 import org.csu.domain.Raw;
+import org.csu.mapper.UserMapper;
 import org.csu.vo.ResponseCode;
 import org.csu.vo.ResponseResult;
 import org.csu.domain.Topic;
@@ -16,6 +17,7 @@ import org.springframework.data.repository.query.QueryMethod;
 import org.springframework.stereotype.Service;
 
 import javax.management.QueryEval;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -25,6 +27,8 @@ public class ForumServiceImpl implements ForumService {
     private TopicMapper topicMapper;
     @Autowired
     private CommentMapper commentMapper;
+    @Autowired
+    private UserMapper userMapper;
 
     //创建话题
     @Override
@@ -38,6 +42,13 @@ public class ForumServiceImpl implements ForumService {
     public ResponseResult getAllTopic() {
         List<Topic> topics = topicMapper.selectList(null);
         return new ResponseResult(ResponseCode.SUCCESS.getCode(), topics);
+    }
+
+    //更新话题
+    @Override
+    public ResponseResult updateTopic(Topic topic){
+        topicMapper.updateById(topic);
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "修改成功");
     }
 
     //根据关键词查询话题
@@ -109,7 +120,7 @@ public class ForumServiceImpl implements ForumService {
         //修改话题的状态，改为已被举报
         topic.setReported(true);
         topicMapper.updateById(topic);
-        return new ResponseResult(2,"您已举报成功");
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "您已举报成功");
     }
 
     //根据ID删除话题
@@ -135,20 +146,32 @@ public class ForumServiceImpl implements ForumService {
 
 
     //----------------------------以下为回帖操作--------------------------------------
+    //获得所有的回帖
+    @Override
+    public ResponseResult getAllComment(){
+        List<Comment> commentList = commentMapper.selectList(null);
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "成功获取所有的回帖信息", commentList);
+    }
 
+    //更新回帖
+    @Override
+    public ResponseResult updateComment(Comment comment){
+        commentMapper.updateById(comment);
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "更新回帖成功");
+    }
 
     //提交回帖
     @Override
     public ResponseResult createComment(Comment comment) {
-        //一：判断该回帖是不是话题的第一个帖子
-        QueryWrapper<Comment> wrapper = new QueryWrapper<>();
-        wrapper.eq("to_id",comment.getToId());
-        List<Comment> comments = commentMapper.selectList(wrapper);
-        if(comments.size()==0){ //如果暂时没有，说明这是第一个帖子，设为楼主
-            comment.setLandlord(true);
-        }
-        this.commentMapper.insert(comment);
-        return new ResponseResult(200,"评论提交成功");
+        commentMapper.insert(comment);
+        //同时还要修改最后回复时间和回复数
+        Topic topic = topicMapper.selectById(comment.getToId());
+        topic.setResponse(topic.getResponse() + 1);
+        topic.setLastReplyTime(new Date());
+        topic.setLastReplyUser(userMapper.selectById(comment.getFromUser()).getUserName());
+        topicMapper.updateById(topic);
+
+        return new ResponseResult(200,"评论提交成功", comment);
     }
 
     //根据ID获取回帖
@@ -205,7 +228,7 @@ public class ForumServiceImpl implements ForumService {
         if(comment==null){
             return new ResponseResult(ResponseCode.NO_COMMENT_LOG.getCode(), "该回帖不存在");
         }
-        topicMapper.deleteById(id);
+        commentMapper.deleteById(comment);
         return new ResponseResult(2,"回帖删除成功");
     }
 

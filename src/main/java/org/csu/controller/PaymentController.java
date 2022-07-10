@@ -28,6 +28,54 @@ public class PaymentController {
     @Autowired
     private PaymentService paymentService;
 
+    //以下为支付宝支付
+    @RequestMapping("/alipay/{totalPrice}/{paymentId}/{userName}/{type}")
+    public void payController(
+            HttpServletRequest request,
+            HttpServletResponse response,
+            @PathVariable("totalPrice") double totalPrice,
+            @PathVariable("paymentId") Long paymentId,
+            @PathVariable("userName") String userName,
+            @PathVariable("type") String type) throws IOException {
+        //获得初始化的AlipayClient
+        AlipayClient alipayClient = new DefaultAlipayClient(AlipayConfig.gatewayUrl, AlipayConfig.APP_ID, AlipayConfig.APP_PRIVATE_KEY, "json", AlipayConfig.CHARSET, AlipayConfig.ALIPAY_PUBLIC_KEY, AlipayConfig.sign_type);
+
+        //设置请求参数
+        AlipayTradePagePayRequest alipayRequest = new AlipayTradePagePayRequest();
+        alipayRequest.setReturnUrl(AlipayConfig.return_url);
+        alipayRequest.setNotifyUrl(AlipayConfig.notify_url);
+
+        String newOrderId = DigestUtils.md5DigestAsHex(RandomUtil.randomNumbers(5).getBytes(StandardCharsets.UTF_8));
+
+        //商户订单号，商户网站订单系统中唯一订单号，必填
+        String out_trade_no = newOrderId;
+        //付款金额，必填
+        String total_amount = String.valueOf(totalPrice);
+        //订单名称，必填
+        String subject = userName;
+        //商品描述，可空
+        String body = type;
+
+        alipayRequest.setBizContent("{\"out_trade_no\":\"" + out_trade_no + "\","
+                + "\"total_amount\":\"" + total_amount + "\","
+                + "\"subject\":\"" + subject + "\","
+                + "\"body\":\"" + body + "\","
+                + "\"product_code\":\"FAST_INSTANT_TRADE_PAY\"}");
+
+        //请求
+        String form = "";
+        try {
+            form = alipayClient.pageExecute(alipayRequest).getBody(); //调用SDK生成表单
+        } catch (AlipayApiException e) {
+            e.printStackTrace();
+        }
+        response.setContentType("text/html;charset=" + AlipayConfig.CHARSET);
+        response.getWriter().write(form);//直接将完整的表单html输出到页面
+        response.getWriter().flush();
+        response.getWriter().close();
+    }
+
+
     //支付行为pay是指为订单order付钱，他们都是sys_payment中的条目，未支付订单和已支付订单的区别在于
     //是否if_paid项是否为真
 
@@ -91,6 +139,8 @@ public class PaymentController {
     public ResponseResult getIncome(){
         return paymentService.getIncome();
     }
+
+
 
 
     @RequestMapping("/pay/alipay")

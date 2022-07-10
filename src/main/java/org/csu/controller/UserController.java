@@ -90,9 +90,9 @@ public class UserController {
         return userService.updateUserInfoById(user);
     }
 
-    @GetMapping("/{userid}")
-    public ResponseResult getUserInfoById(@PathVariable("userid") String userid) {
-        return userService.getUserInfoById(userid);
+    @GetMapping("/{id}")
+    public ResponseResult getUserInfoById(@PathVariable("id") Long id) {
+        return userService.getUserInfoById(id);
     }
 
     //获取所有用户的信息

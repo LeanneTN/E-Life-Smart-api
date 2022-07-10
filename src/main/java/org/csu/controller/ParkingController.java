@@ -2,6 +2,7 @@ package org.csu.controller;
 
 import io.jsonwebtoken.Claims;
 import org.csu.domain.Car;
+import org.csu.domain.Parking;
 import org.csu.domain.ParkingSpace;
 import org.csu.uitls.JwtUtil;
 import org.csu.vo.ResponseResult;
@@ -25,11 +26,35 @@ public class ParkingController {
         return parkingService.addCar(car);
     }
 
+    //更新车辆的信息
+    @PostMapping("/car_info")
+    public ResponseResult updateCarInfoById(@RequestBody Car car) {
+        return parkingService.updateCarInfoById(car);
+    }
+
+    //删除车辆信息
+    @DeleteMapping("/delete_car")
+    public ResponseResult deleteCarById(@RequestParam("id") String id) {
+        return parkingService.deleteCarById(id);
+    }
+
     //添加一个车位到小区的系统
     @PostMapping("/parking_space")
     @PreAuthorize("hasAuthority('system:parking:add')")
     public ResponseResult addParkingSpace(@RequestBody ParkingSpace parkingSpace){
         return parkingService.addParkingSpace(parkingSpace);
+    }
+
+    //更新停车位的信息
+    @PostMapping("/parking_space_info")
+    public ResponseResult updateParkSpaceInfoById(@RequestBody ParkingSpace parkingSpace) {
+        return parkingService.updateParkSpaceInfoById(parkingSpace);
+    }
+
+    //删除停车位信息
+    @DeleteMapping("/delete_parking_space")
+    public ResponseResult deleteParkSpaceById(@RequestParam("id") String id) {
+        return parkingService.deleteParkSpaceById(id);
     }
 
     @PostMapping("/park")
@@ -67,6 +92,18 @@ public class ParkingController {
     @PreAuthorize("hasAuthority('system:parking:log')")
     public ResponseResult getLogByCarNum(@PathVariable("carNum") String carNum){
         return parkingService.getLogByCarNum(carNum);
+    }
+
+    //更新停车记录的信息
+    @PostMapping("/park_log")
+    public ResponseResult updateParkInfoById(@RequestBody Parking parking) {
+        return parkingService.updateParkInfoById(parking);
+    }
+
+    //删除停车记录信息
+    @DeleteMapping("/delete_park")
+    public ResponseResult deleteParkById(@RequestParam("id") String id) {
+        return parkingService.deleteParkById(id);
     }
 
     //获取小区内所有车辆的信息

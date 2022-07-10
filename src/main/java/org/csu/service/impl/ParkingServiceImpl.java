@@ -126,6 +126,26 @@ public class ParkingServiceImpl implements ParkingService {
     }
 
     @Override
+    public ResponseResult updateParkInfoById(Parking parking){
+        int i = parkingMapper.updateById(parking);
+        if(i > 0)
+            return new ResponseResult(ResponseCode.SUCCESS.getCode(), "更新停车记录信息成功！");
+        else
+            return new ResponseResult(ResponseCode.ERROR.getCode(), "服务器错误");
+    }
+
+    //删除停车记录信息
+    @Override
+    public ResponseResult deleteParkById(String id) {
+        Parking parking = parkingMapper.selectById(id);
+        if(parking == null){
+            return new ResponseResult(ResponseCode.ERROR.getCode(), "该停车记录不存在！");
+        }
+        parkingMapper.deleteById(parking);
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "删除该停车记录成功");
+    }
+
+    @Override
     public ResponseResult getCarInfo() {
         List<Car> cars = carMapper.selectList(null);
         return new ResponseResult(ResponseCode.SUCCESS.getCode(), cars);
@@ -163,6 +183,29 @@ public class ParkingServiceImpl implements ParkingService {
         return new ResponseResult(ResponseCode.CAR_EXIST.getCode(), "该车辆已经存在！");
     }
 
+    //修改车辆信息
+    @Override
+    public ResponseResult updateCarInfoById(Car car) {
+        int i = carMapper.updateById(car);
+        if(i > 0)
+            return new ResponseResult(ResponseCode.SUCCESS.getCode(), "更新车辆信息成功！");
+        else
+            return new ResponseResult(ResponseCode.ERROR.getCode(), "服务器错误");
+    }
+
+    //删除车辆信息
+    @Override
+    public ResponseResult deleteCarById(String id) {
+        Car car = carMapper.selectById(id);
+        if(car == null){
+            return new ResponseResult(ResponseCode.ERROR.getCode(), "该车辆不存在！");
+        }
+        else {
+            carMapper.deleteById(car);
+            return new ResponseResult(ResponseCode.SUCCESS.getCode(), "删除车辆成功");
+        }
+    }
+
     //添加停车位
     @Override
     public ResponseResult addParkingSpace(ParkingSpace parkingSpace) {
@@ -178,6 +221,27 @@ public class ParkingServiceImpl implements ParkingService {
             }
         }
         return new ResponseResult(ResponseCode.CAR_EXIST.getCode(), "该车位已经存在！");
+    }
+
+    //修改停车位信息
+    @Override
+    public ResponseResult updateParkSpaceInfoById(ParkingSpace parkingSpace) {
+        int i = parkingSpaceMapper.updateById(parkingSpace);
+        if(i > 0)
+            return new ResponseResult(ResponseCode.SUCCESS.getCode(), "更新停车位信息成功！");
+        else
+            return new ResponseResult(ResponseCode.ERROR.getCode(), "服务器错误");
+    }
+
+    //删除停车位信息
+    @Override
+    public ResponseResult deleteParkSpaceById(String id) {
+        ParkingSpace parkingSpace = parkingSpaceMapper.selectById(id);
+        if(parkingSpace == null){
+            return new ResponseResult(ResponseCode.ERROR.getCode(), "该停车位不存在！");
+        }
+        parkingSpaceMapper.deleteById(parkingSpace);
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "删除停车位成功");
     }
 
     //计算两个日期之间的时间差(小时数)

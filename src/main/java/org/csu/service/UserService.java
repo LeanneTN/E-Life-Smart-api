@@ -17,7 +17,7 @@ public interface UserService {
 
     ResponseResult getCaptcha(HttpServletRequest req, HttpServletResponse res) throws Exception;
 
-    ResponseResult getUserInfoById(String userid);
+    ResponseResult getUserInfoById(Long id);
 
     ResponseResult updateUserInfoById(User user);
 
