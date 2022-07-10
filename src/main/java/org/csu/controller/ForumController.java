@@ -65,9 +65,15 @@ public class ForumController {
     }
 
     //根据ID删除话题：
-    @DeleteMapping("/topic/{id}")
-    public ResponseResult deleteTopicById(@PathVariable("id") Long id){
+    @DeleteMapping("/topic")
+    public ResponseResult deleteTopicById(@RequestParam("id") Long id){
         return forumService.deleteTopicById(id);
+    }
+
+    //获取所有的回帖
+    @GetMapping("/comment")
+    public ResponseResult getAllComment(){
+        return forumService.getAllComment();
     }
 
     //创建回帖
@@ -107,5 +113,22 @@ public class ForumController {
         return forumService.setLandlordById(id);
     }
 
+    //更新话题信息
+    @PostMapping("/topic/update")
+    public ResponseResult updateTopic(Topic topic) {
+        return forumService.updateTopic(topic);
+    }
+
+    //更新回帖信息
+    @PostMapping("/comment/update")
+    public ResponseResult updateComment(Comment comment){
+        return forumService.updateComment(comment);
+    }
+
+    //删除回帖
+    @DeleteMapping("/comment")
+    public ResponseResult deleteComment(@RequestParam("id") Long id){
+        return forumService.deleteCommentById(id);
+    }
 
 }

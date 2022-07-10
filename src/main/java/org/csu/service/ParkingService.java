@@ -1,6 +1,7 @@
 package org.csu.service;
 
 import org.csu.domain.Car;
+import org.csu.domain.Parking;
 import org.csu.domain.ParkingSpace;
 import org.csu.vo.ResponseResult;
 
@@ -13,6 +14,10 @@ public interface ParkingService {
 
     ResponseResult getLogByCarNum(String carNum);
 
+    ResponseResult updateParkInfoById(Parking parking);
+
+    ResponseResult deleteParkById(String id);
+
     ResponseResult getCarInfo();
 
     ResponseResult getParkingSpaceInfo();
@@ -21,7 +26,15 @@ public interface ParkingService {
 
     ResponseResult addCar(Car car);
 
+    ResponseResult updateCarInfoById(Car car);
+
+    ResponseResult deleteCarById(String id);
+
     ResponseResult addParkingSpace(ParkingSpace parkingSpace);
+
+    ResponseResult updateParkSpaceInfoById(ParkingSpace parkingSpace);
+
+    ResponseResult deleteParkSpaceById(String id);
 
     ResponseResult ownCar(long uid);
 }
