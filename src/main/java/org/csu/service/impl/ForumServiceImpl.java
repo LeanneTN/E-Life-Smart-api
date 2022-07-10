@@ -44,6 +44,13 @@ public class ForumServiceImpl implements ForumService {
         return new ResponseResult(ResponseCode.SUCCESS.getCode(), topics);
     }
 
+    //更新话题
+    @Override
+    public ResponseResult updateTopic(Topic topic){
+        topicMapper.updateById(topic);
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "修改成功");
+    }
+
     //根据关键词查询话题
     @Override
     public ResponseResult getTopicByKeywords(String keywords) {
@@ -141,6 +148,20 @@ public class ForumServiceImpl implements ForumService {
     //----------------------------以下为回帖操作--------------------------------------
 
 
+    //获得所有的回帖
+    @Override
+    public ResponseResult getAllComment(){
+        List<Comment> commentList = commentMapper.selectList(null);
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "成功获取所有的回帖信息", commentList);
+    }
+
+    //更新回帖
+    @Override
+    public ResponseResult updateComment(Comment comment){
+        commentMapper.updateById(comment);
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "更新回帖成功");
+    }
+
     //提交回帖
     @Override
     public ResponseResult createComment(Comment comment) {
@@ -209,7 +230,7 @@ public class ForumServiceImpl implements ForumService {
         if(comment==null){
             return new ResponseResult(ResponseCode.NO_COMMENT_LOG.getCode(), "该回帖不存在");
         }
-        topicMapper.deleteById(id);
+        commentMapper.deleteById(comment);
         return new ResponseResult(2,"回帖删除成功");
     }
 

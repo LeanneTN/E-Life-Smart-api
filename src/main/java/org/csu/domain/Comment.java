@@ -21,7 +21,7 @@ public class Comment implements Serializable {
     @TableId(type = IdType.AUTO)
     private Long id;
     private Long fromUser;
-    private Long toUser;
+    //private Long toUser;
     private Long toId;
     private int type;   //分为三种类型，回复帖子的，回复楼主的，回复回复的
     private boolean isReported;

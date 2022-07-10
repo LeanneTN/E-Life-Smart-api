@@ -19,8 +19,14 @@ public interface ForumService {
     ResponseResult getTopicsByUser(Long id);
     //根据ID，删除话题
     ResponseResult deleteTopicById(Long id);
+    //更新话题
+    ResponseResult updateTopic(Topic topic);
 
 //    以下为回帖相关操作
+    //获取所有回帖
+    ResponseResult getAllComment();
+    //更新回帖
+    ResponseResult updateComment(Comment comment);
     //创建消息
     ResponseResult createComment(Comment comment);
     //根据ID查找回帖
