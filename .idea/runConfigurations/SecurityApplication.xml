@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="SecurityApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-    <module name="e-life_smart_community" />
+    <module name="E-LifeSmartCommunity" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="org.csu.*" />

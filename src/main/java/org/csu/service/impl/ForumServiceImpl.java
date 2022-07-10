@@ -120,7 +120,7 @@ public class ForumServiceImpl implements ForumService {
         //修改话题的状态，改为已被举报
         topic.setReported(true);
         topicMapper.updateById(topic);
-        return new ResponseResult(2,"您已举报成功");
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "您已举报成功");
     }
 
     //根据ID删除话题
@@ -146,8 +146,6 @@ public class ForumServiceImpl implements ForumService {
 
 
     //----------------------------以下为回帖操作--------------------------------------
-
-
     //获得所有的回帖
     @Override
     public ResponseResult getAllComment(){

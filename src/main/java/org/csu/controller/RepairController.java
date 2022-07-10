@@ -55,6 +55,7 @@ public class RepairController {
     @GetMapping("/logs")
     @PreAuthorize("hasAuthority('system:repair:tasks')")
     public ResponseResult getLogs(){
+        System.out.println("123");
         return repairService.getLogs();
     }
 
