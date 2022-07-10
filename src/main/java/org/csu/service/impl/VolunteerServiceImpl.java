@@ -28,7 +28,8 @@ public class VolunteerServiceImpl implements VolunteerService {
         QueryWrapper queryWrapper = new QueryWrapper();
         queryWrapper.eq("uid", uid);
         Volunteer volunteer1 = volunteerMapper.selectOne(queryWrapper);
-        if(volunteer.getName().equals(null)){
+        System.out.println(volunteer1.getName());
+        if(volunteer.getName()==null){
             return new ResponseResult(ResponseCode.USER_VOLUNTEER_INFO_INCOMPLETE.getCode(), "志愿者信息不完整");
         }
         if(volunteer1==null){
@@ -38,6 +39,18 @@ public class VolunteerServiceImpl implements VolunteerService {
         }
 
         return new ResponseResult(ResponseCode.USERNAME_EXIST.getCode(), "志愿者已存在");
+    }
+
+    @Override
+    public ResponseResult createvolunteer(Volunteer volunteer){
+        Volunteer newvolunteer = volunteerMapper.selectById(volunteer.getId());
+        if(newvolunteer == null){
+            volunteerMapper.insert(volunteer);
+            return new ResponseResult(ResponseCode.SUCCESS.getCode(), "添加志愿者成功");
+        }
+        else {
+            return new ResponseResult(ResponseCode.ERROR.getCode(), "该志愿者已存在");
+        }
     }
 
     @Override
@@ -135,6 +148,44 @@ public class VolunteerServiceImpl implements VolunteerService {
         volunteer.setTotalTime(volunteer.getTotalTime()+time);
         volunteerMapper.update(volunteer, updateWrapper);
         return new ResponseResult(ResponseCode.SUCCESS.getCode(), "任务接收成功", volunteerLog);
+    }
+
+    //新增志愿者
+    @Override
+    public ResponseResult createVolunteer(Volunteer volunteer) {
+        if(volunteer.getUid()+""==null){
+            return new ResponseResult(ResponseCode.ERROR_DATA.getCode(), "缺少uid");
+        }
+        volunteerMapper.insert(volunteer);
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "新增志愿者成功");
+    }
+
+    //更新志愿者
+    @Override
+    public ResponseResult updateVolunteer(Volunteer volunteer) {
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.eq("uid",volunteer.getUid());
+        Volunteer temp = volunteerMapper.selectOne(wrapper);
+        if (temp == null){
+            return new ResponseResult(ResponseCode.EMPTY_VOLUNTEER.getCode(), "该志愿者不存在");
+        }
+        volunteerMapper.update(volunteer,wrapper);
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "更新志愿者信息成功");
+    }
+
+    //删除志愿者
+    @Override
+    public ResponseResult deleteVolunteerById(Long uid) {
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.eq("uid",uid);
+        Volunteer temp = volunteerMapper.selectOne(wrapper);
+        if (temp == null){
+            return new ResponseResult(ResponseCode.EMPTY_VOLUNTEER.getCode(), "该志愿者不存在");
+        }
+        QueryWrapper queryWrapper = new QueryWrapper();
+        queryWrapper.eq("uid",uid);
+        volunteerMapper.delete(queryWrapper);
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "删除志愿者信息成功");
     }
 
 

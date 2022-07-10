@@ -19,7 +19,7 @@ public class HealthCheckController {
     }
 
     //查看打卡情况
-    @PostMapping("/info")
+    @GetMapping("/info")
     @PreAuthorize("hasAuthority('system:health:info')")
     public ResponseResult getInfo(){
         return healthCheckService.getInfo();

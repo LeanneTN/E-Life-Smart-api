@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="SecurityApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-    <module name="E-LifeSmartCommunity" />
+    <module name="e-life_smart_community" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="org.csu.*" />
@@ -8,7 +8,8 @@
       </pattern>
     </extension>
     <option name="SPRING_BOOT_MAIN_CLASS" value="org.csu.SecurityApplication" />
-    <option name="ALTERNATIVE_JRE_PATH" />
+    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+    <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>

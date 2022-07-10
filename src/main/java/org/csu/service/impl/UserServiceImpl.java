@@ -307,7 +307,7 @@ public class UserServiceImpl implements UserService {
         if(user==null){
             return new ResponseResult(ResponseCode.ACCOUNT_NOT_EXIST.getCode(), "该用户不存在");
         }
-        userMapper.deleteById(id);
+        userMapper.deleteById(user);
         return new ResponseResult(ResponseCode.SUCCESS.getCode(), "删除用户成功");
     }
 

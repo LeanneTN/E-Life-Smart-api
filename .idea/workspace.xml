@@ -5,57 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8746292-61c3-44a5-bf83-ec0fbcae6571" name="Changes" comment="Project initialization">
-      <change afterPath="$PROJECT_DIR$/target/e-life_smart_community-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/e-life_smart_community-1.0-SNAPSHOT.jar.original" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/controller/RepairController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/controller/RepairController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/controller/VolunteerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/controller/VolunteerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/service/VolunteerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/service/VolunteerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/service/RepairService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/service/RepairService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/RepairServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/RepairServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/VolunteerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/VolunteerServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/csu/MapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/csu/MapperTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/controller/ParkingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/controller/ParkingController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/controller/PaymentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/controller/PaymentController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/csu/controller/VolunteerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/controller/VolunteerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/Acid.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/Acid.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/AlipayConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/AlipayConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/Car.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/Car.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/Comment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/Comment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/HealthCheck.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/HealthCheck.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/Menu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/Parking.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/Parking.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/ParkingSpace.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/ParkingSpace.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/Payment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/Payment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/Raw.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/Raw.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/Repair.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/Repair.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/Topic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/Topic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/UserRole.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/UserRole.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/Volunteer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/Volunteer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/VolunteerLog.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/VolunteerLog.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/filter/JwtAuthenticationTokenFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/filter/JwtAuthenticationTokenFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/VolunteerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/VolunteerService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/impl/AcidServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/impl/AcidServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/impl/ForumServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/impl/ForumServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/impl/HealthCheckServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/impl/HealthCheckServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/impl/ParkingServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/impl/ParkingServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/impl/PaymentServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/impl/PaymentServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/impl/RepairServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/impl/RepairServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/impl/UserDetailsServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/impl/UserDetailsServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/impl/UserServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/impl/VolunteerServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/impl/VolunteerServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/uitls/JwtUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/uitls/JwtUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/uitls/RedisCache.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/uitls/RedisCache.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/uitls/WebUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/uitls/WebUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/vo/CodeVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/vo/CodeVO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/vo/LoginUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/vo/LoginUser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/org/csu/MapperTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/org/csu/MapperTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -26,12 +26,11 @@ public class RepairServiceImpl implements RepairService {
     //提交报修
     @Override
     public ResponseResult submitRepair(Repair repair) {
-        int insert = repairMapper.insert(repair);
-        if(insert > 0){
-            return new ResponseResult(ResponseCode.SUCCESS.getCode(), "成功提交报修");
-        }else {
-            return new ResponseResult(ResponseCode.ERROR.getCode(), "服务器错误");
+        if(repair == null){
+            return new ResponseResult(ResponseCode.ERROR.getCode(), "请传入维修记录的信息");
         }
+        repairMapper.insert(repair);
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "新增维修记录成功成功");
     }
 
     //获取所有的报修任务（状态为已报修）
@@ -48,7 +47,7 @@ public class RepairServiceImpl implements RepairService {
     @Override
     public ResponseResult getLogs() {
         List<Repair> repairs = repairMapper.selectList(null);
-        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "获取所有报修记录",repairs);
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "获取所有报修记录", repairs);
     }
 
     @Override
@@ -62,7 +61,7 @@ public class RepairServiceImpl implements RepairService {
     public ResponseResult updateStatus(Repair repair) {
         int i = repairMapper.updateById(repair);
         if(i > 0)
-            return new ResponseResult(ResponseCode.SUCCESS.getCode(), "成功更新维修单状态",repair);
+            return new ResponseResult(ResponseCode.SUCCESS.getCode(), "成功更新维修单状态");
         return new ResponseResult(ResponseCode.ERROR.getCode(), "服务器错误");
     }
 
@@ -87,6 +86,19 @@ public class RepairServiceImpl implements RepairService {
             return new ResponseResult(ResponseCode.ERROR.getCode(), "服务器错误");
     }
 
+    //删除维修记录
+    @Override
+    public ResponseResult deleteRepairLog(Long id){
+        Repair repair = repairMapper.selectById(id);
+        if(repair == null){
+            return new ResponseResult(ResponseCode.ERROR.getCode(), "该维修记录不存在！");
+        }
+        else {
+            repairMapper.deleteById(repair);
+            return new ResponseResult(ResponseCode.SUCCESS.getCode(), "删除维修记录成功");
+        }
+    }
+
     //获取当前维修者的所有维修信息
     @Override
     public ResponseResult getMyRepair(HttpServletRequest req) {
@@ -95,5 +107,14 @@ public class RepairServiceImpl implements RepairService {
         wrapper.eq(Repair::getRepairerId, user.getId());
         List<Repair> repairs = repairMapper.selectList(wrapper);
         return new ResponseResult(ResponseCode.SUCCESS.getCode(), "成功获取所有维修信息", repairs);
+    }
+
+    @Override
+    public ResponseResult deleteRepairById(Long id) {
+        if(id+""==null){
+            return new ResponseResult(ResponseCode.ERROR_DATA.getCode(), "id没有传入");
+        }
+        repairMapper.deleteById(id);
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(),"成功删除一条维修信息");
     }
 }
