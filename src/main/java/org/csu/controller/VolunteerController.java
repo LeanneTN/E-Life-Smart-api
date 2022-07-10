@@ -28,6 +28,7 @@ public class VolunteerController {
         }catch (Exception e){
             e.printStackTrace();
         }
+        System.out.println(uid);
         return volunteerService.applyForVolunteer(volunteer,uid);
     }
 

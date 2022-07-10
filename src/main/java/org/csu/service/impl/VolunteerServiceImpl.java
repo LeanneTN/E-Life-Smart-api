@@ -24,7 +24,9 @@ public class VolunteerServiceImpl implements VolunteerService {
 
     @Override
     public ResponseResult applyForVolunteer(Volunteer volunteer, long uid) {
-        Volunteer volunteer1 = volunteerMapper.selectById(uid);
+        QueryWrapper queryWrapper = new QueryWrapper();
+        queryWrapper.eq("uid", uid);
+        Volunteer volunteer1 = volunteerMapper.selectOne(queryWrapper);
         if(volunteer.getName().equals(null)){
             return new ResponseResult(ResponseCode.USER_VOLUNTEER_INFO_INCOMPLETE.getCode(), "志愿者信息不完整");
         }
