@@ -95,4 +95,10 @@ public class VolunteerServiceImpl implements VolunteerService {
             return new ResponseResult(ResponseCode.NOT_VOLUNTEER.getCode(), "无此志愿者");
         return new ResponseResult(ResponseCode.SUCCESS.getCode(), "志愿者获取成功", volunteer);
     }
+
+    @Override
+    public ResponseResult getAllVolunteers() {
+        List<Volunteer> list = volunteerMapper.selectList(null);
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(),"所用志愿者信息获取成功",list);
+    }
 }

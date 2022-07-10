@@ -5,36 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8746292-61c3-44a5-bf83-ec0fbcae6571" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/SecurityApplication.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e_life.sql" beforeDir="false" afterPath="$PROJECT_DIR$/e_life.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/controller/ForumController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/controller/ForumController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/controller/ParkingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/controller/ParkingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/controller/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/controller/PaymentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/domain/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/domain/Comment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/service/ForumService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/service/ForumService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/service/ParkingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/service/ParkingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/ForumServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/ForumServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/ParkingServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/ParkingServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/config/SecurityConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/controller/ForumController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/controller/ForumController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/controller/ParkingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/controller/ParkingController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/controller/PaymentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/controller/PaymentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/domain/Comment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/domain/Comment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/ForumService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/ForumService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/ParkingService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/ParkingService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/impl/ForumServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/impl/ForumServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/impl/ParkingServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/impl/ParkingServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/impl/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/controller/VolunteerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/controller/VolunteerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/service/VolunteerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/service/VolunteerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/VolunteerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/VolunteerServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

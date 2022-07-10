@@ -92,4 +92,9 @@ public class VolunteerController {
         String freeTime = volunteer.getFreeTime();
         return volunteerService.getVolunteerTasks(uid, freeTime);
     }
+
+    @GetMapping("/all_volunteers")
+    public ResponseResult getAllVolunteers(){
+        return volunteerService.getAllVolunteers();
+    }
 }
