@@ -121,4 +121,19 @@ public class VolunteerController {
 
         return volunteerService.updateVolunteer(uid, volunteer);
     }
+
+    @PostMapping("/take_volunteer")
+    public ResponseResult volunteerTake(HttpServletRequest request, @RequestBody VolunteerLog volunteerLog){
+        String token = request.getHeader("token");
+        Long uid = null;
+        try{
+            Claims claims = JwtUtil.parseJWT(token);
+            uid = Long.valueOf(claims.getSubject());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return volunteerService.takeVolunteer(uid, volunteerLog);
+
+    }
 }
