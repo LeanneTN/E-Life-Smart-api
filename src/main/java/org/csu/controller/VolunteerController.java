@@ -92,4 +92,32 @@ public class VolunteerController {
         String freeTime = volunteer.getFreeTime();
         return volunteerService.getVolunteerTasks(uid, freeTime);
     }
+
+    @DeleteMapping("/delete")
+    public ResponseResult deleteVolunteer(HttpServletRequest request){
+        String token = request.getHeader("token");
+        Long uid = null;
+        try{
+            Claims claims = JwtUtil.parseJWT(token);
+            uid = Long.valueOf(claims.getSubject());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return volunteerService.deleteVolunteer(uid);
+    }
+
+    @PostMapping("/update")
+    public ResponseResult updateVolunteer(HttpServletRequest request, @RequestBody Volunteer volunteer){
+        String token = request.getHeader("token");
+        Long uid = null;
+        try{
+            Claims claims = JwtUtil.parseJWT(token);
+            uid = Long.valueOf(claims.getSubject());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return volunteerService.updateVolunteer(uid, volunteer);
+    }
 }

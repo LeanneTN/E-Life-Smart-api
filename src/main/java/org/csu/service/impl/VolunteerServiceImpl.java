@@ -95,4 +95,23 @@ public class VolunteerServiceImpl implements VolunteerService {
             return new ResponseResult(ResponseCode.NOT_VOLUNTEER.getCode(), "无此志愿者");
         return new ResponseResult(ResponseCode.SUCCESS.getCode(), "志愿者获取成功", volunteer);
     }
+
+    @Override
+    public ResponseResult deleteVolunteer(Long uid) {
+        QueryWrapper queryWrapper = new QueryWrapper();
+        queryWrapper.eq("uid", uid);
+        volunteerMapper.delete(queryWrapper);
+        volunteerLogMapper.delete(queryWrapper);
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "删除成功");
+    }
+
+    @Override
+    public ResponseResult updateVolunteer(Long uid, Volunteer volunteer) {
+        QueryWrapper queryWrapper = new QueryWrapper();
+        queryWrapper.eq("uid", uid);
+        volunteerMapper.update(volunteer, queryWrapper);
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "数据库更新成功");
+    }
+
+
 }
