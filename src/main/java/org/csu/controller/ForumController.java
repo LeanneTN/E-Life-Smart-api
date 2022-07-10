@@ -114,13 +114,13 @@ public class ForumController {
     }
 
     //更新话题信息
-    @PostMapping("/topic/update")
+    @PutMapping("/topic/update")
     public ResponseResult updateTopic(Topic topic) {
         return forumService.updateTopic(topic);
     }
 
     //更新回帖信息
-    @PostMapping("/comment/update")
+    @PutMapping("/comment/update")
     public ResponseResult updateComment(Comment comment){
         return forumService.updateComment(comment);
     }

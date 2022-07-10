@@ -18,4 +18,6 @@ public interface VolunteerService {
     ResponseResult getVolunteerTasks(long uid, String freeTime);
 
     ResponseResult getVolunteer(Long uid);
+
+    ResponseResult createvolunteer(Volunteer volunteer);
 }

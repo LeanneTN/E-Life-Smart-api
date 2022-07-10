@@ -33,6 +33,9 @@ public class ForumServiceImpl implements ForumService {
     //创建话题
     @Override
     public ResponseResult createTopic(Topic topic) {
+        if(topic == null){
+            return new ResponseResult(ResponseCode.ERROR.getCode(), "请填写申请表");
+        }
         topicMapper.insert(topic);
         return new ResponseResult(ResponseCode.SUCCESS.getCode(),"话题创建成功");
     }
@@ -150,14 +153,18 @@ public class ForumServiceImpl implements ForumService {
     @Override
     public ResponseResult getAllComment(){
         List<Comment> commentList = commentMapper.selectList(null);
-        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "成功获取所有的回帖信息", commentList);
+        return new ResponseResult(200, "成功获取所有的回帖信息", commentList);
     }
 
     //更新回帖
     @Override
     public ResponseResult updateComment(Comment comment){
+        Comment newcomment = commentMapper.selectById(comment.getId());
+        if(newcomment == null){
+            return new ResponseResult(ResponseCode.ERROR.getCode(), "失败");
+        }
         commentMapper.updateById(comment);
-        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "更新回帖成功");
+        return new ResponseResult(200, "更新回帖成功");
     }
 
     //提交回帖

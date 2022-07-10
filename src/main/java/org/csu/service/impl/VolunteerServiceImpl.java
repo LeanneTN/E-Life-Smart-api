@@ -38,6 +38,18 @@ public class VolunteerServiceImpl implements VolunteerService {
     }
 
     @Override
+    public ResponseResult createvolunteer(Volunteer volunteer){
+        Volunteer newvolunteer = volunteerMapper.selectById(volunteer.getId());
+        if(newvolunteer == null){
+            volunteerMapper.insert(volunteer);
+            return new ResponseResult(ResponseCode.SUCCESS.getCode(), "添加志愿者成功");
+        }
+        else {
+            return new ResponseResult(ResponseCode.ERROR.getCode(), "该志愿者已存在");
+        }
+    }
+
+    @Override
     public ResponseResult getMyLogs(long volunteer_id) {
         QueryWrapper<VolunteerLog> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("volunteer_id", volunteer_id);

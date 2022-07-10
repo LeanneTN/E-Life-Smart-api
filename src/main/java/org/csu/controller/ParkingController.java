@@ -27,7 +27,7 @@ public class ParkingController {
     }
 
     //更新车辆的信息
-    @PostMapping("/car_info")
+    @PutMapping("/car_info")
     public ResponseResult updateCarInfoById(@RequestBody Car car) {
         return parkingService.updateCarInfoById(car);
     }
@@ -46,7 +46,7 @@ public class ParkingController {
     }
 
     //更新停车位的信息
-    @PostMapping("/parking_space_info")
+    @PutMapping("/parking_space_info")
     public ResponseResult updateParkSpaceInfoById(@RequestBody ParkingSpace parkingSpace) {
         return parkingService.updateParkSpaceInfoById(parkingSpace);
     }
@@ -95,7 +95,7 @@ public class ParkingController {
     }
 
     //更新停车记录的信息
-    @PostMapping("/park_log")
+    @PutMapping("/park_log")
     public ResponseResult updateParkInfoById(@RequestBody Parking parking) {
         return parkingService.updateParkInfoById(parking);
     }

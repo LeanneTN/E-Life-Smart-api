@@ -4,13 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8746292-61c3-44a5-bf83-ec0fbcae6571" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/controller/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/controller/PaymentController.java" afterDir="false" />
+    <list default="true" id="c8746292-61c3-44a5-bf83-ec0fbcae6571" name="Changes" comment="论坛模块的接口修改">
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/SecurityApplication.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/SecurityApplication.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/controller/ForumController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/controller/ForumController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/controller/HealthCheckController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/controller/HealthCheckController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/controller/ParkingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/controller/ParkingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/controller/RepairController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/controller/RepairController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/controller/VolunteerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/controller/VolunteerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/service/RepairService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/service/RepairService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/service/VolunteerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/service/VolunteerService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/ForumServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/ForumServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/config/SecurityConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/controller/PaymentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/controller/PaymentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/RepairServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/RepairServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/VolunteerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/service/impl/VolunteerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/controller/ForumController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/controller/ForumController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/controller/HealthCheckController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/controller/HealthCheckController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/controller/ParkingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/controller/ParkingController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/controller/RepairController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/controller/RepairController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/controller/VolunteerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/controller/VolunteerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/RepairService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/RepairService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/impl/ForumServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/impl/ForumServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/impl/RepairServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/impl/RepairServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/impl/UserServiceImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,6 +120,69 @@
       </set>
     </option>
   </component>
+  <component name="RunManager" selected="Spring Boot.SecurityApplication">
+    <configuration name="MapperTest.TestBCryptPasswordEncoder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="e-life-community-api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.csu.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.csu" />
+      <option name="MAIN_CLASS_NAME" value="org.csu.MapperTest" />
+      <option name="METHOD_NAME" value="TestBCryptPasswordEncoder" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MapperTest.testAPI" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="e-life-community-api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.csu.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.csu" />
+      <option name="MAIN_CLASS_NAME" value="org.csu.MapperTest" />
+      <option name="METHOD_NAME" value="testAPI" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MapperTest.testInsertUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="E-LifeSmartCommunity" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.csu.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.csu" />
+      <option name="MAIN_CLASS_NAME" value="org.csu.MapperTest" />
+      <option name="METHOD_NAME" value="testInsertUser" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.MapperTest.TestBCryptPasswordEncoder" />
+      <item itemvalue="JUnit.MapperTest.testAPI" />
+      <item itemvalue="JUnit.MapperTest.testInsertUser" />
+      <item itemvalue="Spring Boot.SecurityApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.MapperTest.testAPI" />
+        <item itemvalue="JUnit.MapperTest.TestBCryptPasswordEncoder" />
+        <item itemvalue="JUnit.MapperTest.testInsertUser" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -131,7 +212,7 @@
       <workItem from="1657203717090" duration="8673000" />
       <workItem from="1657334855419" duration="2973000" />
       <workItem from="1657349127522" duration="9846000" />
-      <workItem from="1657408066938" duration="4328000" />
+      <workItem from="1657421074230" duration="14220000" />
     </task>
     <task id="LOCAL-00001" summary="Project initialization">
       <created>1656832846816</created>
@@ -154,7 +235,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657037499373</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="论坛模块的接口修改">
+      <created>1657413838491</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1657413838491</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -185,7 +273,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Project initialization" />
-    <option name="LAST_COMMIT_MESSAGE" value="Project initialization" />
+    <MESSAGE value="论坛模块的接口修改" />
+    <option name="LAST_COMMIT_MESSAGE" value="论坛模块的接口修改" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -194,16 +283,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/org/csu/controller/HelloController.java</url>
           <line>11</line>
           <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/csu/service/impl/ParkingServiceImpl.java</url>
-          <line>80</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/csu/controller/VolunteerController.java</url>
-          <line>84</line>
-          <option name="timeStamp" value="24" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

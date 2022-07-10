@@ -10,6 +10,9 @@ public interface RepairService {
 
     ResponseResult getLogs();
 
+    //删除维修记录
+    ResponseResult deleteRepairLog(Long id);
+
     ResponseResult getLogById(Long id);
 
     ResponseResult getTasks();

@@ -8,6 +8,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.math.BigInteger;
 
 @RestController
 @RequestMapping("/api/repair/")
@@ -67,5 +68,11 @@ public class RepairController {
     @PutMapping("/status")
     public ResponseResult updateStatus(@RequestBody Repair repair){
         return repairService.updateStatus(repair);
+    }
+
+    //删除维修记录
+    @DeleteMapping("/delete")
+    public ResponseResult deleteRepairLog(@RequestParam("id") Long id) {
+        return repairService.deleteRepairLog(id);
     }
 }

@@ -31,6 +31,12 @@ public class VolunteerController {
         return volunteerService.applyForVolunteer(volunteer,uid);
     }
 
+    //新增志愿者
+    @PostMapping("/new_volunteer")
+    public ResponseResult createvolunteer(@RequestBody Volunteer volunteer){
+        return volunteerService.createvolunteer(volunteer);
+    }
+
     //查看个人的志愿记录
     @GetMapping("/my_logs")
     public ResponseResult getMyLogs(HttpServletRequest request)
@@ -79,7 +85,7 @@ public class VolunteerController {
         return volunteerService.getVolunteer(uid);
     }
 
-    @PostMapping("/get_volunteer_tasks")
+    @GetMapping("/get_volunteer_tasks")
     public ResponseResult getVolunteerTasks(HttpServletRequest request, @RequestBody Volunteer volunteer){
         String token = request.getHeader("token");
         Long uid = null;
