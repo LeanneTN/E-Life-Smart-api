@@ -94,6 +94,12 @@ public class VolunteerController {
         return volunteerService.getVolunteerTasks(uid, freeTime);
     }
 
+
+    @GetMapping("/all_volunteers")
+    public ResponseResult getAllVolunteers() {
+        return volunteerService.getAllVolunteers();
+    }
+
     @DeleteMapping("/delete")
     public ResponseResult deleteVolunteer(HttpServletRequest request){
         String token = request.getHeader("token");
@@ -134,6 +140,7 @@ public class VolunteerController {
         }
 
         return volunteerService.takeVolunteer(uid, volunteerLog);
+
 
     }
 }

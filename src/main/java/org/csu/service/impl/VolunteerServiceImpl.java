@@ -101,6 +101,11 @@ public class VolunteerServiceImpl implements VolunteerService {
     }
 
     @Override
+    public ResponseResult getAllVolunteers() {
+        List<Volunteer> list = volunteerMapper.selectList(null);
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(),"所用志愿者信息获取成功",list);
+    }
+
     public ResponseResult deleteVolunteer(Long uid) {
         QueryWrapper queryWrapper = new QueryWrapper();
         queryWrapper.eq("uid", uid);
