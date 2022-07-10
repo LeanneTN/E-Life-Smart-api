@@ -138,6 +138,7 @@ public class VolunteerServiceImpl implements VolunteerService {
         return new ResponseResult(ResponseCode.SUCCESS.getCode(), "任务接收成功", volunteerLog);
     }
 
+    //新增志愿者
     @Override
     public ResponseResult createVolunteer(Volunteer volunteer) {
         if(volunteer.getUid()+""==null){
@@ -147,6 +148,7 @@ public class VolunteerServiceImpl implements VolunteerService {
         return new ResponseResult(ResponseCode.SUCCESS.getCode(), "新增志愿者成功");
     }
 
+    //更新志愿者
     @Override
     public ResponseResult updateVolunteer(Volunteer volunteer) {
         QueryWrapper wrapper = new QueryWrapper();
@@ -159,6 +161,7 @@ public class VolunteerServiceImpl implements VolunteerService {
         return new ResponseResult(ResponseCode.SUCCESS.getCode(), "更新志愿者信息成功");
     }
 
+    //删除志愿者
     @Override
     public ResponseResult deleteVolunteerById(Long uid) {
         QueryWrapper wrapper = new QueryWrapper();

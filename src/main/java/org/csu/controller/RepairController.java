@@ -69,4 +69,10 @@ public class RepairController {
     public ResponseResult updateStatus(@RequestBody Repair repair){
         return repairService.updateStatus(repair);
     }
+
+    @DeleteMapping("/log")
+    public ResponseResult deletelogById(Long id){
+        return repairService.deleteRepairById(id);
+    }
+
 }

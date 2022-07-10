@@ -96,4 +96,13 @@ public class RepairServiceImpl implements RepairService {
         List<Repair> repairs = repairMapper.selectList(wrapper);
         return new ResponseResult(ResponseCode.SUCCESS.getCode(), "成功获取所有维修信息", repairs);
     }
+
+    @Override
+    public ResponseResult deleteRepairById(Long id) {
+        if(id+""==null){
+            return new ResponseResult(ResponseCode.ERROR_DATA.getCode(), "id没有传入");
+        }
+        repairMapper.deleteById(id);
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(),"成功删除一条维修信息");
+    }
 }
