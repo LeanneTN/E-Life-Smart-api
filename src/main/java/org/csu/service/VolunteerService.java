@@ -20,4 +20,18 @@ public interface VolunteerService {
     ResponseResult getVolunteer(Long uid);
 
     ResponseResult createvolunteer(Volunteer volunteer);
+
+    ResponseResult takeVolunteer(Long uid, VolunteerLog volunteerLog);
+
+    ResponseResult createVolunteer(Volunteer volunteer);
+
+    ResponseResult updateVolunteer(Volunteer volunteer);
+
+    ResponseResult deleteVolunteerById(Long uid);
+
+    ResponseResult updateVolunteer(Long uid, Volunteer volunteer);
+
+    ResponseResult getAllVolunteers();
+
+    ResponseResult deleteVolunteer(Long uid);
 }

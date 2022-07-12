@@ -260,13 +260,14 @@ public class ParkingServiceImpl implements ParkingService {
     }
 
     //查看用户是否已注册车辆
+    //查看用户是否已注册车辆
     public ResponseResult ownCar(long uid){
         QueryWrapper queryWrapper = new QueryWrapper();
         queryWrapper.eq("owner",uid);
-        Car car = carMapper.selectOne(queryWrapper);
-        if(car == null){
+        List cars = carMapper.selectList(queryWrapper);
+        if(cars == null){
             return new ResponseResult(ResponseCode.NO_CAR_LOG.getCode(), "用户没有车");
         }
-        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "用户车辆信息获取成功", car);
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), "用户车辆信息获取成功", cars.get(0));
     }
 }
