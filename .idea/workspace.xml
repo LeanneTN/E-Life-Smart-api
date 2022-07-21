@@ -5,21 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8746292-61c3-44a5-bf83-ec0fbcae6571" name="Changes" comment="Project initialization">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/controller/VolunteerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/controller/VolunteerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/service/VolunteerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/service/VolunteerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/controller/ParkingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/controller/ParkingController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/controller/RepairController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/controller/RepairController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/controller/VolunteerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/controller/VolunteerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/RepairService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/RepairService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/VolunteerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/VolunteerService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/impl/ForumServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/impl/ForumServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/impl/RepairServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/impl/RepairServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/impl/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/service/impl/VolunteerServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/service/impl/VolunteerServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +171,6 @@
       <list>
         <item itemvalue="Spring Boot.SecurityApplication (1)" />
         <item itemvalue="JUnit.MapperTest.testAPI" />
-        <item itemvalue="Spring Boot.SecurityApplication" />
         <item itemvalue="JUnit.MapperTest.TestBCryptPasswordEncoder" />
         <item itemvalue="JUnit.MapperTest.testInsertUser" />
       </list>
@@ -219,6 +205,7 @@
       <workItem from="1657203717090" duration="8673000" />
       <workItem from="1657334855419" duration="2973000" />
       <workItem from="1657349127522" duration="9846000" />
+      <workItem from="1658407012077" duration="441000" />
     </task>
     <task id="LOCAL-00001" summary="Project initialization">
       <created>1656832846816</created>

@@ -1,37 +1,15 @@
 # E-LifeCommunity-API
 
-#### 介绍
-E-LifeCommunity后端接口
+#### Introduce
+E-LifeCommunity is a project built in July 2022
+as a practical project to meet the standard of the practice training.
+After training, I transfer it from gitee to github for further development, 
+which I hope can be a relatively complete project mainly exert to the management and every day life in a community.
 
-#### 软件架构
-软件架构说明
+This project is the back end of the project, which is driven by redis and mysql,
+and is mainly facing the client end and management end
+in the front end.
 
+I hope anybody who tries to use this can give me some feedback so that I can make this project better.
 
-#### 安装教程
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
-
-
-#### 特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+If you want to join this project, leave the message.
